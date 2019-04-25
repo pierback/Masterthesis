@@ -1,0 +1,35 @@
+\babel@toc {ngerman}{}
+\contentsline {chapter}{\nonumberline Abstract}{i}{chapter*.1}
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Aufbau dieser Arbeit}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Problemstellung}{1}{section.1.2}
+\contentsline {chapter}{\numberline {2}Stand der Technik}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Blockchain}{3}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Funktionsweise \& Konzepte}{3}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Ethereum}{3}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Machine Learning}{3}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}"Uberblick}{3}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Q-Learning}{3}{subsection.2.2.2}
+\contentsline {chapter}{\numberline {3}System Architektur}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}\"Uberblick}{5}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Architektur}{6}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Workflow}{6}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Blockchain}{6}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Beveragelist}{6}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}ERC-Token}{6}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Q-Learning}{6}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Warum Q-Learning?}{6}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Modellierung}{6}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Lernprozess \& Ablauf}{6}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Mobile App}{6}{section.3.4}
+\contentsline {chapter}{\numberline {4}Studie}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Testphase}{7}{section.4.1}
+\contentsline {section}{\numberline {4.2}Evaluation}{7}{section.4.2}
+\contentsline {chapter}{\numberline {5}Zusammenfassung}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}Weiterf\"uhrende Forschungsfragen}{9}{section.5.1}
+\contentsline {section}{\numberline {5.2}Ausblick}{9}{section.5.2}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{I}{chapter*.3}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{III}{chapter*.4}
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{V}{chapter*.5}
+\contentsline {chapter}{\numberline {A}Anhang A}{VII}{appendix.A}
+\contentsline {chapter}{\numberline {B}Anhang B}{IX}{appendix.B}

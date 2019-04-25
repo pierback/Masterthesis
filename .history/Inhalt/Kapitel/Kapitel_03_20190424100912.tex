@@ -1,0 +1,33 @@
+\chapter{System Architektur}
+\label{kap:Kapitel03}
+
+\section{Überblick}
+
+Im folgenden wird nun die System Architektur erläutert, welche als Grundlage der Studie diente, um die in 1.2 geschilderte Problemstellung abzubilden und letztendlich zu lösen. 
+
+\subsection{Architektur}
+\subsection{Workflow}
+\subsection{Ablauf}
+Abschließend widme ich mich dem Prozess der Entwicklung, aus welchem schließlich die finale Version der Systemarchitektur resultierte. \\
+Die Entwicklungszeit betrug ca. 5 Monate und beinhaltete mehrere Iterationen der einzelnen Komponenten bishin zum derzeitigen Stand. Das Konzept sah primär die Entwicklung von drei dedizierten Softwareanwendungen vor, welche aber im Zuge der Iterationen nochmal in kleinere Module aufgeteilt und ausgelagert wurden. Zudem wurden, um den Workflow und das Testen während der Entwicklungsphase zu erleichtern, Anwendungen entwickelt, welche während der Konzeption in der Art nicht vorgesehen waren, aber partiell Bestandteil der Systemarchitektur wurden. \\
+So wurde mit zwei separaten Repos gestartet, einerseits für den Learning-Part, welcher anfänglich auch die Smart Contracts umfasste, und andererseits eines für die Mobile-App, welches bereits vor der eigentlichen Konzeption erstellt wurde, um in erster Linie bestehende Crossplattform Frameworks, auf Basis der Kompatibilität und Funktionstüchtigkeit mit Libraries, welche die Kommunikation mit der Blockchain ermöglichen, zu evaluieren. Die Wahl fiel letztendlich auf React-Native, welches zwar nur bis zu einer bestimmten Versionsnummer der Web3.js Library von Ethereum vollends kompatibel ist und nur mit einem kleinen Workaround zum Laufen gebracht werden konnte. 
+Jedoch im Vergleich zu anderen Frameworks (z.B. Nativescript) die beste Development-Experience (geringe Lernkurve, gute Dokumentation, CLI) bot und v.a. hinsichtlich der Requirements alle Aufgaben komplett erfüllen konnte, welche die anderen Frameworks in dieser Gänze nicht replizieren konnten. \\
+Nachdem die erste rudimentäre Version der Mobile App, welche lediglich eine funktionierende Kommunikation (read/write) mit einem bereits bestehenden Smart-Contract auf einer lokal gehosteten Blockchain bestätigte, erstellt wurde, kam im nächsten Schritt der Learning-Part zum Zuge. \\
+In Anbetracht der kompletten Implementierung des Ethereum Protokolls in Golang und der Schwierigkeiten mit der Javascript Library Web3.js, v.a. im Bezug auf das deployen der Smart-Contracts, aus einem vorangegangen Projekt, fiel die Wahl für diese Instanz auf Golang. 
+Zuerst wurde der Q-Learning Algorithmus, welcher für das Erlernen des Kaffeetrinkverhalten zuständig ist, implementiert. Die Problematik bestand zum einen darin mit einer neuen Programmiersprache vertraut zu werden und zum anderen den Workflow hinsichtlich der Problemstellung und des daraus resultierenden Zustandsraums vollends abzubilden. Die Übersetzung des Algorithmuses in die Programmiersprache ging relativ einfach von der Hand, was jedoch Probleme bereitete war die Simulation des Workflows, um die Algorithmusparameter zu justieren und dessen Tauglichkeit bezüglich das Erlernen des Nutzerverhaltens zu testen.\\
+Im Anschluss wurde ein erster Smart-Contract erstellt und via dem “go-ethereum” package deployed, woraus das erste Smart-Contract Bidingsfile resultierte, welches für die Kommunikation mit der Blockchain vonnöten ist. Da mit jedem neuem Deployement eines Smart Contracts eine neue Smart Contract Addresse und eine neue ABI hervorgeht, welche wiederum im Source Code für die Kommunikation mit der Blockchain, über alle Instanzen hinweg, die mit einem Smart Contract interagieren wollen, hinterlegt sein müssen, wurde ein kleiner Fileserver entwickelt, auf dem diese Informationen gespeichert und gelesen werden können. Bei jedem neuen Deployment wurden daraufhin die Smart-Contract Addresse und die generierte ABI in ein JSON-File gepackt und an den Server geschickt. So konnte während der Entwicklung enorm an Zeit gespart werden, da sich sowohl die Learning-Instanz als auch die App, die benötigten Daten vom Server holten und somit ein ständiges “Hardcodieren” dieser Daten vermieden werden konnte. Aus diesem Grund fand der File-Server auch Einzug in die finale Systemarchitektur, da er als persistente Datenquelle eine enorme Erleichterung im Entwicklungsprozess, aber auch im “Live-System” darstellte. \\
+Als letztes Modul wurde ein kleiner Node-Server entwickelt, dessen Aufgaben darin bestand die Smart-Contracts zu testen und als primitiver Ersatz für die App zu fungieren. Hierbei erzeugte er in einem festgeleten Intervall (7sek) Events mit einem zufällig generierten Daten (User \& Getränk) auf der Blockchain, um letztendlich die Event-Erkennung (“Watcher”) des “Learners” zu testen. In diesen Fällen wurde der Q-Learning Algorithmus vom Modul gar nicht erst gestartet. \\
+Besonders hier zeigte sich die Nüztlichkeit des File-Servers, da gerade in der Entwicklungsphase die Smart-Contracts ständig neu angepasst und deployed wurden und somit eine ernome Zeitersparniss erzielt werden konnte.
+
+\section{Blockchain}
+\subsection{Beveragelist}
+\subsection{ERC-Token}
+
+\section{Q-Learning}
+\subsection{Warum Q-Learning?}
+\subsection{Modellierung}
+\subsection{Lernprozess \& Ablauf}
+
+\section{Mobile App}
+
+

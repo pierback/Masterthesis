@@ -1,0 +1,35 @@
+\chapter{System Architektur}
+\label{kap:Kapitel03}
+
+\section{Überblick}
+
+Im folgenden wird nun die System Architektur erläutert, welche als Grundlage der Studie diente, um die in 1.2 geschilderte Problemstellung abzubilden und letztendlich zu lösen. 
+Zuerst widme ich mich dem Prozess der Entwicklung, aus welchem schließlich die finale Version der Systemarchitektur resultierte. \\
+Die Entwicklungszeit betrug ca. 5 Monate und beinhaltete mehrere Iterationen der einzelnen Komponenten hin zum derzeitigen Stand. Das Konzept sah primär die Entwicklung von drei dedizierten Softwareanwendungen vor, welche aber im Zuge der Iterationen nochmal in kleinere Module aufgeteilt und ausgelagert wurden. Zudem wurden, um den Workflow und das Testen während der Entwicklungsphase zu erleichtern, Anwendungen entwickelt, welche während Konzeption in der Art nicht vorgesehen waren, aber partiell Bestandteil der Systemarchitektur wurden. \\
+So wurde mit zwei separaten Repos gestartet, einerseits für den Learning-Part, welcher anfänglich auch die Smart Contracts umfasste, und andererseits eines für die Mobile-App, welches bereits vor der eigentlichen Konzeption erstellt wurde, um in erster Linie bestehende Crossplattform Frameworks, auf Basis der Kompatibilität und Funktionstüchtigkeit mit Libraries, welche die Kommunikation mit der Blockchain ermöglichen, zu evaluieren. Die Wahl fiel letztendlich auf React-Native, welches zwar nur bis zu einer bestimmten Versionsnummer der Web3.js Library von Ethereum vollends kompatibel ist und nur mit einem kleinen Workaround zum Laufen gebracht werden konnte. 
+Jedoch im Vergleich zu anderen Frameworks (z.B. Nativescript) die beste Development-Experience (geringe Lernkurve, gute Dokumentation, CLI) bot und v.a. hinsichtlich der Requirements alle Aufgaben komplett erfüllen konnte, welche die anderen Frameworks in dieser Gänze nicht replizieren konnten. \\
+Nachdem die erste rudimentäre Version der Mobile App, welche lediglich eine funktionierende Kommunikation (read/write) mit einem bereits bestehenden Smart-Contract auf einer lokal gehosteten Blockchain bestätigte, erstellt wurde, kam im nächsten Schritt der Learning-Part zum Zuge. \\
+Aufgrund von schlechten Erfahrungen mit Javascript im Bezug auf die Ethereum-Blockchain aus einem vorherigen Projekt und vor dem Hintergrund, dass das Ethereum Protokoll komplett in Golang geschrieben wurde, fiel die Wahl für diese Instanz auf diese noch relativ junge - in Anbetracht der aktuellen Versionsnummer (build version 1.12.4 - 23.04.19) -  Programmiersprache.
+Zuerst wurde der Q-Learning Algorithmus implementiert 
+ 
+
+
+\subsection{Architektur}
+\subsection{Workflow}
+
+
+
+
+
+\section{Blockchain}
+\subsection{Beveragelist}
+\subsection{ERC-Token}
+
+\section{Q-Learning}
+\subsection{Warum Q-Learning?}
+\subsection{Modellierung}
+\subsection{Lernprozess \& Ablauf}
+
+\section{Mobile App}
+
+
