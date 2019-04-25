@@ -432,6 +432,12 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
 OUTPUT Inhalt/Kapitel/Kapitel_03.aux
 INPUT Inhalt/Kapitel/Kapitel_03.tex
 INPUT Inhalt/Kapitel/Kapitel_03.tex
+INPUT ./Abbildungen/Kapitel_03/system_architecture.png
+INPUT ./Abbildungen/Kapitel_03/system_architecture.png
+INPUT ./Abbildungen/Kapitel_03/system_architecture.png
+INPUT ./Abbildungen/Kapitel_03/system_architecture.png
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmcsc10.tfm
 INPUT /usr/share/texmf/tex/latex/lm/ts1lmr.fd
 INPUT /usr/share/texmf/tex/latex/lm/ts1lmr.fd
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmr12.tfm
@@ -439,8 +445,6 @@ INPUT ./Abbildungen/Kapitel_03/usr_json.png
 INPUT ./Abbildungen/Kapitel_03/usr_json.png
 INPUT ./Abbildungen/Kapitel_03/usr_json.png
 INPUT ./Abbildungen/Kapitel_03/usr_json.png
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr10.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmcsc10.tfm
 OUTPUT Inhalt/Kapitel/Kapitel_04.aux
 INPUT Inhalt/Kapitel/Kapitel_04.tex
 INPUT Inhalt/Kapitel/Kapitel_04.tex
@@ -482,8 +486,8 @@ INPUT Anhang/AppendixB.aux
 INPUT Anhang/AppendixB.aux
 INPUT ./Main.out
 INPUT ./Main.out
-INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc
+INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmr10.pfb
