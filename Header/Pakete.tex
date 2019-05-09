@@ -93,6 +93,12 @@ urlcolor=ExterneLinkfarbe]{hyperref}
 \usepackage{grffile}
 
 \usepackage[section]{placeins}
+\usepackage{listings}
 
 \newcommand{\nlparagraph}[1]{\paragraph{#1}\mbox{}\\}
 \newcommand{\quotes}[1]{``#1''}
+
+\usepackage{enumitem}
+
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}

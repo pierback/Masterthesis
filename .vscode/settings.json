@@ -30,5 +30,6 @@
         "yaml",
         "yml"
     ],
-    "cSpell.enabled": false
+    "cSpell.enabled": false,
+    "cSpell.language": ",de"
 }

@@ -15,29 +15,34 @@
 \contentsline {subsection}{\numberline {3.1.1}Architektur}{5}{subsection.3.1.1}
 \contentsline {paragraph}{\nonumberline Lehrstuhl Server}{6}{section*.4}
 \contentsline {paragraph}{\nonumberline Learner}{6}{section*.5}
-\contentsline {paragraph}{\nonumberline File Server}{8}{section*.6}
-\contentsline {paragraph}{\nonumberline Blockchain}{8}{section*.7}
-\contentsline {paragraph}{\nonumberline Smart Contracts}{8}{section*.8}
-\contentsline {paragraph}{\nonumberline Tablet-App}{8}{section*.9}
-\contentsline {paragraph}{\nonumberline Event}{8}{section*.10}
-\contentsline {subsection}{\numberline {3.1.2}Workflow}{8}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Entwicklungsprozess}{9}{subsection.3.1.3}
-\contentsline {section}{\numberline {3.2}Blockchain}{13}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Beveragelist}{13}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}ERC-Token}{13}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Q-Learning}{13}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Warum Q-Learning?}{13}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Modellierung}{13}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Lernprozess \& Ablauf}{13}{subsection.3.3.3}
-\contentsline {section}{\numberline {3.4}Tablet-App}{13}{section.3.4}
-\contentsline {chapter}{\numberline {4}Studie}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}Testphase}{15}{section.4.1}
-\contentsline {section}{\numberline {4.2}Evaluation}{15}{section.4.2}
-\contentsline {chapter}{\numberline {5}Zusammenfassung}{17}{chapter.5}
-\contentsline {section}{\numberline {5.1}Weiterf\"uhrende Forschungsfragen}{17}{section.5.1}
-\contentsline {section}{\numberline {5.2}Ausblick}{17}{section.5.2}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{I}{chapter*.12}
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{III}{chapter*.13}
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{V}{chapter*.14}
+\contentsline {paragraph}{\nonumberline Fileserver}{8}{section*.6}
+\contentsline {paragraph}{\nonumberline Blockchain}{9}{section*.7}
+\contentsline {paragraph}{\nonumberline Smart Contracts}{10}{section*.8}
+\contentsline {paragraph}{\nonumberline Tablet-App}{10}{section*.9}
+\contentsline {paragraph}{\nonumberline Event}{10}{section*.10}
+\contentsline {subsection}{\numberline {3.1.2}Workflow}{11}{subsection.3.1.2}
+\contentsline {paragraph}{\nonumberline Setup}{11}{section*.11}
+\contentsline {paragraph}{\nonumberline Workflow}{15}{section*.13}
+\contentsline {subsection}{\numberline {3.1.3}Entwicklungsprozess}{17}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Blockchain}{21}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Genesis Block}{21}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}CoffeeCoin}{24}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Beverage-List}{26}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Learner}{27}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Modellierung}{27}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Q-Learning}{27}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Lernprozess \& Ablauf}{27}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Tablet-App}{27}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Interface}{28}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Internal Workflow}{32}{subsection.3.4.2}
+\contentsline {chapter}{\numberline {4}Studie}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Testphase}{35}{section.4.1}
+\contentsline {section}{\numberline {4.2}Evaluation}{35}{section.4.2}
+\contentsline {chapter}{\numberline {5}Zusammenfassung}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Weiterf\"uhrende Forschungsfragen}{37}{section.5.1}
+\contentsline {section}{\numberline {5.2}Ausblick}{37}{section.5.2}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{I}{chapter*.24}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{III}{chapter*.25}
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{V}{chapter*.26}
 \contentsline {chapter}{\numberline {A}Anhang A}{VII}{appendix.A}
 \contentsline {chapter}{\numberline {B}Anhang B}{IX}{appendix.B}
