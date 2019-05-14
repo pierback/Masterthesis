@@ -5,13 +5,67 @@
        
 %
 \section{Blockchain}
+Der folgende Abschnitt basiert auf den Inhalten dieser Literatur: \ref{BitcoinNBchain}, \ref{BitcoinEthNCo}, \ref{BchainPracticalGuide} und \ref{MasteringBlockchain}. 
 \subsection{Funktionsweise \& Konzepte }
+Der Begriff Blockchain wird oft als \textit{distributed ledger} (DLT) bezeichnet. Jedoch beschreibt Blockchain nur einen speziellen Typus eines \textit{distributed ledgers}. So kann dieser neben Transaktionen auch aus weiteren Daten bestehen, wohingegen bei einer Blockchain die Blöcke stets Transaktionen beinhalten. \\
+Ein \textit{distributed ledger} beschreibt eine \textit{verteilte Datenbank}, welche im Kontext einer Blockchain auch als \quotes{verteiltes Konto} verstanden wird, in welchem jegliche Transaktionen abgespeichert werden.\\
+So ist eine Blockchain grundsätzlich eine Verkettung von geordneten Blöcken, welche in sich eine oder mehrere Transaktionen beinhalten. Dazu muss jede Transaktion vor dem Hinzufügen erst validiert und bestätigt werden.\\
+Im Gegensatz zu den bekannten CRUD-Operationen \cite{CRUD:Wiki}, welche zur Kommunikation zwischen Client und Server verwendetet werden, um Daten zu schreiben, zu downloaden, zu löschen und zu editieren, gibt es bei einer Blockchain lediglich eine Schreib- und eine Leseoperation. Aus diesem Grund können Transaktionen auf einer Blockchain einzig hinzugefügt und gelesen, jedoch nie zu einem späteren Zeitpunkt gelöscht oder editiert werden. \\
+Eine weitere Beschaffenheit einer Blockchain ist die Dezentralität durch die \textit{Peer-to-Peer} Netzwerktopologie.
+
+
+
+\begin{itemize}
+    \item distributed ledger technology DLT
+    \begin{itemize}
+        \item Blockchain und DLs als synonym, sind aber nicht das gleiche
+        \item Blockchain ist ein spezieller typ einer shared Database welche Blöcke an Transaktionen umfasst
+        \item 
+    \end{itemize}
+    \item Consensus 
+    \begin{itemize}
+        \item dezentrale Kontrolle durch den Prozess des minings
+        \item verschiedene Consensus Algorithmen
+        \item Consensus is a process of agreement between distrusting nodes on the final state of the data
+        \item einfach zwischen zwei nodes, schwierig unter mehreren parteien, sich auf einen single value zu commiten 
+        \item Consensus mechanism is a set of steps that are taken by most or all nodes in a Blockchain to agree on a proposed state or value
+        \item Benefits: dezentral, transparenz and trust, immutability
+        \item 
+        \item 
+        \item 
+    \end{itemize}
+    \item 
+\end{itemize}
 \subsection{Ethereum}
 
 %
 \section{Machine Learning}
 \subsection{"Uberblick}
-\subsection{Q-Learning}
-%
+\subsection{Reinforcement-Learning}
+\begin{itemize}
+    \item kein Lehrer dafür sensomotorische Verbindung zur Umgebung
+    \item Lernen von Information über Ursache und Wirkung, Konsequenzen
+    \item lernen der benötigten Schritte zum Erreichen des Ziels
+\end{itemize}
 
+Das Grundprinzip des Reinforcement-Learning besteht darin bestimmte Situationen auf Aktionen zu projezieren, um dabei den numerischen Reward des Agenten zu maximieren. Diese Aktionen werden dem Agenten jedoch nicht durch eine \quotes{Superviser-Instanz} mitgeteilt, sondern dieser versucht durch die \quotes{Trial and Error} Methodik herauszufinden, welche Aktion in welchem Zustand  den größten Reward zur Folge hat. Dabei können diese Aktionen nicht nur die Belohnung des Agenten beeinflussen, sondern zudem auch die Umgebung in der er sich bewegt und dadurch auch den Folgezustand. \\
+Diese Konzpet der Reward-Maximierung resultiert in dem Tradoff zwischen \textit{Exploration} und \textit{Exploitation}. \textit{Exploration} beschreibt den Versuch mehr Information über die Umgebung zu erlangen, indem die Reward-Maximierung außer Acht gelassen und eine Aktion zufällig ausgewählt wird, in der Hoffnung den bisherigen Reward zu übertreffen. Im Gegenteil dazu spezifiziert \textit{Exploitation} die Maximierung des Rewards, indes der Agent stets auf die, in einem bestimmten Zustand, bestbewertete Aktion zurückgreift.
+Je nach Algorithmus und Lernproblem variert das Verhältnis der beiden, welches durch eine (iterative) Justierung der Parameter anpassen zu gilt. \\
+Durch die Wechselwirkung der beiden ist es die Aufgabe des Agenten eine Strategie zu finden die letztlich den maximalen Reward garantiert, indem es sein Verhalten in den jeweiligen Zuständen bereits vorgibt. \\
+Dabei gilt es vorallem zu beachten ob es sich bei dem Lernproblem um ein determistisches oder nichtdeterministisches handelt. Determistisch bedeutet, es wird stets die gleiche Aktion in einem bestimmten Zustand gewählt, wohingegen nichtdeterministisch lediglich eine Wahrscheinlichkeitsverteilung beschreibt, anhand der Agent in einem Zustand entscheidet, welche Aktion auszuwählen ist. 
+//TODO: Elemente des Bestärkenden Lernen
 %
+\begin{itemize}
+    \item learn how to map situations to actions --> maxmize numerischen Reward
+    \item learner not told which actions to take
+    \item discover which actions yield the most reward
+    \item action not only affect reward also next situation
+    \item trial and error search and delayed reward
+    
+    \item optimal control of incompletely-known markov decision processes
+    \item agent must have a goal relating to the state of env
+    \item sensation, action, goal
+\end{itemize}
+
+From the preceding discussion, it should be clear that reinforcement learning relies heavily on the concept of state
+

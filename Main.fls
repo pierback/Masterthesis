@@ -307,6 +307,17 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/koma-script/listings.hak
 INPUT /usr/share/texlive/texmf-dist/tex/latex/koma-script/listings.hak
+INPUT /usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/verbatimbox/verbatimbox.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/verbatimbox/verbatimbox.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/readarray/readarray.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/readarray/readarray.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/listofitems/listofitems.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/listofitems/listofitems.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/listofitems/listofitems.tex
+INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 OUTPUT Main.acn
 INPUT Header/Abkuerzungen.tex
 INPUT Header/Abkuerzungen.tex
@@ -436,7 +447,12 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
 OUTPUT Inhalt/Kapitel/Kapitel_02.aux
 INPUT Inhalt/Kapitel/Kapitel_02.tex
 INPUT Inhalt/Kapitel/Kapitel_02.tex
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmri12.tfm
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmr.fd
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmr.fd
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmr12.tfm
 OUTPUT Inhalt/Kapitel/Kapitel_03.aux
 INPUT Inhalt/Kapitel/Kapitel_03.tex
 INPUT Inhalt/Kapitel/Kapitel_03.tex
@@ -446,11 +462,6 @@ INPUT ./Abbildungen/Kapitel_03/system_architecture.png
 INPUT ./Abbildungen/Kapitel_03/system_architecture.png
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmcsc10.tfm
-INPUT /usr/share/texmf/tex/latex/lm/ts1lmr.fd
-INPUT /usr/share/texmf/tex/latex/lm/ts1lmr.fd
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmr12.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmri12.tfm
 INPUT ./Abbildungen/Kapitel_03/geth.png
 INPUT ./Abbildungen/Kapitel_03/geth.png
 INPUT ./Abbildungen/Kapitel_03/geth.png
@@ -481,6 +492,9 @@ INPUT ./Abbildungen/Kapitel_03/CCInterface.png
 INPUT ./Abbildungen/Kapitel_03/CCInterface.png
 INPUT ./Abbildungen/Kapitel_03/CCInterface.png
 INPUT ./Abbildungen/Kapitel_03/CCInterface.png
+INPUT /usr/share/texmf/tex/latex/lm/t1lmtt.fd
+INPUT /usr/share/texmf/tex/latex/lm/t1lmtt.fd
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmtt12.tfm
 INPUT ./Abbildungen/Kapitel_03/emps1.png
 INPUT ./Abbildungen/Kapitel_03/emps1.png
 INPUT ./Abbildungen/Kapitel_03/emps1.png
@@ -546,8 +560,8 @@ INPUT Anhang/AppendixB.aux
 INPUT Anhang/AppendixB.aux
 INPUT ./Main.out
 INPUT ./Main.out
-INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc
+INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb
@@ -558,3 +572,4 @@ INPUT /usr/share/texmf/fonts/type1/public/lm/lmri12.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmro12.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
+INPUT /usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb

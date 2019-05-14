@@ -84,35 +84,35 @@ Der Workflow lässt sich in zwei Phasen unterteilen. In der ersten werden die ei
 \paragraph{Setup}
 \begin{legal}
 	\item {Blockchain}
-	      \begin{legal}
-	      	\item erstellen \& konfigurieren
-	      	\item starten
-	      \end{legal}
-	      	       	                            
+	\begin{legal}
+		\item erstellen \& konfigurieren
+		\item starten
+	\end{legal}
+			      	       	                            
 	\item Fileserver
-	      \begin{legal}
-	      	\item REST Api starten
-	      	\item UDP Broadcast starten
-	      \end{legal}
-	      	       	                            
+	\begin{legal}
+		\item REST Api starten
+		\item UDP Broadcast starten
+	\end{legal}
+			      	       	                            
 	\item Smart Contracts
-	      \begin{legal}
-	      	\item deploy Beveragelist Smart Contract und sende JSON-File mit ABI und Adresse an Fileserver
-	      	\item deploy CoffeeCoin Smart Contract und sende JSON-File mit ABI und Adresse an Fileserver
-	      \end{legal}
-	      	       	                            
+	\begin{legal}
+		\item deploy Beveragelist Smart Contract und sende JSON-File mit ABI und Adresse an Fileserver
+		\item deploy CoffeeCoin Smart Contract und sende JSON-File mit ABI und Adresse an Fileserver
+	\end{legal}
+			      	       	                            
 	\item Learner
-	      \begin{legal}
-	      	\item Worker starten
-	      	\item Watcher starten
-	      \end{legal}
-	      	       	                            
+	\begin{legal}
+		\item Worker starten
+		\item Watcher starten
+	\end{legal}
+			      	       	                            
 	\item Tablet App
-	      \begin{legal}
-	      	\item installieren
-	      	\item starten
-	      \end{legal}
-	      	       	                                
+	\begin{legal}
+		\item installieren
+		\item starten
+	\end{legal}
+			      	       	                                
 \end{legal}
 
 Die Punkte 1. und 2. sowie 4. und 5. können auch parallel ausgeführt bzw. deren Reihenfolge vertauscht werden.\\\\
@@ -150,31 +150,31 @@ Erfolgte eine fehlerlose Abarbeitung dieser Schritte, kann zum eigentlichen Work
 \paragraph{Workflow}
 \begin{legal}
 	\item {App}
-	      \begin{legal}
-	      	\item User wählt Getränk aus
-	      	\item \textit{call} CoffeeCoin
-	      	\item \textit{call} Beveragelist
-	      \end{legal}
-	      	       	                            
+	\begin{legal}
+		\item User wählt Getränk aus
+		\item \textit{call} CoffeeCoin
+		\item \textit{call} Beveragelist
+	\end{legal}
+			      	       	                            
 	\item Smart Contracts
-	      \begin{legal}
-	      	\item Beveragelist \textit{triggers} Event
-	      \end{legal}
-	      	       	                              
+	\begin{legal}
+		\item Beveragelist \textit{triggers} Event
+	\end{legal}
+			      	       	                              
 	\item Learner
-	      \begin{legal}
-	      	\item Watcher:
-	      	      \begin{legal}
-	      	      	\item detektiert Event
-	      	      	\item extrahiert Daten aus Event
-	      	      	\item befüllt Q-Learning Algorithmus mit den Event-Daten (evaluate \& predict)
-	      	      \end{legal}
-	      	\item Worker (periodisch alle 3h)
-	      	      \begin{legal}
-	      	      	\item \quotes{triggers} Q-Learning Algorithmus (evaluate \& predict)
-	      	      	\item sendet gelernte Daten (vgl. Abbildung \ref{img:abb2}) an Fileserver
-	      	      \end{legal}
-	      \end{legal}
+	\begin{legal}
+		\item Watcher:
+		\begin{legal}
+			\item detektiert Event
+			\item extrahiert Daten aus Event
+			\item befüllt Q-Learning Algorithmus mit den Event-Daten (evaluate \& predict)
+		\end{legal}
+		\item Worker (periodisch alle 3h)
+		\begin{legal}
+			\item \quotes{triggers} Q-Learning Algorithmus (evaluate \& predict)
+			\item sendet gelernte Daten (vgl. Abbildung \ref{img:abb2}) an Fileserver
+		\end{legal}
+	\end{legal}
 \end{legal}
 
 Diese Auflistung beschreibt einen synchronen, erfolgreichen Durchlauf der Systemarchitektur - die Asynchronität des Workers 3b) außer Acht gelassen. Alternative Abläufe sowie Zustände die aus Fehlern resultieren, werden bei den einzelnen Komponenten nochmals genauer betrachtet.\\\\
@@ -259,17 +259,17 @@ Das in \ref{img:gen} abgebildete JSON Objekt zeigt die in der Systemarchitektur 
 
 \begin{itemize}
 	\item[-] config: the config block defines the settings for our custom chain and has certain attributes to create a private blockchain
-	      	 
+	      	      	      	 
 	\item[-] chainId: ist eine einzigartige Id für die private Blockchain
-	      
+	      	      	      
 	\item[-] eip150Block/eip155Block/eip158Block: eip steht für \quotes{Ethereum Improvement Proposal}. Diese drei Community getriebenen \quotes{Proposals} beschreiben sog. \quotes{hard forks}, welche dafür sorgen sollten Fehler im Protokoll zu beheben. 
-	      
+	      	      	      
 	\item[-] homesteadBlock: Homestead ist die zweite \quotes{major version} von Ethereum, welche einige Änderungen an dem Protokoll vornahm
-	      	
+	      	      	      	
 	\item[-] difficulty: beschreibt die Schwierigkeitsstufe für einen Miner einen validen Block zu finden. Das heißt je höher der Wert desto mehr Berechnungen müssen statisch durchgeführt werden und desto mehr Zeit wird benötigt, um eine Transaktion zu bestätigen. Im Falle eines Testnets ist es deshalb ratsam einen sehr niedrigen Wert zu wählen
-	      	
+	      	      	      	
 	\item[-] gasLimit: beschreibt das Limit für eine Transaktion wie viel an Gas verbraucht werden darf. 
-	      
+	      	      	      
 	\item[-] alloc: hier können Accounts schon im Voraus mit \quotes{fake ether} befüllt werden.
 	\item[-] nonce: ist ein Zähler für die Anzahl der durchgeführten Transaktionen einer Adresse
 \end{itemize}
@@ -333,15 +333,93 @@ Dieser Smart Contract umfasst noch weitere Funktionen, welche aber vor allem zu 
 
 \section{Learner}
 \label{sec:ql}
+Als nächstes wird der sogenannte \quotes{Learner} detailiert betrachtet. Dabei wird zuerst die Problemstellung hinsichtlich des Reinforcement-Learnings modelliert und im Anschluss der verwendete Algorithmus (Q-Learning) allgemein und im Kontext der Problemstellung erläutert. \\
 
 \subsection{Modellierung}
 \label{subsec:modulation}
+Die Modellierung eine Lernproblems im Hinblick auf einen Reinforcement-Algorithmus erfolgt in der Regel stets nach der selben Systematik. \\
+Dabei werden zuerst der Zustandsraum, also alle möglichen Zustände, alle Aktionen des \quotes{Agenten} und der Reward für ausgeführte Aktionen eruiert.
+Hier in diesem Fall ist der Agent der Learner, welcher das Kaffeetrinkverhalten der User zu erlernen versucht.\\\\
+Die Modellierung sieht wie folgt aus: 
+\paragraph{Zustandsraum}
+\begin{itemize}
+	\item Wochentag: Montag, Dienstag, Mittwoch, Donnerstag, Freitag
+	\item Timeslot:
+	      \begin{itemize}
+	      	\item 7-9 Uhr (T0)
+	      	\item 10-12 Uhr (T1)
+	      	\item 13-15 Uhr (T2)
+	      	\item 16-18 Uhr (T3)
+	      	\item 19-6 Uhr (T4)
+	      \end{itemize} 
+	\item Kafee-Anzahl: n $*$ Kaffee (n=Anzahl pro Tag)
+\end{itemize}
+
+\paragraph{Aktionen}
+\begin{itemize}
+	\item Kaffee
+	\item Nothing
+\end{itemize}
+
+\paragraph{Reward}
+\begin{itemize}
+	\item +1 bei richtiger Prediction
+	\item \textminus 1 bei falscher Prediction
+\end{itemize}
+\ \\
+Daraus lässt sich folgender examplarischer Zustand konstruieren: 
+\begingroup
+\makeatletter
+\@totalleftmargin=0.5cm
+\begin{Verbatim}
+< Wochentag: Montag; Timeslot: 2; Kaffee-Anzahl: 3 >
+\end{Verbatim}
+\endgroup
+Das bedeutet konkret: an einem Montag wurden einschließlich des 2. Timeslots (13-15 Uhr) 3 Kaffee getrunken. Dieser Status gibt jedoch keinen Aufschluss darüber, welcher sein Vorgänger war und welcher sein Nachfolger sein wird. So können einerseits alle Kaffee's nur in Timeslot 2 getrunken worden sein oder in jedem Timeslot (0,1,2) jeweils einen. Andererseits besteht auch die Möglichkeit, dass im Timeslot 2 nochmals ein Kaffee konsumiert wird oder eben erst in einem nachfolgendem Timeslot.\\
+Dieses Lernproblem ist auch als \quotes{Multi-Armed Bandit Problem} bekannt und wird in Kap. \ref{subsec:y-ql} erläutert.
+\\\\
+Der erste Modellierungansatz sah anstatt der Kaffe-Anzahl eine Getränkeanzahl vor, bei der zum Kaffee auch die Quantität der getrunkenen \quotes{Clube Mate} und \quotes{Wasser} berücksichtigt werden sollten. Der Grund dafür liegt in dem erheblichen Einfluss des Konsums weiterer Getränke auf das Kaffeetrinkverhalten, wodurch mit solch einer granulareren Modellierung genauere Predictions zu erwarten sind. Jedoch steigt somit auch die Anzahl der zu durchlaufenden Zustände und einhergehend damit die zu erlernenden optimalen Aktionen für die Zustandsübergänge. Letzlich resultiert dies in der längeren Trainingsphase des Algorithmus, was aber aufgrund des zeitlich begrenzten Rahmen dieser Arbeit nicht durführbar war und deshalb der Ansatz mit lediglich der Kaffee-Anzahl gewählt wurde.\\
 
 \subsection{Q-Learning}
 \label{subsec:y-ql}
-
+Im folgenden wird der implementierte Q-learning Algorithmus zuerst allgemein und anschließend im Bezug auf die Problemstellung erläutert.\\
+ 
 \subsection{Lernprozess \& Ablauf}
 \label{subsec:learning}
+
+Aufgrund der Modellierung eines Zustandes ergeben sich zwei Arten bei denen eine Änderung dessen hervorgerufen wird: 
+\begin{itemize}
+	\item durch eine zeitliche Komponente, bei der sich entweder der Timeslot oder der Tag ändert
+	\item durch den User indem er eine Transaktion auslöst
+\end{itemize}
+
+Das ist in der Hinsicht von großer Bedeutung, da für diese Übergänge ein Feedback für den Agenten notwendig ist, um jeweils die optimale Aktion dafür zu erlernen. \\
+So wird das Feedback einerseits von Seiten des Users in Form einer bestätigten Transaktion generiert, was bedeutet Aktion \quotes{Kaffee} wurde ausgeführt. Oder andererseits als Folge einer fehlenden Rückmeldung des Nutzers, welche \quotes{Nothing} als optimale Aktion impliziert. \\
+Das heißt erfolgt eine Zustandsänderung durch den User, so ist stets \quotes{Kaffee} die zu erlernende, beste Aktion. Wird eine Zustandsänderung durch einen Timeslotwechsel bewirkt, so ist das Feedback der Umgebung immerfort die Aktion \quotes{Nothing}. \\
+Um dem Agenten bzw. dem Q-Learning Algorithmus stets das nötige Feedback zu geben und Zustandsübergänge herbeizuführen, werden im Learner die Komponenten \quotes{Watcher} und \quotes{Worker} verwendet. \\
+Der \quotes{Watcher} ist dafür zuständig das Feedback des Users durch das Beveragelist-Event zu detektieren und die darin enthaltenen Daten dem Algorithmus zur Verfügung zu stellen. \\
+Der \quotes{Worker} wird für die zeitliche Komponente verwendet, indem er am Ende jedes Timeslots aktiv wird, die Zustandsänderung durchführt und dem Agenten die Aktion \quotes{Nothing} als Feedback gibt. \\
+Auf Basis dieser Feedbacks wird es dem Q-Learning Algorithmus ermöglicht die optimalen Aktionen zu erlernen. Hierbei wird die Prediction, also die aus Sicht des Agenten beste Aktion für den Zustandsübergang, anhand der Rückmeldung, sei es durch den Watcher oder Worker, evaluiert und für den nächsten Übergang eine neue Aktion eruiert. \\
+Dieses Prinzip der Evaluierung und Vorhersage der Aktion kann im Kontext des Lernproblems jedoch nicht kontinuierlich angewendet werden. 
+So bedingen bestimmte Zustände nur eine Evaluierung oder nur eine Vorhersage, indes nie beides. Der Grund hierfür liegt in der Abgeschlossenheit der Tage als Lernabschnitt, welche komplett unabhängig voneinander agieren. \\
+Zudem werden die Uhrzeiten zwischen 19 und 6 Uhr (T4) nicht in der Zustandsraummodiellerung berücksichtigt, da in diesem Zeitraum keine Aktion durch den User zu erwarten ist.\\ 
+Dies hat für den \quotes{Worker} zur Folge, dass zum einen am Anfang jedes Tages bzw. beim Wechsel von T4 auf T0, lediglich eine Vorhersage für den nächsten Zustandsübergang gemacht und zum anderen am Ende von T3 einzig die letzte Vorhersage evaluiert werden muss.\\\\
+Dies lässt sich veranschaulicht folgendermaßen darstellen:
+\begin{itemize}
+	\item Evaluierung \& Vorhersage: 
+	\begin{itemize}
+		\item User führt Transaktion durch
+		\item Timeslot wechselt
+	\end{itemize}
+	\item Evaluierung:
+	\begin{itemize}
+		\item am Ende von T3
+	\end{itemize}
+	\item Vorhersage:
+	\begin{itemize}
+		\item am Anfang von T0
+	\end{itemize}
+\end{itemize}    
 
 
 \section{Tablet-App}
@@ -372,7 +450,7 @@ Wird die App gestartet und es besteht eine Verbindung zum Internet bzw. zur Bloc
 	\label{img:emps2}
 \end{figure}
 
-Hier kann der User seinen Avater selektieren und deselektieren. Ist ein Avater ausgewählt wird der \quotes{NEXT} Button aktiviert (vgl. Abbildung \ref{img:emps2}) und durch dessen Betätigung gelangt der User zur nächsten Seite: 
+Hier kann der User seinen Avatar selektieren und deselektieren. Ist ein Avatar ausgewählt wird der \quotes{NEXT} Button aktiviert (vgl. Abbildung \ref{img:emps2}) und durch dessen Betätigung gelangt der User zur nächsten Seite: 
 
 \begin{figure}[th!]
 	\centering
@@ -436,10 +514,10 @@ Basierend auf der Problematik eines unerwarteten Verbindungsabbruch und dem einh
 		\item Submit $\rightarrow$ (Getränk \& Ethereum-Adresse)
 	\end{legal}
 	\item Wiederhole für jedes User-Transaktionsfile:
-		\begin{legal}
-			\item Transaktion durchführen
-			\item bei \quotes{Success} Transaktiondatei löschen
-		\end{legal}
+	\begin{legal}
+		\item Transaktion durchführen
+		\item bei \quotes{Success} Transaktiondatei löschen
+	\end{legal}
 	\item Generierung Transaktionsdaten:
 	\begin{itemize}
 		\item Gas Estimate
@@ -457,7 +535,7 @@ Basierend auf der Problematik eines unerwarteten Verbindungsabbruch und dem einh
 \end{legal}
 
 Der interne Workflow beginnt mit der Initialisierungsphase, dabei werden zuerst die Smart Contract Files vom Fileserver runtergeladen und mit den beinhaltenden Daten das Web3.js Modul initialisiert. Damit steht Verbindung und die Kommunikation mit den Smart Contracts und es wird im Anschluss über alle vorhandenen Transaktion Files iteriert. Dabei wird zuerst der CoffeeCoin Contract und dann der Beveragelist Contract aufgerufen. Wenn beide ihre Transaktionen bestätigt haben, wird die Datei gelöscht, andernfalls bleibt diese bestehen. Dies geschieht noch bevor der User das Interface zu Gesicht bekommt.\\\\
-Nachdem 1. abgeschlossen ist wird auf die Eingabe des Users gewartet. Wählt dieser einen Avater aus klickt \quotes{NEXT} wird seine hinterlegte Ethereum-Adresse temporär gespeichert. Wird dann im Anschluss ein Getränk selektiert und \quotes{SUBMIT} gedrückt, werden die Ethereum-Adresse und das Getränk an das interne Blockchain-Modul weitergereicht und die Transaktion gestartet. \\\\
+Nachdem 1. abgeschlossen ist wird auf die Eingabe des Users gewartet. Wählt dieser einen Avatar aus klickt \quotes{NEXT} wird seine hinterlegte Ethereum-Adresse temporär gespeichert. Wird dann im Anschluss ein Getränk selektiert und \quotes{SUBMIT} gedrückt, werden die Ethereum-Adresse und das Getränk an das interne Blockchain-Modul weitergereicht und die Transaktion gestartet. \\\\
 Dabei wird erneut über die Transaktionsdaten iteriert, allerdings nur über die des Users. Damit soll stets die richtige Reihenfolge der getrunkenen Getränke sichergestellt werden, da dies ansonsten auf Seiten des Q-Learning Algorithmus zu falschen Lerneffekten führen würde.\\\\
 Daraufhin kann mit der Generierung der fehlenden Transaktionsdaten angefangen werde. Es wird zuerst ein \quotes{Gas Estimate} für beide Smart Contract Transaktionen durchgeführt. Ein \quotes{Gas Estimate} ist, wie der Name bereits impliziert, eine grobe Schätzung wie viel Gas beim Funktionsaufruf eines Smart Contracts benötigt wird. Abschließend werden das Datum (inkl. Zeit in Sekunden) und der Wochentag ermittelt und alle benötigten Daten an die jeweiligen Smart Contract Funktionsaufrufe übergeben. Im Falle des Smart Contracts Beveragelist: \textit{Gas-Estimate, Datum, Wochentag, Ethereum-Adresse, Getränk}.
 Bei CoffeeCoin wird anhand des Getränks die entsprechende Smart Contract Funktion ausgewählt und lediglich das \textit{Gas-Estimate} und die \textit{Ethereum-Adresse} des Users übergeben.\\\\
