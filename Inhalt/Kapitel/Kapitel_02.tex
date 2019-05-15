@@ -6,39 +6,37 @@
 %
 \section{Blockchain}
 Der folgende Abschnitt basiert auf den Inhalten dieser Literatur: \ref{BitcoinNBchain}, \ref{BitcoinEthNCo}, \ref{BchainPracticalGuide} und \ref{MasteringBlockchain}. 
-\subsection{Funktionsweise \& Konzepte }
-Der Begriff Blockchain wird oft als \textit{distributed ledger} (DLT) bezeichnet. Jedoch beschreibt Blockchain nur einen speziellen Typus eines \textit{distributed ledgers}. So kann dieser neben Transaktionen auch aus weiteren Daten bestehen, wohingegen bei einer Blockchain die Blöcke stets Transaktionen beinhalten. \\
-Ein \textit{distributed ledger} beschreibt eine \textit{verteilte Datenbank}, welche im Kontext einer Blockchain auch als \quotes{verteiltes Konto} verstanden wird, in welchem jegliche Transaktionen abgespeichert werden.\\
-So ist eine Blockchain grundsätzlich eine Verkettung von geordneten Blöcken, welche in sich eine oder mehrere Transaktionen beinhalten. Dazu muss jede Transaktion vor dem Hinzufügen erst validiert und bestätigt werden.\\
-Im Gegensatz zu den bekannten CRUD-Operationen \cite{CRUD:Wiki}, welche zur Kommunikation zwischen Client und Server verwendetet werden, um Daten zu schreiben, zu downloaden, zu löschen und zu editieren, gibt es bei einer Blockchain lediglich eine Schreib- und eine Leseoperation. Aus diesem Grund können Transaktionen auf einer Blockchain einzig hinzugefügt und gelesen, jedoch nie zu einem späteren Zeitpunkt gelöscht oder editiert werden. \\
-Eine weitere Beschaffenheit einer Blockchain ist die Dezentralität durch die \textit{Peer-to-Peer} Netzwerktopologie.
 
+\subsection{Funktionsweise \& Konzepte}
+Damit das Verständnis für die Blockchain Technologie geschaffen werden kann, sollte zuerst die darunter liegende Technologie betrachtet werden. 
+So wird der Begriff der Blockchain oft auch mit dem des \textit{distributed ledger} gleichgesetzt. Ein \textit{distributed ledger} ist eine \textit{verteilte Datenbank}, welche im Kontext einer Blockchain auch als \quotes{verteiltes Konto} bzw. \quotes{dezentral geführtes Kontobuch} \cite{DL:bafin} verstanden wird, in welchem jegliche Transaktionen abgespeichert werden.\\
+Allerdings ist diese Gleichsetzung nicht ganz korrekt, denn eine Blockchain ist nur ein spezieller Typus eines \textit{distributed ledgers}. So kann nämlichh dieser neben Transaktionen auch aus weiteren Daten bestehen, wohingegen bei einer Blockchain die Blöcke stets Transaktionen beinhalten. \\
+Somit stellt ein \textit{distributed ledger} die techologische Grundlage aller virtuellen Währungen dar und ist dadurch auch einer der Hauptgründe weshalb Kryptowährungen auf einer Blockchain basieren.\\\\
+Grundsätzlich steht Blockchain für eine Verkettung von geordneten Blöcken, welche in sich eine oder mehrere Transaktionen beinhalten. 
+Zu den Transaktionsdaten wird zudem ein Hashwert des Vorgängerblocks und ein Zeitstempel mit im Block abgespeichert. Erst aufgrund der Berücksichtigung des Hashwerts des vorherigen Blocks werden die Blöcke miteinander verknüpft und bilden somit eine chronologisch geordnete Kette.\\
+Eine weitere Beschaffenheit einer Blockchain ist die Dezentralität durch das aufgespannte \textit{Peer-to-Peer} Netzwerk. Der Vorteil dieser Topologie besteht in der Vakanz eines zentralen Knotens, welcher für das Abspeichern und Bereitstellen aller bestehenden Daten eines Netzwerks zuständig ist. Denn jeder Knoten in einem solchem Netzwerk ist sowohl Sender als auch Empfänger, sodass jeder Teilnehmer eine Kopie des Datenbestandes besitzt, was einen \quotes{Single Point of Failure} völlig ausschließt. Aus diesem Grund sind Daten einer Blockchain nie nur bei einem Knoten abgespeichert, sondern jede Node besitzt eine Kopie der aktuellen Blockchain.\\
+Welche Daten schließich auf die Blockchain geschrieben werden dürfen oder genauer gesagt ob eine Transaktion durchgeführt werden darf, erfolgt stets in abetracht des Konsens aller Parteien im Netzwerk. Diese Eigenschaft wird als \textit{distributed consensus} bezeichnet und ist das Fundament einer jeder Blockchain. Durch die Einbeziehung eines jeden Teilnehmers in der Entscheidungsfindung wird die Notwendigkeit einer zentralen Entscheidungsinstanz obsolet. \\
+Der Mechanismus welcher dafür zuständig ist diesen Konsens herbeizuführen, ist je nach Implementierung des Blockchainprotokolls unterschiedlich. Eine beliebte Methodik, welche unteranderem von Bitcoin und Ethereum verwendet wird, ist der  \textit{Proof-of-Work} Ansatz. Hierbei werden von den sog. \quotes{Minern} Iterationen an aufwändigen und komplexen Berechnungen durchgeführt, die sicherstellen sollen, dass die benötigten kryptographischen Berechnungen für eine Transaktion durchgeführt und die Daten einer Transa ktion validiert werden.\\
+Eine weitere Besonderheit einer Blockchain ist die Unveränderbarkeit der darauf gespeicherten Daten. So gibt es, im Gegensatz zu den bekannten CRUD-Operationen \footnote{CRUD:Wiki}, welche zur Kommunikation zwischen Client und Server verwendetet werden, um Daten zu schreiben, zu downloaden, zu löschen und zu editieren, bei einer Blockchain lediglich eine Schreib- und eine Leseoperation. Weswegen im Zusammenspiel mit dem Konsensverfahren Transaktionen auf einer Blockchain einzig hinzugefügt und gelesen, jedoch nie zu einem späteren Zeitpunkt gelöscht oder editiert werden können. \\
+Dabei sind die gespeicherten Daten (unverschlüsselt oder auch verschlüsselt) für alle im Netzwerk einsehbar und bedeutet somit volle Transparenz für jeden User. \\ 
+Die gerade geschilderten Eigenschaften sind einer jeden Blockchain inhärent bzw. in einer abgeänderten Form (z.B. \textit{Proof-of-Stake} \footnote{PoS:Wiki} anstatt \textit{Proof-of-Work}) vorhanden. 
+Was jedoch erst in neueren Blockchains vorzufinden ist, sind die \textit{Smart Contracts}.\\
+Smart Contracts sind Programme welche auf einer Blockchain installiert werden können.\\
+Diese Programme können z.B. Business Logiken abbilden und ausführen oder auch Verpflichtungen und Vereinbarungen im rechtlichen Sinne durchsetzten, ohne der Notwendigkeit eines Mittelmanns, welcher das Vertrauen aller beteiligten Parteien inne hat. Diese \quotes{Trust-Komponente} wird durch die Anerkennung aller Parteien von dem Smart Contract übernommen. \\
+Das erste mal in Erscheinung getreten sind Smart Contracts mit der Veröffentlichung der Ethereum Blockchain, welche nun im Anschluss genauer betrachtet wird.
 
-
-\begin{itemize}
-    \item distributed ledger technology DLT
-    \begin{itemize}
-        \item Blockchain und DLs als synonym, sind aber nicht das gleiche
-        \item Blockchain ist ein spezieller typ einer shared Database welche Blöcke an Transaktionen umfasst
-        \item 
-    \end{itemize}
-    \item Consensus 
-    \begin{itemize}
-        \item dezentrale Kontrolle durch den Prozess des minings
-        \item verschiedene Consensus Algorithmen
-        \item Consensus is a process of agreement between distrusting nodes on the final state of the data
-        \item einfach zwischen zwei nodes, schwierig unter mehreren parteien, sich auf einen single value zu commiten 
-        \item Consensus mechanism is a set of steps that are taken by most or all nodes in a Blockchain to agree on a proposed state or value
-        \item Benefits: dezentral, transparenz and trust, immutability
-        \item 
-        \item 
-        \item 
-    \end{itemize}
-    \item 
-\end{itemize}
 \subsection{Ethereum}
+Die Ethereum Blockchain wurde 2015 in Betrieb genommen, mit dem Ziel nicht nur eine Kryptowährung zu schaffen, sondern eine Plattform zu entwickeln auf welcher sog. Dapps (Decentralized Apps) betrieben werden können.
+So wird Ethereum im Vergleich zu Bitcoin auch als Blockchain 2.0 bezeichnet, da es eben nicht nur eine Kryptowährung umfasst, sondern es aufgrund der Smart Contracts es möglich ist Software auf einer Blockchain zu installieren. \\
+Als Ethereum wird genauer genommen das Protokoll tituliert welches die Blockchain implentiert. Die Kryptowährung die auf der Blockchain basiert wird als \textit{Ether} bezeichnet und fungiert zudem als Zahlungsmittel im Kontext der Smart Contracts. So ist bzw. war das Bestreber der Gründer nicht eine weitere Kryptowährung zu schaffen, sondern einen Art \quotes{Supercomputer}, welcher immer online ist und aus Milionen von Computern im Netzwerk besteht, die ihre Rechenleistung zur Verfügung stellen und als Gegenleistung bzw. Anreiz in Form von Ether vergütet werden. \\
+Dabei können zwar, wie bei einer Kryptowährung, Transaktionen durchgeführt und Ether von einem Konto auf ein anderes transferiert werden. Jedoch liegt der eigentliche Fokus auf den Smart Contracts und den Dapps.\\
+Dazu wurde die EVM (Ethereum Virtual Machine) entwickelt, in welcher letztlich die Smart Contracts bzw. Dapps gehostet und ausgeführt werden. Dabei stellt die Virtual Machine eine Abstraktionsebene zur physischen Schicht der Blockchain dar und ermöglicht es dadurch den Smart Contracts Daten auf die Blockchain zu speichern und bietet gleichzeitig eine Laufzeitumgebung in der die Anwendungen ausgeführt werden können.\\
+Die Implementierung der Smart Contracts erfolgt stets in der eigens entwickelten Programmiersprache Solidity. Diese folgt dem Prinzip der Objekt Orientierung, ist der Sprache Javascript angelehnt und ist zudem Turing-Vollständig, was im Bezug auf die Entwicklung von Apps und eine weite Bandbreite an Anwendungsfällen eröffnet. \\
+Damit die Funktionen der Smart Contracts überhaupt genutzt werden können, muss einem jedem Methodenaufruf bzw. jeder Transaktion Ether - im Kontext der Smart Contracts als \quotes{Gas} bezeichnet - mitgegeben werden, um die Miner für ihre zur Verfügung gestellte Rechenleistung zu entlohnen. Das bedeutet um Daten auf die Blockchain zu speichern, wird je nach Transaktion eine bestimmte Menge an Gas benötigt, welches im Endeffekt den Minern als Anreiz und Belohnung zur Bereitstellung von Rechenleistung übertragen wird. \\
+Wie das Mining bereits impliziert, basiert der Konsensalgorithmus der Ethereum Blockchain auf dem Proof of Work Konzept. Da dieser Ansatz jedoch einige Nachteile mit sich bringt, wird voraussichtlich im Juni 2019 der Wechsel auf Proof of Stake \footnote{TODO} durchgeführt. 
 
-%
+
+
 \section{Machine Learning}
 \subsection{"Uberblick}
 \subsection{Reinforcement-Learning}
