@@ -1,5 +1,9 @@
 \begin{thebibliography}{{Rap}09}
 
+\bibitem[{btc}]{PoS:BTCE}
+{btc-echo}.
+\newblock Was ist proof-of-stake?
+
 \bibitem[DAp]{DApp}
 Dapp.
 
@@ -23,23 +27,27 @@ React native.
 {Wikipedia}.
 \newblock Application programming interface - wikipedia.
 
-\bibitem[{Wik}b]{CP:Wiki}
+\bibitem[{Wik}b]{PoS:Wiki}
 {Wikipedia}.
 \newblock Cross-platform software - wikipedia.
 
-\bibitem[{Wik}c]{CRUD:Wiki}
+\bibitem[{Wik}c]{CP:Wiki}
+{Wikipedia}.
+\newblock Cross-platform software - wikipedia.
+
+\bibitem[{Wik}d]{CRUD:Wiki}
 {Wikipedia}.
 \newblock Crud - wikipedia.
 
-\bibitem[{Wik}d]{REST:Wiki}
+\bibitem[{Wik}e]{REST:Wiki}
 {Wikipedia}.
 \newblock Representational state transfer - wikipedia.
 
-\bibitem[{Wik}e]{SPOF:Wiki}
+\bibitem[{Wik}f]{SPOF:Wiki}
 {Wikipedia}.
 \newblock Single point of failure - wikipedia.
 
-\bibitem[{Wik}f]{UE:Wiki}
+\bibitem[{Wik}g]{UE:Wiki}
 {Wikipedia}.
 \newblock User experience - wikipedia.
 

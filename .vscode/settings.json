@@ -31,5 +31,14 @@
         "yml"
     ],
     "cSpell.enabled": false,
-    "cSpell.language": ",de"
+    "cSpell.language": ",de",
+    "spellright.language": [
+        "en",
+        "de"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ]
 }
