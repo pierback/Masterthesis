@@ -38,47 +38,49 @@ Warning--entry type for "RN:ReactNative" isn't style-file defined
 --line 203 of file Literatur/Literatur.bib
 Warning--entry type for "DApp" isn't style-file defined
 --line 210 of file Literatur/Literatur.bib
+Warning--entry type for "SMPUse" isn't style-file defined
+--line 217 of file Literatur/Literatur.bib
 Warning--to sort, need author or key in RN:ReactNative
 Warning--to sort, need author or key in DApp
-You've used 13 entries,
+You've used 14 entries,
             2543 wiz_defined-function locations,
-            612 strings with 5459 characters,
-and the built_in function-call counts, 3210 in all, are:
-= -- 281
-> -- 90
-< -- 11
-+ -- 28
-- -- 22
-* -- 135
-:= -- 470
-add.period$ -- 24
-call.type$ -- 13
-change.case$ -- 63
-chr.to.int$ -- 7
-cite$ -- 17
-duplicate$ -- 141
-empty$ -- 330
-format.name$ -- 44
-if$ -- 682
+            617 strings with 5545 characters,
+and the built_in function-call counts, 3466 in all, are:
+= -- 304
+> -- 98
+< -- 12
++ -- 30
+- -- 24
+* -- 146
+:= -- 509
+add.period$ -- 26
+call.type$ -- 14
+change.case$ -- 68
+chr.to.int$ -- 8
+cite$ -- 18
+duplicate$ -- 152
+empty$ -- 355
+format.name$ -- 48
+if$ -- 736
 int.to.chr$ -- 7
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 53
-num.names$ -- 33
-pop$ -- 138
+newline$ -- 57
+num.names$ -- 36
+pop$ -- 148
 preamble$ -- 1
-purify$ -- 76
+purify$ -- 82
 quote$ -- 0
-skip$ -- 154
+skip$ -- 166
 stack$ -- 0
-substring$ -- 93
-swap$ -- 13
-text.length$ -- 11
-text.prefix$ -- 11
+substring$ -- 100
+swap$ -- 14
+text.length$ -- 12
+text.prefix$ -- 12
 top$ -- 0
-type$ -- 104
+type$ -- 112
 warning$ -- 2
-while$ -- 22
-width$ -- 16
-write$ -- 118
-(There were 15 warnings)
+while$ -- 24
+width$ -- 17
+write$ -- 128
+(There were 16 warnings)
