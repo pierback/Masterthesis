@@ -13,75 +13,76 @@ A level-1 auxiliary file: Anhang/AppendixA.aux
 A level-1 auxiliary file: Anhang/AppendixB.aux
 Database file #1: Literatur/Literatur.bib
 Warning--entry type for "REST:Wiki" isn't style-file defined
---line 81 of file Literatur/Literatur.bib
+--line 33 of file Literatur/Literatur.bib
 Warning--entry type for "CRUD:Wiki" isn't style-file defined
---line 90 of file Literatur/Literatur.bib
+--line 42 of file Literatur/Literatur.bib
 Warning--entry type for "API:Wiki" isn't style-file defined
---line 99 of file Literatur/Literatur.bib
+--line 51 of file Literatur/Literatur.bib
 Warning--entry type for "SPOF:Wiki" isn't style-file defined
---line 108 of file Literatur/Literatur.bib
+--line 60 of file Literatur/Literatur.bib
 Warning--entry type for "UE:Wiki" isn't style-file defined
---line 117 of file Literatur/Literatur.bib
+--line 69 of file Literatur/Literatur.bib
 Warning--entry type for "CP:Wiki" isn't style-file defined
---line 126 of file Literatur/Literatur.bib
+--line 78 of file Literatur/Literatur.bib
 Warning--entry type for "PoS:Wiki" isn't style-file defined
---line 134 of file Literatur/Literatur.bib
+--line 86 of file Literatur/Literatur.bib
 Warning--entry type for "PoS:BTCE" isn't style-file defined
---line 142 of file Literatur/Literatur.bib
+--line 94 of file Literatur/Literatur.bib
 Warning--entry type for "MINING:kryptopedia" isn't style-file defined
---line 164 of file Literatur/Literatur.bib
+--line 116 of file Literatur/Literatur.bib
 Warning--entry type for "DL:bafin" isn't style-file defined
---line 173 of file Literatur/Literatur.bib
+--line 125 of file Literatur/Literatur.bib
 Warning--entry type for "SC:EconomyOutlook" isn't style-file defined
---line 182 of file Literatur/Literatur.bib
+--line 134 of file Literatur/Literatur.bib
 Warning--entry type for "RN:ReactNative" isn't style-file defined
---line 191 of file Literatur/Literatur.bib
+--line 143 of file Literatur/Literatur.bib
 Warning--entry type for "DApp" isn't style-file defined
---line 198 of file Literatur/Literatur.bib
+--line 150 of file Literatur/Literatur.bib
 Warning--entry type for "SMPUse" isn't style-file defined
---line 205 of file Literatur/Literatur.bib
+--line 157 of file Literatur/Literatur.bib
 Warning--to sort, need author or key in RN:ReactNative
 Warning--to sort, need author or key in DApp
+Warning--empty journal in BitcoinEthNCo
 Warning--can't use both author and editor fields in fteng
-You've used 19 entries,
+You've used 21 entries,
             2543 wiz_defined-function locations,
-            658 strings with 6277 characters,
-and the built_in function-call counts, 5011 in all, are:
-= -- 450
-> -- 162
-< -- 15
-+ -- 48
-- -- 42
-* -- 241
-:= -- 776
-add.period$ -- 43
-call.type$ -- 19
-change.case$ -- 93
-chr.to.int$ -- 13
-cite$ -- 24
-duplicate$ -- 232
-empty$ -- 484
-format.name$ -- 74
-if$ -- 1056
+            670 strings with 6548 characters,
+and the built_in function-call counts, 5549 in all, are:
+= -- 500
+> -- 178
+< -- 17
++ -- 52
+- -- 46
+* -- 269
+:= -- 867
+add.period$ -- 49
+call.type$ -- 21
+change.case$ -- 103
+chr.to.int$ -- 15
+cite$ -- 27
+duplicate$ -- 262
+empty$ -- 529
+format.name$ -- 82
+if$ -- 1164
 int.to.chr$ -- 7
 int.to.str$ -- 0
-missing$ -- 8
-newline$ -- 82
-num.names$ -- 53
-pop$ -- 178
+missing$ -- 11
+newline$ -- 92
+num.names$ -- 59
+pop$ -- 193
 preamble$ -- 1
-purify$ -- 114
+purify$ -- 126
 quote$ -- 0
-skip$ -- 219
+skip$ -- 240
 stack$ -- 0
-substring$ -- 135
-swap$ -- 20
-text.length$ -- 15
-text.prefix$ -- 15
+substring$ -- 149
+swap$ -- 21
+text.length$ -- 17
+text.prefix$ -- 17
 top$ -- 0
-type$ -- 132
-warning$ -- 3
-while$ -- 36
-width$ -- 23
-write$ -- 198
-(There were 17 warnings)
+type$ -- 144
+warning$ -- 4
+while$ -- 40
+width$ -- 25
+write$ -- 222
+(There were 18 warnings)

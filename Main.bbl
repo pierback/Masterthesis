@@ -1,8 +1,19 @@
 \begin{thebibliography}{{Rap}09}
 
+\bibitem[Ant17]{Antonopoulos:2017:MBP:3164842}
+Andreas~M. Antonopoulos.
+\newblock {\em Mastering Bitcoin: Programming the Open Blockchain}.
+\newblock O'Reilly Media, Inc., 2nd edition, 2017.
+
 \bibitem[{btc}]{PoS:BTCE}
 {btc-echo}.
 \newblock Was ist proof-of-stake?
+
+\bibitem[Bus18]{BitcoinEthNCo}
+Enée Bussac.
+\newblock Bitcoin, ethereum & co. - praxiswissen kryptowährungen und
+  blockchain.
+\newblock 2018.
 
 \bibitem[DAp]{DApp}
 Dapp.

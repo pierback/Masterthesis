@@ -7,7 +7,7 @@ Im folgenden wird nun die System Architektur und der Workflow erläutert, welche
 \subsection{Architektur}
 \label{subsec:architecture}
 Um ein besseres Bild davon zu bekommen, wie die einzelnen Komponenten
-zusammenhängen bzw. welche Aufgaben diese in Wechselwirkung zu anderen Instanzen übernehmen und ausführen, wird zunächst die Architektur des Systems erläutert. Als Basis soll dabei die Abbildung \ref{img:abb2} dienen, anhand jener vorrangig die jeweiligen Komponenten bezüglich ihrer Funktionsweise beschrieben werden. Das Zusammenspiel der Anwendungen wird im Anschluss unter \ref{subsec:workflow} detailiert beleuchtet.
+zusammenhängen bzw. welche Aufgaben diese in Wechselwirkung zu anderen Instanzen übernehmen und ausführen, wird zunächst die Architektur des Systems erläutert. Als Basis soll dabei die Abbildung \ref{img:abb2} dienen, anhand jener vorrangig die jeweiligen Komponenten bezüglich ihrer Funktionsweise beschrieben werden. Das Zusammenspiel der Anwendungen wird im Anschluss unter \ref{subsec:workflow} detailliert beleuchtet.
 
 \clearpage
 \newpage
@@ -335,7 +335,7 @@ Als nächstes wird der sogenannte \quotes{Learner} detailiert betrachtet. Dabei 
 
 \subsection{Modellierung}
 \label{subsec:modulation}
-Die Modellierung eine Lernproblems im Hinblick auf einen Reinforcement-Algorithmus erfolgt in der Regel stets nach der selben Systematik. \\
+Die Modellierung eines Lernproblems im Hinblick auf einen Reinforcement-Algorithmus erfolgt in der Regel stets nach der selben Systematik. \\
 Dabei werden zuerst der Zustandsraum, also alle möglichen Zustände, alle Aktionen des \quotes{Agenten} und der Reward für ausgeführte Aktionen eruiert.
 Hier in diesem Fall ist der Agent der Learner, welcher das Kaffeetrinkverhalten der User zu erlernen versucht.\\\\
 Die Modellierung sieht wie folgt aus: 
@@ -376,7 +376,7 @@ Daraus lässt sich folgender examplarischer Zustand konstruieren:
 Das bedeutet konkret: an einem Montag wurden einschließlich des 2. Timeslots (13-15 Uhr) 3 Kaffee getrunken. Dieser Status gibt jedoch keinen Aufschluss darüber, welcher sein Vorgänger war und welcher sein Nachfolger sein wird. So können einerseits alle Kaffee's nur in Timeslot 2 getrunken worden sein oder in jedem Timeslot (0,1,2) jeweils einen. Andererseits besteht auch die Möglichkeit, dass im Timeslot 2 nochmals ein Kaffee konsumiert wird oder eben erst in einem nachfolgendem Timeslot.\\
 Dieses Lernproblem ist auch als \quotes{Multi-Armed Bandit Problem} bekannt und wird in Kap. \ref{subsec:y-ql} erläutert.
 \\\\
-Der erste Modellierungansatz sah anstatt der Kaffe-Anzahl eine Getränkeanzahl vor, bei der zum Kaffee auch die Quantität der getrunkenen \quotes{Clube Mate} und \quotes{Wasser} berücksichtigt werden sollten. Der Grund dafür liegt in dem erheblichen Einfluss des Konsums weiterer Getränke auf das Kaffeetrinkverhalten, wodurch mit solch einer granulareren Modellierung genauere Predictions zu erwarten sind. Jedoch steigt somit auch die Anzahl der zu durchlaufenden Zustände und einhergehend damit die zu erlernenden optimalen Aktionen für die Zustandsübergänge. Letzlich resultiert dies in der längeren Trainingsphase des Algorithmus, was aber aufgrund des zeitlich begrenzten Rahmen dieser Arbeit nicht durführbar war und deshalb der Ansatz mit lediglich der Kaffee-Anzahl gewählt wurde.\\
+Der erste Modellierungansatz sah anstatt der Kaffe-Anzahl eine Getränkeanzahl vor, bei der zum Kaffee auch die Quantität der getrunkenen \quotes{Clube Mate} und \quotes{Wasser} berücksichtigt werden sollten. Der Grund dafür liegt in dem erheblichen Einfluss des Konsums weiterer Getränke auf das Kaffeetrinkverhalten, wodurch mit solch einer granularen Modellierung genauere Predictions zu erwarten sind. Jedoch steigt somit auch die Anzahl der zu durchlaufenden Zustände und einhergehend die zu erlernenden optimalen Aktionen für die Zustandsübergänge. Letztlich resultiert dies in der längeren Trainingsphase des Algorithmus, was aber aufgrund des zeitlich begrenzten Rahmen dieser Arbeit nicht durchführbar war und deshalb der Ansatz mit lediglich der Kaffee-Anzahl gewählt wurde.\\
 
 TO-DO: feature selection to add
 user versteht zu jeder warum algorithmus so handelt
@@ -384,13 +384,12 @@ user versteht zu jeder warum algorithmus so handelt
 \subsection{Q-Learning}
 \label{subsec:y-ql}
 Der Q-Learning Algorithmus fällt unter die Methodik des TD-Learnings (vgl. \ref{subsec:rl}). Der Algorithmus wartet aus diesem Grund nicht bis zur Terminierung einer Episode, um die Wertfunktion zu schätzen, sondern berechnet diese im nächsten Zeitschritt. Im Gegensatz zu anderen TD-Learning Algorithmen bemisst die Wertfunktion des Q-Learning nicht den aktuellen Zustand, hingegen  beurteilt es die Aktion in diesem Zustand. Hierbei wird von der Aktion-Wert Funktion Q gesprochen. \\\\
-Die Berechnung von Q erfolgt nach folgender Formel:
+Die Berechnung von Q erfolgt nach folgender Formel (\ref{eqn:qval}):
 \begin{equation}
 	\label{eqn:qval}
 	$Q(s_t,a_t)\;\leftarrow\;Q(s_t,a_t) + \alpha [ r_{t+1} + \gamma \max_a
 	Q(s_{t+1},a) - Q(s_t,a_t) ]$
 \end{equation}
-
 \begin{itemize}
 	\item Q(s\textsubscript{t},a\textsubscript{t}): beschreibt den aktuellen Q Wert bzw. Q-Value der Aktion a welche zum Zeitpunkt t im Zustand s ausgeführt wurde
 	\item \textalpha: wird als Lernrate bezeichnet und gibt an in welchem Maße der alte Q-Value durch den Neuen überschrieben wird
@@ -399,7 +398,7 @@ Die Berechnung von Q erfolgt nach folgender Formel:
 	\item max\textsubscript{t}Q(s\textsubscript{t+1},a\textsubscript{t}): ist das Maximum an Reward, der durch die Ausführung der Aktion a' im neuen Zustand s' erfolgt
 \end{itemize}
 
-Abgespeichert werden diese Q-Values in der sogenannten Q-Tabelle \ref{table:qtable}, hierbei gibt es ein 1:1 Mapping von jeweils einem Zustand auf jeweils eine Aktion. 
+Abgespeichert werden diese Q-Values in der sogenannten Q-Tabelle (vgl. \ref{table:qtable}), hierbei gibt es ein 1:1 Mapping von jeweils einem Zustand auf jeweils eine Aktion. 
 
 \begin{table}[h!]
 	\begin{center}
@@ -416,7 +415,7 @@ Abgespeichert werden diese Q-Values in der sogenannten Q-Tabelle \ref{table:qtab
 	\end{center}
 \end{table}
 
-Die Anwendung und der Ablauf wird anhand Pseudocode \ref{ql-psc} abgebildet.
+Die Anwendung und der Ablauf wird anhand des Pseudocodes in Algorithmus \ref{ql-psc} abgebildet.
 
 \begin{algorithm}
 	\caption{Q-learning algorithm}\label{euclid}
