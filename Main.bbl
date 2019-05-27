@@ -11,10 +11,22 @@ Dapp.
 {David Tuesta}.
 \newblock Smart contracts: the ultimate automation of trust?, 2015-10-15.
 
+\bibitem[ES18]{Engemann}
+Christoph Engemann and Andreas Sudmann, editors.
+\newblock {\em Machine Learning - Medien, Infrastrukturen und Technologien der
+  K{\"u}nstlichen Intelligenz}.
+\newblock Digitale Gesellschaft. transcript, Bielefeld, [2018].
+
 \bibitem[{Lui}15]{DL:bafin}
 {Luisa Geiling}.
 \newblock Distributed ledger: Die technologie hinter den virtuellen währungen
   am beispiel der blockchain, 2016-02-15.
+
+\bibitem[Mit04]{mlmitchel}
+Tom~M. Mitchell.
+\newblock {\em Machine learning}.
+\newblock McGraw-Hill series in computer science. McGraw-Hill, New York [u.a.],
+  international ed., [nachdr.] edition, 2004.
 
 \bibitem[{Rap}09]{MINING:kryptopedia}
 {Raphael Honig}.
@@ -23,9 +35,19 @@ Dapp.
 \bibitem[RN:]{RN:ReactNative}
 React native.
 
+\bibitem[SB98]{Sutton}
+Richard~S. Sutton and Andrew~G. Barto.
+\newblock {\em Introduction to Reinforcement Learning}.
+\newblock MIT Press, Cambridge, MA, USA, 1st edition, 1998.
+
 \bibitem[Ste31]{SMPUse}
 Greg Sterling.
 \newblock 90 percent use multiple screens during the same day, 2012-08-31.
+
+\bibitem[Wei01]{MultiagentSystems}
+Gerhard Weiss, editor.
+\newblock {\em Multiagent systems}.
+\newblock MIT Press, Cambridge, Mass. [u.a.], 3. printing edition, 2001.
 
 \bibitem[{Wik}a]{API:Wiki}
 {Wikipedia}.
@@ -54,5 +76,10 @@ Greg Sterling.
 \bibitem[{Wik}g]{UE:Wiki}
 {Wikipedia}.
 \newblock User experience - wikipedia.
+
+\bibitem[Zhe18]{fteng}
+Alice Zheng.
+\newblock {\em Feature engineering for machine learning}.
+\newblock O'Reilly, First edition ; Beijing, April 2018.
 
 \end{thebibliography}

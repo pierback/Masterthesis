@@ -88,31 +88,31 @@ Der Workflow lässt sich in zwei Phasen unterteilen. In der ersten werden die ei
 		\item erstellen \& konfigurieren
 		\item starten
 	\end{legal}
-			      	       	                            
+				      	       	                            
 	\item Fileserver
 	\begin{legal}
 		\item REST Api starten
 		\item UDP Broadcast starten
 	\end{legal}
-			      	       	                            
+				      	       	                            
 	\item Smart Contracts
 	\begin{legal}
 		\item deploy Beveragelist Smart Contract und sende JSON-File mit ABI und Adresse an Fileserver
 		\item deploy CoffeeCoin Smart Contract und sende JSON-File mit ABI und Adresse an Fileserver
 	\end{legal}
-			      	       	                            
+				      	       	                            
 	\item Learner
 	\begin{legal}
 		\item Worker starten
 		\item Watcher starten
 	\end{legal}
-			      	       	                            
+				      	       	                            
 	\item Tablet App
 	\begin{legal}
 		\item installieren
 		\item starten
 	\end{legal}
-			      	       	                                
+				      	       	                                
 \end{legal}
 
 Die Punkte 1. und 2. sowie 4. und 5. können auch parallel ausgeführt bzw. deren Reihenfolge vertauscht werden.\\\\
@@ -155,12 +155,12 @@ Erfolgte eine fehlerlose Abarbeitung dieser Schritte, kann zum eigentlichen Work
 		\item \textit{call} CoffeeCoin
 		\item \textit{call} Beveragelist
 	\end{legal}
-			      	       	                            
+				      	       	                            
 	\item Smart Contracts
 	\begin{legal}
 		\item Beveragelist \textit{triggers} Event
 	\end{legal}
-			      	       	                              
+				      	       	                              
 	\item Learner
 	\begin{legal}
 		\item Watcher:
@@ -259,15 +259,15 @@ Das in \ref{img:gen} abgebildete JSON Objekt zeigt die in der Systemarchitektur 
 
 \begin{itemize}
 	\item[-] chainId: ist eine einzigartige Id für die private Blockchain
-	      	      	      
+	      	      	      	      
 	\item[-] eip150Block/eip155Block/eip158Block: eip steht für \quotes{Ethereum Improvement Proposal}. Diese drei Community getriebenen \quotes{Proposals} beschreiben sog. \quotes{hard forks}, welche dafür sorgen sollten Fehler im Protokoll zu beheben. 
-	      	      	      
+	      	      	      	      
 	\item[-] homesteadBlock: Homestead ist die zweite \quotes{major version} von Ethereum, welche einige Änderungen an dem Protokoll vornahm
-	      	      	      	
+	      	      	      	      	
 	\item[-] difficulty: beschreibt die Schwierigkeitsstufe für einen Miner einen validen Block zu finden. Das heißt je höher der Wert desto mehr Berechnungen müssen statisch durchgeführt werden und desto mehr Zeit wird benötigt, um eine Transaktion zu bestätigen. Im Falle eines Testnets ist es deshalb ratsam einen sehr niedrigen Wert zu wählen
-	      	      	      	
+	      	      	      	      	
 	\item[-] gasLimit: beschreibt das Limit für eine Transaktion wie viel an Gas verbraucht werden darf. 
-	      	      	      
+	      	      	      	      
 	\item[-] alloc: hier können Accounts schon im Voraus mit \quotes{fake ether} befüllt werden.
 	\item[-] nonce: ist ein Zähler für die Anzahl der durchgeführten Transaktionen einer Adresse
 \end{itemize}
@@ -370,7 +370,7 @@ Daraus lässt sich folgender examplarischer Zustand konstruieren:
 \makeatletter
 \@totalleftmargin=0.5cm
 \begin{Verbatim}
-< Wochentag: Montag; Timeslot: 2; Kaffee-Anzahl: 3 >
+	< Wochentag: Montag; Timeslot: 2; Kaffee-Anzahl: 3 >
 \end{Verbatim}
 \endgroup
 Das bedeutet konkret: an einem Montag wurden einschließlich des 2. Timeslots (13-15 Uhr) 3 Kaffee getrunken. Dieser Status gibt jedoch keinen Aufschluss darüber, welcher sein Vorgänger war und welcher sein Nachfolger sein wird. So können einerseits alle Kaffee's nur in Timeslot 2 getrunken worden sein oder in jedem Timeslot (0,1,2) jeweils einen. Andererseits besteht auch die Möglichkeit, dass im Timeslot 2 nochmals ein Kaffee konsumiert wird oder eben erst in einem nachfolgendem Timeslot.\\
@@ -383,9 +383,71 @@ user versteht zu jeder warum algorithmus so handelt
 
 \subsection{Q-Learning}
 \label{subsec:y-ql}
-Im folgenden wird der implementierte Q-learning Algorithmus zuerst allgemein und anschließend im Bezug auf die Problemstellung erläutert.\\
-TO-DO: Alles!!!! \\
+Der Q-Learning Algorithmus fällt unter die Methodik des TD-Learnings (vgl. \ref{subsec:rl}). Der Algorithmus wartet aus diesem Grund nicht bis zur Terminierung einer Episode, um die Wertfunktion zu schätzen, sondern berechnet diese im nächsten Zeitschritt. Im Gegensatz zu anderen TD-Learning Algorithmen bemisst die Wertfunktion des Q-Learning nicht den aktuellen Zustand, hingegen  beurteilt es die Aktion in diesem Zustand. Hierbei wird von der Aktion-Wert Funktion Q gesprochen. \\\\
+Die Berechnung von Q erfolgt nach folgender Formel:
+\begin{equation}
+	\label{eqn:qval}
+	$Q(s_t,a_t)\;\leftarrow\;Q(s_t,a_t) + \alpha [ r_{t+1} + \gamma \max_a
+	Q(s_{t+1},a) - Q(s_t,a_t) ]$
+\end{equation}
 
+\begin{itemize}
+	\item Q(s\textsubscript{t},a\textsubscript{t}): beschreibt den aktuellen Q Wert bzw. Q-Value der Aktion a welche zum Zeitpunkt t im Zustand s ausgeführt wurde
+	\item \textalpha: wird als Lernrate bezeichnet und gibt an in welchem Maße der alte Q-Value durch den Neuen überschrieben wird
+	\item r\textsubscript{t+1}: ist der Reward zum Zeitpunkt t+1, nachdem im Zustand s die Aktion a ausgeführt worden ist
+	\item \textgamma: ist der Diskontierungsfaktor und wird als Gewichtung für zukünftige Rewards verstanden 
+	\item max\textsubscript{t}Q(s\textsubscript{t+1},a\textsubscript{t}): ist das Maximum an Reward, der durch die Ausführung der Aktion a' im neuen Zustand s' erfolgt
+\end{itemize}
+
+Abgespeichert werden diese Q-Values in der sogenannten Q-Tabelle \ref{table:qtable}, hierbei gibt es ein 1:1 Mapping von jeweils einem Zustand auf jeweils eine Aktion. 
+
+\begin{table}[h!]
+	\begin{center}
+		\caption{Exmplarische Q-Tabelle}
+		\begin{tabular}{| l | l | l | l |}
+			\hline
+			    & a1  & a2   & a3  \\ \hline
+			s1  & 0.1 & -0.2 & 1.2 \\ \hline
+			s2  & 0.4 & -0.5 & 0.8 \\ \hline
+			s3  & 1.1 & -0.3 & 0.7 \\ \hline
+			... & ... & ...  & ... \\ \hline
+		\end{tabular}
+		\label{table:qtable}
+	\end{center}
+\end{table}
+
+Die Anwendung und der Ablauf wird anhand Pseudocode \ref{ql-psc} abgebildet.
+
+\begin{algorithm}
+	\caption{Q-learning algorithm}\label{euclid}
+	\label{ql-psc}
+	\begin{algorithmic}[1]
+		\State Initialize Q(s,a), for all s \textepsilon S,a \textepsilon A(s) and Q(terminal-state,·) = 0
+		\Repeat (for each episode):
+		\State Initialize s
+		\Repeat (for each episode):
+		\State Choose A from s using policy derived from Q (e.g., greedy)
+		\State Take action A, observe R, s'
+		\State $Q(s_t,a_t)\;\leftarrow\;Q(s_t,a_t) + \alpha [ r_{t+1} + \gamma \max_a
+		Q(s_{t+1},a) - Q(s_t,a_t) ]$
+		\State s $\leftarrow $ s' 
+		\Until s is terminal
+	\end{algorithmic}
+\end{algorithm}
+
+Zum Start wird der Q-Table initialisiert, indes jedes Feld eines Zustand-Aktions-Paars auf '0' gesetzt wird. Im Anschluss wird ein Durchlauf mit einer bestimmten Anzahl an Episoden gestartet. Hierbei wird zunächst der aktuelle Zustand initialisiert bzw. beobachtet und daraufhin eine weitere Schleife betreten, welche solange durchlaufen wird bis der Zustand s terminiert. Als nächstes wird eine Aktion a anhand der aktuellen Strategie ausgewählt. Diese Aktion wird ausgeführt und der resultierende Reward, sowie der neue Zustand werden detektiert. Anhand dieser Beobachtung wird mit der Formel (vgl. \ref{qval:formula}) der neue Q-Value berechnet und die Q-Tabelle upgedatet. Zum Schluss wird der neue Zustand s' als der 
+aktuelle Zustand s gesetzt und eine neue Iteration beginnt. \cite{Sutton, mlmitchel, MultiagentSystems} \\\\
+Der gerade eben beschrieben Algorithmus findet sich in einer abgewandelten Form in der Implementierung des \quotes{Learners} wieder. So wird eine Aktion nicht immer nach dem greedy-Prinzip der Reward-Maximierung ausgewählt, sondern nach der Methodik des \textepsilon-greedy. Dabei beschreibt die Variable \textepsilon einen Wert zischen '0' und '1' und gibt dadurch das Verhältnis zwischen Exploration und Exploitation an - in der Regel ist der Wert von \textepsilon eher klein. So wird im Falle von \text{MaxQ} stets die Aktion a ausgeführt welche in Zustand s den größten Reward verspricht - auch als greedy Strategie bekannt. Bei \textepsilon-greedy jedoch, wird zu einem gewissen Anteil - definiert durch das \textepsilon - nicht immer die Aktion ausgewählt welche den größten Reward verspricht, sondern eine Aktion zufällig selektiert,  obgleich des erwarteten Rewards. Somit wird eine Erforschung des Zustandsraum durch den Lernagenten sichergestellt und eine Beschränkung auf lediglich bekannte Aktionen und Zustände vermieden. \\
+Eine Besonderheit der Implementierung liegt in der Vakanz der Berücksichtigung von Folgezuständen in der Berechnung des Q-Values.
+\begin{equation}
+	\label{eqn:bandit}
+		$Q(s_t,a_t)\;\leftarrow\;Q(s_t,a_t) + \alpha [ r_{t+1} - Q(s_t,a_t) ]$
+\end{equation}
+
+Aufgrund der In­de­pen­denz der Zustände untereinander, ist das Verfolgen einer Strategie und das Einbeziehen der Folgezustände in die Berechnung der Q-Werte nicht notwendig. Der Fokus wird dadurch nur auf den Zustand als solches gelegt und die Annäherung des \quotes{wahren} Q-Wertes indessen einzig anhand des Rewards r\textsubscript{t+1} durchgeführt. \\
+Diese Form der Problemstellung wird auch als \textit{n-armiger Bandit} Problem bezeichnet. Dieses ist ein klassisches Problem des Reinforcement Learning, welches das Dilemma zwischen Exploration und Exploitation aufdeckt. Es beschreibt das Spielen an mehreren (n) Glücksspielautomaten, deren einzige Aktion die Betätigung des Hebels ist. Das Ziel das Spielers ist es seine Belohnung zu maximieren (Exploitation) und wird deswegen nach jeder Aktion vor die Entscheidung gestellt, ob der Wechsel zu einem anderen Automat einen größeren Gewinn für ihn bedeutet (Exploration) oder ob er den aktuellen beibehält. \\
+Die Analogie zum Lernproblem besteht in der Abbildung des unmittelbaren Rewards auf die gewählte Aktion. Eine Aktion wird nie anhand von nachfolgenden Aktionen bewertet, sondern einzig anhand der Belohnung nach ihrer Ausführung. Außerdem handelt es sich in beiden Fällen um ein nichtdeterministisches Lernproblem, bei welchen die Ausführung einer Aktion in einem bestimmten Zustand stets einen Reward nach einer Wahrscheinlichkeitsverteilung nach sich zieht und somit eine hundertprozentige Vorhersage der zu erhaltenden Belohnung nicht möglich ist. \cite{Sutton}
+	
 \subsection{Lernprozess \& Ablauf}
 \label{subsec:learning}
 
@@ -409,18 +471,18 @@ Dies hat für den \quotes{Worker} zur Folge, dass zum einen am Anfang jedes Tage
 Dies lässt sich veranschaulicht folgendermaßen darstellen:
 \begin{itemize}
 	\item Evaluierung \& Vorhersage: 
-	\begin{itemize}
-		\item User führt Transaktion durch
-		\item Timeslot wechselt
-	\end{itemize}
+	      \begin{itemize}
+	      	\item User führt Transaktion durch
+	      	\item Timeslot wechselt
+	      \end{itemize}
 	\item Evaluierung:
-	\begin{itemize}
-		\item am Ende von T3
-	\end{itemize}
+	      \begin{itemize}
+	      	\item am Ende von T3
+	      \end{itemize}
 	\item Vorhersage:
-	\begin{itemize}
-		\item am Anfang von T0
-	\end{itemize}
+	      \begin{itemize}
+	      	\item am Anfang von T0
+	      \end{itemize}
 \end{itemize}    
 
 

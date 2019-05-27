@@ -102,9 +102,34 @@ urlcolor=ExterneLinkfarbe]{hyperref}
 
 \newlist{legal}{enumerate}{10}
 \setlist[legal]{label*=\arabic*.}
+	
+\usepackage[euler]{textgreek}
+
 
 \DeclareUnicodeCharacter{2212}{\textminus}
 
 \usepackage{varwidth}
 \usepackage{verbatimbox}
 \usepackage{fancyvrb}
+\usepackage{algorithmicx}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{subfig}
+
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% \usepackage[pdftex,active,tightpage]{preview}
+% \setlength\PreviewBorder{2mm}
+
+
+% \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+% \usepackage{amssymb,amsmath,amsfonts} % nice math rendering
+% \usepackage{braket} % needed for \Set
+
+
+% \DeclareCaptionFormat{myformat}{#3}
+% \captionsetup[algorithm]{format=myformat}
+% \DeclareMathOperator*{\argmax}{arg\,max}

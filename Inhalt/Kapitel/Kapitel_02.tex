@@ -40,31 +40,44 @@ Die große Community, der Opensource Ansatz, die Verfügkbarkeit von Libraries i
 
 \section{Machine Learning}
 \subsection{"Uberblick}
+
+Der Fortschritt in der Entwicklung von Machine Learning Algorithmen in den letzten Jahren haben dazu geführt, dass Algorithmen in vielerlei Bereiche des Alltags Einzug gefunden haben. Vor allem bei Aufgaben bei denen eine große Menge an Daten an vorhanden ist, werden diese Algorithmen verwendet, um relevante Informationen daraus zu extrahieren. \\
+Mit dem Anstieg der Digitalisierung entstehen immer mehr Datensätze von solch enormer Größe. Sei es durch die Vernetzung von Geräten und Sensoren im Bereich des IoT oder auch das Sammeln von Nutzerdaten durch Smartphone-Apps, die Intention besteht stets in der Erlangung eines besseren Verständnis für eine konkrete Problemstellungen in der realen Welt. \\
+Aufgrund dessen ergeben sich eine Vielzahl an Anwendungsfelder für Machine Learning Algorithmen.\\
+Eines davon fällt unter die Begrifflichkeit Data Mining. Hierbei erfolgt eine Entscheidungsfindung durch den Algorithmus anhand von Datenaufzeichnung in einem bestimmten Gebiet. Als Beispiel wäre hier die Analyse von Krankenakten zu nennen, welche zu einem besseren Verständnis von Krankheitsbildern, sowie einer genaueren Diagnose führen soll. \\
+Ein weiteres Anwendungsgebiet sind Problemstellungen, deren Lösung nicht durch eine (klassisch) imperativ implementierte Software gefunden werden kann.
+Dies ist dann der Fall wenn die Anwendung aufgrund deren enormen Vielzahl nicht alle möglichen Status abbilden kann. Zu nennen sind hier die Spracherkennung oder auch das autonome Fahren, welche schlichtweg nur mit Machine Learning realisierbar sind.\\
+In die Kategorie des nächsten Gebietes, fällt auch die Problemstellung dieser Arbeit. Es handelt sich um die Personalisierung (\quotes{customization}) von Software-Anwendungen und Services. Dabei wird Machine Learning dazu verwendet, um das Verhalten der User besser zu verstehen. Die gesammelten Nutzerdaten werden analysiert und Präferenzen der User aufgrund ihres Online-Verhaltens abgeleitet. So werden zum Beispiel im Falle von Facebook oder Google, dadurch gezielt Werbeanzeigen platziert und auf den User abgestimmt.\cite{mlmitchel} \\\\
+Somit eignet sich sich je nach Anwendungsgebiet und Problemstellung unterschiedliche Typen von Machine Learning Algorithmen. 
+Eine inhärente Eigenschaft eines Machine Learning Algorithmus ist die Notwendigkeit eines Input \textit{Y} in Form von Features. Ein Feature ist eine numerische Repräsentation eines Teilaspekts der Inputdaten. Dabei ist die Konkatenation dieser auch als Feature Vektor bekannt. Machine Learning beschreibt somit die Identifikation von Strukturen und Muster auf Basis einer Kollektion von Feature Vektoren. \cite{fteng} \\\\
+Generell lässt sich eine Unterteilung der Machine Learning Algorithmen in drei Typen machen. Dabei erfolgt eine Unterscheidung aufgrund Art des Lernprozesses. \\
+Die wohl bekannteste Kategorie ist das Supervised Learning. Algorithmen welche unter diesen Teilbereich fallen, haben das Ziel für einen Input X einen Output Y zu finden. Hierfür wird diesen in der Lernphase ein Datensatz vorgelegt, bei welchem diese Abbildung (X $\rightarrow$ Y) bereits vorhanden ist und die Algorithmen sich somit Wissen aneignen können. Nach dem erfolgreichen Durchlauf der Lernphase sind die Algorithmen dazu in der Lage bei Eingabe von unbekannten Input-Daten, basierend auf dem angeeigneten Wissen, eine Generalisierung durchzuführen und einen Output Y (Labels) für X zu liefern. \\
+Der Nachteil dieser Algorithmen liegt in der Aufbereitung und Bereitstellung dieser Lerndaten, welche in der Regel manuell erstellt werden müssen. \cite{Engemann}\\\\
+Im Kontrast dazu ist das Unsupervised Learning zu verstehen. Diese Algorithmen benötigen zum Lernen nur einen Input X im Datensatz. Denn diese können trotz fehlender Labels im Datensatz statistische Strukturen aufdecken bzw. ein Modell für diesen Datensatz erarbeitet. Beispiele hierfür sind das Clustering (k-Means) der Daten oder die Reduktion (PCA) zu nennen. \cite{Engemann,mlmitchel, Sutton}\\\\
+Ein weiterer Lernansatz welcher sich zwischen den beiden eben genannten Kategorien einreiht, wird als Reinforcement Learning bezeichnet und wird im nächsten Unterkapitel genauer betrachtet.
+
 \subsection{Reinforcement-Learning}
-\begin{itemize}
-    \item kein Lehrer dafür sensomotorische Verbindung zur Umgebung
-    \item Lernen von Information über Ursache und Wirkung, Konsequenzen
-    \item lernen der benötigten Schritte zum Erreichen des Ziels
-\end{itemize}
-
-Das Grundprinzip des Reinforcement-Learning besteht darin bestimmte Situationen auf Aktionen zu projezieren, um dabei den numerischen Reward des Agenten zu maximieren. Diese Aktionen werden dem Agenten jedoch nicht durch eine \quotes{Superviser-Instanz} mitgeteilt, sondern dieser versucht durch die \quotes{Trial and Error} Methodik herauszufinden, welche Aktion in welchem Zustand  den größten Reward zur Folge hat. Dabei können diese Aktionen nicht nur die Belohnung des Agenten beeinflussen, sondern zudem die Umgebung in der er sich bewegt und dadurch auch den Folgezustand. \\
-Diese Konzpet der Reward-Maximierung resultiert in dem Tradoff zwischen \textit{Exploration} und \textit{Exploitation}. \textit{Exploration} beschreibt den Versuch mehr Information über die Umgebung zu erlangen, indem die Reward-Maximierung außer Acht gelassen und eine Aktion zufällig ausgewählt wird, in der Hoffnung den bisherigen Reward zu übertreffen. Im Gegenteil dazu spezifiziert \textit{Exploitation} die Maximierung des Rewards, indes der Agent stets auf die, in einem bestimmten Zustand, bestbewertete Aktion zurückgreift.
-Je nach Algorithmus und Lernproblem variert das Verhältnis der beiden, welches durch eine (iterative) Justierung der Parameter anpassen zu gilt. \\
+\label{subsec:rl}
+Das Grundprinzip des Reinforcement-Learning besteht darin bestimmte Situationen auf Aktionen zu projizieren, um dabei den numerischen Reward des Agenten zu maximieren. Diese Aktionen werden dem Agenten jedoch nicht durch eine \quotes{Superviser-Instanz} mitgeteilt, sondern dieser versucht durch die \quotes{Trial and Error} Methodik herauszufinden, welche Aktion in welchem Zustand  den größten Reward zur Folge hat. Dabei können diese Aktionen nicht nur die Belohnung des Agenten beeinflussen, sondern zudem die Umgebung in der er sich bewegt und dadurch auch den Folgezustand. \\
+Dieses Konzept der Reward-Maximierung resultiert in dem Tradeoff zwischen \textit{Exploration} und \textit{Exploitation}. \textit{Exploration} beschreibt den Versuch mehr Information über die Umgebung zu erlangen, indem die Reward-Maximierung außer Acht gelassen und eine Aktion zufällig ausgewählt wird, mit dem Ziel den bisherigen Reward zu übertreffen. Im Gegenteil dazu spezifiziert \textit{Exploitation} die Maximierung des Rewards, indes der Agent stets auf die, in einem bestimmten Zustand, bestbewertete Aktion zurückgreift.
+Je nach Algorithmus und Lernproblem variiert das Verhältnis der beiden, welches durch eine (iterative) Justierung der Parameter anzupassen gilt. \\
 Durch die Wechselwirkung der beiden ist es die Aufgabe des Agenten eine Strategie zu finden die letztlich den maximalen Reward garantiert, indem es sein Verhalten in den jeweiligen Zuständen bereits vorgibt. \\
-Dabei gilt es vorallem zu beachten ob es sich bei dem Lernproblem um ein determistisches oder nichtdeterministisches handelt. Determistisch bedeutet, es wird stets die gleiche Aktion in einem bestimmten Zustand gewählt, wohingegen nichtdeterministisch lediglich eine Wahrscheinlichkeitsverteilung beschreibt, anhand der Agent in einem Zustand entscheidet, welche Aktion auszuwählen ist. 
-//TODO: Elemente des Bestärkenden Lernen
-%
+Dabei gilt es vor allem zu beachten, ob es sich bei dem Lernproblem um ein deterministisches oder nichtdeterministisches handelt. Deterministisch bedeutet, es wird stets die gleiche Aktion in einem bestimmten Zustand gewählt, wohingegen nichtdeterministisch lediglich eine Wahrscheinlichkeitsverteilung beschreibt, anhand der Agent in einem Zustand entscheidet, welche Aktion auszuwählen ist. \\\\
+Im Allgemeinen lassen sich folgende inhärente Eigenschaften an Reinforcement Learning Algorithmen feststellen:
 \begin{itemize}
-    \item learn how to map situations to actions --> maxmize numerischen Reward
-    \item learner not told which actions to take
-    \item discover which actions yield the most reward
-    \item action not only affect reward also next situation
-    \item trial and error search and delayed reward
-    
-    \item optimal control of incompletely-known markov decision processes
-    \item agent must have a goal relating to the state of env
-    \item sensation, action, goal
+    \item Agent: lernendes System, dessen Ziel es ist seine Belohnung zu maximieren, indem es seine Umgebung wahrnimmt und mittels Aktionen beeinflusst
+    \item Umgebung: diese beschreibt Bestandteile außerhalb des lernenden Systems (andere Agenten, Programme, Menschen etc.) und ist entweder von deterministischer oder nichtdeterministischer Natur
+    \item Reward: numerischer Wert der die Nützlichkeit einer Aktion im aktuellen Zustand beschreibt und dadurch als direktes Feedback für den Agenten zu sehen ist
+    \item Wertfunktion: ist die Akkumulation aller erhaltenen Belohnungen, startend bei einem bestimmten Zustand bis hin zum Ende des Experiments und stellt somit eine Schätzung bezüglich der Wertigkeit dieses Zustandes dar
+    \item Strategie: definiert das Verhalten des Agenten zu einem bestimmten Zeitpunkt bzw. welche Aktionen in welchen Zuständen ausgeführt wird
+    \item Umgebungsmodell: ist die Abbildung des Verhaltens der Umgebung, um kommende Zustände und Belohnung vorherzusagen und auf dieser Basis eine geeignete Strategie zu finden
 \end{itemize}
-
-From the preceding discussion, it should be clear that reinforcement learning relies heavily on the concept of state
+Jedoch sind nicht alle Reinforcement Algorithmen gleich, sondern in ihrer Definition und Umsetzung der eben genannten Eigenschaften (sehr) unterschiedlich. Eine Kategorisierung wird in der Regel anhand der Berechnung der Wertfunktion gemacht und dadurch ergeben sich drei verschiedene Klassen an Reinforcement Algorithmen. Diese differieren durch verschiedene Lösungsansätze in der Berechnung der Wertfunktion. \\\\
+Als erste Kategorie ist die Dynamische Programmierung (DP) zu nennen.
+Diese Algorithmen sind mathematisch präzise, benötigen dafür aber ein perfektes Umgebungsmodell, welches bereits die Rewards und Übergangswahrscheinlichkeiten aller Zustände beinhaltet. So beruht die Berechnung der Wertfunktion auf dem Markow-Entscheidungsproblem (MEP oder auch MDP \textit{Markov decision process}). Dieses Modell erlaubt die Erarbeitung einer Strategie zur Reward-Maximierung, unter der Berücksichtigung der bekannten Übergangswahrscheinlichkeiten und den erwarteten Rewards. 
+Das ist auch der große Nachteile dieser Methodik, da diese Berechnungen sehr rechenaufwändig sind und zudem ein perfektes Umgebungsmodell in den meisten Fällen nicht vorhanden ist.\\\\
+Unter die nächste Kategorie fallen die Monte Carlo (MC) Methoden. 
+Im Gegensatz zur Dynamische Programmierung berechnen diese lediglich eine Schätzung der Wert-Funktion und finden aufgrund dessen die optimale Strategie. Außerdem benötigen diese auch kein Vorwissen über die Umgebung, sondern lernen durch die Interaktion mit der Umgebung, die Abfolge von Zuständen und Aktionen, sowie deren Rewards. Bei der Berechnung der Wertfunktion wird stets bis zum Ende einer Episode gewartet und eine Mittelung über alle erhaltenen Rewards durchgeführt. Dies funktioniert jedoch nur bei Problemstellungen bei denen Episoden auch terminieren. Somit ist es auch ein Nachteil der MC Methoden, da eine Bewertung eines Zustandes immer erst am Ende einer Episode realisiert werden kann.\\\\
+Der letzte Ansatz wird als Temporal Difference (TD) Learning bezeichnet. 
+Hierbei wird im Kontrast zu den MC Methoden nicht erst auf die Beendigung der Episode gewartet, sondern die Wertfunktion eines Zustandes gleich im nächsten Zeitschritt geschätzt. Diese Schätzungen basieren wiederum auf den bereits vorangegangene Schätzungen und nähert sich dadurch inkrementell dem \quotes{wahren} Wert der Wertfunktion an, ohne dabei jedes mal auf die Terminierung einer Episode warten zu müssen. So ist auch bei dieser Art von Algorithmen kein Umgebungsmodell von Nöten, sondern die Bewertungen der Aktionen bzw. werden über die Zeit hinweg erörtert und gesammelt.
 

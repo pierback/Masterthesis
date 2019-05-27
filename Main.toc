@@ -3,50 +3,56 @@
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Aufbau dieser Arbeit}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Problemstellung}{1}{section.1.2}
-\contentsline {section}{\numberline {1.3}Related Work}{3}{section.1.3}
+\contentsline {section}{\numberline {1.3}Related Work}{4}{section.1.3}
 \contentsline {chapter}{\numberline {2}Stand der Technik}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Blockchain}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Funktionsweise \& Konzepte}{5}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Ethereum}{7}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Machine Learning}{9}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}"Uberblick}{9}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Reinforcement-Learning}{9}{subsection.2.2.2}
-\contentsline {chapter}{\numberline {3}System Architektur}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}\IeC {\"U}berblick}{11}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Architektur}{11}{subsection.3.1.1}
-\contentsline {paragraph}{\nonumberline Lehrstuhl Server}{12}{section*.4}
-\contentsline {paragraph}{\nonumberline Learner}{12}{section*.5}
-\contentsline {paragraph}{\nonumberline Fileserver}{14}{section*.6}
-\contentsline {paragraph}{\nonumberline Blockchain}{15}{section*.7}
-\contentsline {paragraph}{\nonumberline Smart Contracts}{16}{section*.8}
-\contentsline {paragraph}{\nonumberline Tablet-App}{16}{section*.9}
-\contentsline {paragraph}{\nonumberline Event}{16}{section*.10}
-\contentsline {subsection}{\numberline {3.1.2}Workflow}{17}{subsection.3.1.2}
-\contentsline {paragraph}{\nonumberline Setup}{17}{section*.11}
-\contentsline {paragraph}{\nonumberline Workflow}{21}{section*.13}
-\contentsline {subsection}{\numberline {3.1.3}Entwicklungsprozess}{23}{subsection.3.1.3}
-\contentsline {section}{\numberline {3.2}Blockchain}{27}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Genesis Block}{27}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}CoffeeCoin}{30}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Beverage-List}{32}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}Learner}{33}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Modellierung}{33}{subsection.3.3.1}
-\contentsline {paragraph}{\nonumberline Zustandsraum}{33}{section*.18}
-\contentsline {paragraph}{\nonumberline Aktionen}{34}{section*.19}
-\contentsline {paragraph}{\nonumberline Reward}{34}{section*.20}
-\contentsline {subsection}{\numberline {3.3.2}Q-Learning}{35}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Lernprozess \& Ablauf}{35}{subsection.3.3.3}
-\contentsline {section}{\numberline {3.4}Tablet-App}{37}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Interface}{37}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Internal Workflow}{42}{subsection.3.4.2}
-\contentsline {chapter}{\numberline {4}Studie}{45}{chapter.4}
-\contentsline {section}{\numberline {4.1}Testphase}{45}{section.4.1}
-\contentsline {section}{\numberline {4.2}Evaluation}{45}{section.4.2}
-\contentsline {chapter}{\numberline {5}Zusammenfassung}{47}{chapter.5}
-\contentsline {section}{\numberline {5.1}Weiterf\"uhrende Forschungsfragen}{47}{section.5.1}
-\contentsline {section}{\numberline {5.2}Ausblick}{47}{section.5.2}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{I}{chapter*.27}
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{III}{chapter*.28}
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{V}{chapter*.29}
+\contentsline {subsection}{\numberline {2.1.2}Ethereum}{8}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Machine Learning}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}"Uberblick}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Reinforcement-Learning}{12}{subsection.2.2.2}
+\contentsline {chapter}{\numberline {3}System Architektur}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}\IeC {\"U}berblick}{17}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Architektur}{17}{subsection.3.1.1}
+\contentsline {paragraph}{\nonumberline Lehrstuhl Server}{18}{section*.4}
+\contentsline {paragraph}{\nonumberline Learner}{18}{section*.5}
+\contentsline {paragraph}{\nonumberline Fileserver}{20}{section*.6}
+\contentsline {paragraph}{\nonumberline Blockchain}{22}{section*.7}
+\contentsline {paragraph}{\nonumberline Smart Contracts}{23}{section*.8}
+\contentsline {paragraph}{\nonumberline Tablet-App}{23}{section*.9}
+\contentsline {paragraph}{\nonumberline Event}{23}{section*.10}
+\contentsline {subsection}{\numberline {3.1.2}Workflow}{24}{subsection.3.1.2}
+\contentsline {paragraph}{\nonumberline Setup}{24}{section*.11}
+\contentsline {paragraph}{\nonumberline Workflow}{30}{section*.13}
+\contentsline {subsection}{\numberline {3.1.3}Entwicklungsprozess}{32}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Blockchain}{37}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Genesis Block}{37}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}CoffeeCoin}{40}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Beverage-List}{42}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Learner}{43}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Modellierung}{44}{subsection.3.3.1}
+\contentsline {paragraph}{\nonumberline Zustandsraum}{44}{section*.18}
+\contentsline {paragraph}{\nonumberline Aktionen}{45}{section*.19}
+\contentsline {paragraph}{\nonumberline Reward}{45}{section*.20}
+\contentsline {subsection}{\numberline {3.3.2}Q-Learning}{46}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Lernprozess \& Ablauf}{50}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Tablet-App}{52}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Interface}{53}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Internal Workflow}{57}{subsection.3.4.2}
+\contentsline {chapter}{\numberline {4}Studie}{61}{chapter.4}
+\contentsline {section}{\numberline {4.1}Simulation}{61}{section.4.1}
+\contentsline {section}{\numberline {4.2}Testphase}{63}{section.4.2}
+\contentsline {section}{\numberline {4.3}Evaluation}{64}{section.4.3}
+\contentsline {paragraph}{\nonumberline Simulation 1}{64}{section*.28}
+\contentsline {paragraph}{\nonumberline Simulation 2}{65}{section*.31}
+\contentsline {paragraph}{\nonumberline Testphase}{66}{section*.32}
+\contentsline {paragraph}{\nonumberline User 1}{66}{section*.33}
+\contentsline {paragraph}{\nonumberline User 2}{68}{section*.34}
+\contentsline {chapter}{\numberline {5}Zusammenfassung}{69}{chapter.5}
+\contentsline {section}{\numberline {5.1}Weiterf\"uhrende Forschungsfragen}{69}{section.5.1}
+\contentsline {section}{\numberline {5.2}Ausblick}{69}{section.5.2}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{I}{chapter*.35}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{III}{chapter*.36}
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{V}{chapter*.37}
 \contentsline {chapter}{\numberline {A}Anhang A}{VII}{appendix.A}
 \contentsline {chapter}{\numberline {B}Anhang B}{IX}{appendix.B}
