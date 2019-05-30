@@ -1,20 +1,24 @@
 \chapter{Zusammenfassung}
 \label{kap:Kapitel05}
-%
-\section{Weiterf\"uhrende Forschungsfragen}
-%
-\begin{itemize}
-    \item anderer algorithmus sarsa
-    \item Decision Trees besseres ergebnis?
-    \item offline learning from bchain logs --> reinforcement oder unsupervised
-    \item algorithmus daten auch auf bchain speichern --> transparenz
-    \item auf der testchain 
-    \item eos
-    \item 
-    \item 
-\end{itemize}
-%
-\section{Ausblick}
-%
+Dieses Kapitel umfasst einerseits das Fazit, in welchem die Kernaspekte der Arbeit nochmalig geschildert werden und die Forschungsfrage beantwortet wird. Anderseits gibt es einen Ausblick bzw. thematisiert mögliche Weiterführungen der Forschungsfrage. 
 
-%
+\section{Fazit}
+\label{sec:fazit}
+Diese Arbeit befasst sich zum Einstieg mit der Kontradiktion zwischen dem Trend der Personalisierung, der in so gut wie allen Bereichen der digitalen Welt Einzug hält, und der einhergehenden Frage nach Datenschutz bzw. Transparenz, was mit den gesammelten Userdaten passiert und auf welche Weise diese Personalisierung entsteht.\\
+Abhilfe soll dabei die Kombination aus Machine learning und Blockchain schaffen. Diese Konstellation ist in der Form neu und weitestgehend unerforscht. Dadurch wurde folgende Forschungsfrage aufgestellt: \quotes{Inwiefern lassen sich Machine Learning und Blockchain verbinden bzw. wie gut lässt sich dies bereits umsetzen?}\\ 
+Die daraus abgeleitete Problemstellung hatte die Entwicklung eines Systems zur Folge, dessen Ziel das Erlernen des Kaffeetrinkverhaltens der Lehrstuhlmitarbeiter durch eine Machine Learning Instanz (Q-Learning) war. Dieser \quotes{Learner} wiederum sollte mit Daten von einer privaten Ethereum Blockchain trainiert werden. \\
+Zur Beantwortung der Forschungsfrage wurde eine Studie durchgeführt.
+Ziel der Studie war es zu erörtern, ob und wie gut der Q-Learning Algorithmus das Kaffeetrinkverhalten der User erlernt. \\
+Im Kontrast dazu wird in der Arbeit eine Anwendung zur Simulation eines virtuellen Users vorgestellt. Die Durchführung mehrerer Simualtionen zeigen, das vollständige Erlernen des Kaffeetrinkverhaltens, kann mit dem implementierten Q-Learning Algorithmus nach ca. 170 Episoden erreicht werden. 
+Die Lernkurve spiegelt dabei im Verlauf ihres Graphen eine Ähnlichkeit zu dem des Logarithmus wieder. \\
+Eine wichtige Rolle spielen hierbei die Modellierung (v.a. Größe des Zustandraums) des Lernproblems, sowie die Konsistenz des Datensatzes, welcher das Verhalten des Users widerspiegelt. \\
+Die Auswertung der Studienergebnisse zeigen grundsätzlich, dass sich die Blockchain Technologie mit Machine Learning kombinieren lassen. Probleme während der Testphase traten vor allem aufgrund der veralteten Hardware bzw. Software (Tablet) in Form von Verbindungsabbrüchen auf. Dies resultierte in der verkürzten Laufzeit der Studie und einer Reduktion der auswertbaren Datensätze.\\ 
+Die Ausgewerteten Datensätze weisen in beiden Fällen charakteristische Eigenschaften des implementierten Q-Learning Algorithmus auf. Dies ist in der Hinsicht als positiv zu bewerten, da es darauf hindeutet, dass der Algorithmus mit Daten von der Blockchain lernen kann. \\
+Wie gut dies jedoch im Vergleich zum herkömmlichen Weg ohne Blockchain (vgl. Simulation) funktioniert, lässt sich, in Anbracht der gerade eben geschilderten Problematik, erst bei einer längeren Laufzeit der Studie vollständig beurteilen. Allerdings lassen die aufgezeigten Tendenzen in den Studienergebnissen vermuten, dass der Lernerfolg wohl im gleichen Maße möglich ist, sollten keine größeren technischen Ausfälle die Qualität der Datensätze beeinträchtigen. 
+\section{Ausblick \& Weiterf\"uhrende Forschungsfragen}
+\label{sec:weiterforschen}
+Auf Basis des entwickelten System können nun Überlegungen durchgeführt werden, inwiefern man z.B. die Forschungsfrage weiter verfolgt, an der Umsetzung der Komponenten Änderungen vornimmt oder eine Abwandlung der Problemstellung durchführt. \\
+Denkbar wäre zum Beispiel ein Wechsel auf die Ethereum Testchain. Dabei wäre zu eruieren inwieweit eine Diskrepanz zu einer privaten Blockchain entsteht. Einerseits hinsichtlich der Einschränkungen, welche durch eine solche public Blockchain vorherrschen, und andererseits ob bzw. wie sich das auf den Lernerfolg des Learners auswirkt. Der Wechsel zu dieser Testchain wäre indessen relativ einfach vorzunehmen und Bedarf nur wenigen Änderungen in der Codebasis. \\ Zudem wäre es interessant zu sehen, ob ein Wechsel von Q-Learning auf DYNA-Q, bei einer identischen Laufzeit der Studie, einen signifikanten Anstieg in der Lernkurve bedeuten würde?\\\\
+Eine möglich Abwandlung der Forschungsfrage bzw. der Problemstellung wäre der Wechsel hin zu einem anderen Machine Learning Paradigma. So bestehe die Möglichkeit das Verhalten durch Unsupervised Learning zu erlernen, in dem die Logs, wie auch bei Singla et. al \cite{Singla:MLSDPUB}, in regelmäßigen Abständen durchsucht und die notwendigen Informationen extrahiert werden. \\
+Hierbei wäre ein Vergleich zu ziehen, ob Unsupervised Learning anstatt Reinforcement Learning die bessere Wahl ist, um das Verhalten der User zu erlernen bzw. inwieweit eine Feature Selection/Extraction notwendig ist?\\\\
+Als eine weiterführende Forschungsfrage ist es auch denkbar zu erforschen, ob es möglich ist einen Machine Learning Algorithmus in Form eines Smart Contracts zu implementieren und darauf zu trainieren? Diese \quotes{Verschmelzung} würde - in Abhängigkeit des gewählten Algorithmus - volle Transparenz für den User bedeuten, da sowohl die Rohdaten als auch die Algorithmusdaten zu jederzeit auf der Blockchain einsehbar sind.

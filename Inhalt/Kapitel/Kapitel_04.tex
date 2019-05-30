@@ -5,10 +5,12 @@
 Die Simulation ist die Grundlage der Evaluation der durchgeführten Studie. Sie soll in erster Linie zeigen, dass die Implementierung des Q-Learning Algorithmus fehlerfrei funktioniert und es für einen Agenten dadurch möglich ist das Verhalten eines Nutzers zu erlernen. \\
 Dazu bedarf es allerdings Testdaten welche das Kaffeetrinkverhalten eines Users repräsentieren. Im \quotes{Simulator} wird es wie folgt umgesetzt.\\
 Abstrakt gesehen wird ein virtueller User anhand von Zufallszahlen einer Normalverteilung simuliert.\\
-Genauer betracht werden die Zeiten an denen dieser virtuelle User einen Kaffee trinkt, basierend auf der Ziehung von Zahlen aus einer Normalverteilung erzeugt.\\ Dabei wird pro Tag (Montag-Freitag) in jedem Timeslot (T0-T4) unter Berücksichtigung einer vordefinierten Abweichung und Erwartungswert (siehe \ref{meandevtable}) die Anzahl der getrunkenen Kaffee ermittelt. Für jeden Kaffee wird zufällig (daraufhin) eine Uhrzeit gezogen, welche sich in dem Zeitraum des Timeslots befindet. Somit wird ein Trainingsset für den Agenten erstellt, welches das Verhalten einer realen Person in einem Zeitraum von einer Woche abbildet.
+Genauer betrachtet werden die Zeiten an denen dieser virtuelle User einen Kaffee trinkt, basierend auf der Ziehung von Zahlen aus einer Normalverteilung erzeugt.\\ Dabei wird pro Tag (Montag-Freitag) in jedem Timeslot (T0-T4) unter Berücksichtigung einer vordefinierten Abweichung und Erwartungswert (siehe \ref{tab:meandevtable}) die Anzahl der getrunkenen Kaffee ermittelt. Für jeden Kaffee wird zufällig (daraufhin) eine Uhrzeit gezogen, welche sich in dem Zeitraum des Timeslots befindet. Somit wird ein Trainingsset für den Agenten erstellt, welches das Verhalten einer realen Person in einem Zeitraum von einer Woche abbildet.
 
 
 \begin{center}
+    \captionof{table}{Normalverteilung Tabelle}
+    \label{tab:meandevtable}
     \begin{tabular}{| l | l | l |}
     \hline
     Timeslot & Erwartungswert & Abweichung \\ \hline
@@ -18,9 +20,8 @@ Genauer betracht werden die Zeiten an denen dieser virtuelle User einen Kaffee t
     3 & 0,2 & 0,5 \\ \hline
     4 & 0,0 & 0,0 \\ \hline
     \end{tabular}
-    \label{meandevtable}
-    \caption{Normalverteilung Tabelle}
 \end{center}
+
 
 Der Pseudocode des Simulators sieht folgendermaßen aus:
 
@@ -93,34 +94,34 @@ Unter Berücksichtigung der in \ref{sec:testphase} geschilderten Probleme, gilt 
 Aus den fünf vorhandenen Datensätzen wurden jeweils zwei zur Auswertung herangezogen, bei denen am häufigsten Feedback durch den User gegeben wurde. \\
 
 
-% \begin{figure}[t!]
-%     \centering
-%     \parbox{6cm}{
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day1.png}
-%     \caption{Montag}
-%     \label{usr1day1}}
-%     \qquad
-%     \begin{minipage}{6cm}
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day2.png}
-%     \caption{Dienstag}
-%     \label{usr1day2}
-%     \end{minipage}
-% \end{figure}
+\begin{figure}[t!]
+    \centering
+    \parbox{6cm}{
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day1.png}
+    \caption{Montag}
+    \label{usr1day1}}
+    \qquad
+    \begin{minipage}{6cm}
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day2.png}
+    \caption{Dienstag}
+    \label{usr1day2}
+    \end{minipage}
+\end{figure}
 
 
-% \begin{figure}[t!]
-%     \centering
-%     \parbox{6cm}{
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day3.png}
-%     \caption{Mittwoch}
-%     \label{usr1day3}}
-%     \qquad
-%     \begin{minipage}{6cm}
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day4.png}
-%     \caption{Donnerstag}
-%     \label{usr1day4}
-%     \end{minipage}
-% \end{figure}
+\begin{figure}[t!]
+    \centering
+    \parbox{6cm}{
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day3.png}
+    \caption{Mittwoch}
+    \label{usr1day3}}
+    \qquad
+    \begin{minipage}{6cm}
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day4.png}
+    \caption{Donnerstag}
+    \label{usr1day4}
+    \end{minipage}
+\end{figure}
 
 \nlparagraph{User 1}
 User 1 wurde erst in der zweiten Woche aktiv, weswegen die Teilnahmedauer nur 2,5 Wochen betrug. 
@@ -130,19 +131,19 @@ Der der enorme Einbruch an Tag 4 von 75\% auf 0\%, schließt auf ein zur Vorwoch
 Trotz der Reduktion der Prediction accuracy an Tag 2, liegt die Erfolgsrate immer noch bei 70\%, was definitiv ein Indiz für den Lernerfolg des Agenten ist. 
 
 
-    % \begin{figure}[t!]
-    %     \centering
-    %     \parbox{6cm}{
-    %     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day5.png}
-    %     \caption{Freitag}
-    %     \label{usr1day5}}
-    %     \qquad
-    %     \begin{minipage}{6cm}
-    %     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1wa.png}
-    %     \caption{Wochenüberlick}
-    %     \label{usr1wa}
-    %     \end{minipage}
-    % \end{figure}
+\begin{figure}[t!]
+    \centering
+    \parbox{6cm}{
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1day5.png}
+    \caption{Freitag}
+    \label{usr1day5}}
+    \qquad
+    \begin{minipage}{6cm}
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr1wa.png}
+    \caption{Wochenüberlick}
+    \label{usr1wa}
+    \end{minipage}
+\end{figure}
     
 
 
@@ -159,45 +160,45 @@ In Anbetracht beider Simulationsergebnisse ist der Lernerfolg bei dieser Problem
 Jedoch muss dies gewissermaßen auch relativiert werden, da die Dauer der Studie sehr kurz war. Die Ergebnisse können eben nur eine Tendenz geben, inwiefern bei einer längeren Dauer der Testphase der Lernerfolg im selben Maße ausfallen würde, wie im Falle der Simulation. \\
 Schlussendlich bedarf es einer weitaus längeren Studiendauer, um einen eindeutigen Beweis zu erlangen, welcher die Forschungsfrage in voller Gänze beantwortet. 
 
-% \begin{figure}[t!]
-%     \centering
-%     \parbox{6cm}{
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day1.png}
-%     \caption{Montag}
-%     \label{usr2day1}}
-%     \qquad
-%     \begin{minipage}{6cm}
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day2.png}
-%     \caption{Dienstag}
-%     \label{usr2day2}
-%     \end{minipage}
-% \end{figure}
+\begin{figure}[t!]
+    \centering
+    \parbox{6cm}{
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day1.png}
+    \caption{Montag}
+    \label{usr2day1}}
+    \qquad
+    \begin{minipage}{6cm}
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day2.png}
+    \caption{Dienstag}
+    \label{usr2day2}
+    \end{minipage}
+\end{figure}
 
 
-% \begin{figure}[t!]
-%     \centering
-%     \parbox{6cm}{
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day3.png}
-%     \caption{Mittwoch}
-%     \label{usr2day3}}
-%     \qquad
-%     \begin{minipage}{6cm}
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day4.png}
-%     \caption{Donnerstag}
-%     \label{usr2day4}
-%     \end{minipage}
-% \end{figure}
+\begin{figure}[t!]
+    \centering
+    \parbox{6cm}{
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day3.png}
+    \caption{Mittwoch}
+    \label{usr2day3}}
+    \qquad
+    \begin{minipage}{6cm}
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day4.png}
+    \caption{Donnerstag}
+    \label{usr2day4}
+    \end{minipage}
+\end{figure}
 
-% \begin{figure}[t!]
-%     \centering
-%     \parbox{6cm}{
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day5.png}
-%     \caption{Freitag}
-%     \label{usr2day5}}
-%     \qquad
-%     \begin{minipage}{6cm}
-%     \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2wa.png}
-%     \caption{Wochenüberlick}
-%     \label{usr2wa}
-%     \end{minipage}
-% \end{figure}
+\begin{figure}[t!]
+    \centering
+    \parbox{6cm}{
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2day5.png}
+    \caption{Freitag}
+    \label{usr2day5}}
+    \qquad
+    \begin{minipage}{6cm}
+    \includegraphics[width=6cm]{./Abbildungen/Kapitel_04/usr2wa.png}
+    \caption{Wochenüberlick}
+    \label{usr2wa}
+    \end{minipage}
+\end{figure}

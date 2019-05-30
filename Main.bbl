@@ -15,6 +15,11 @@ Enée Bussac.
   blockchain.
 \newblock 2018.
 
+\bibitem[CSPK07]{Cios2007}
+Krzysztof~J. Cios, Roman~W. Swiniarski, Witold Pedrycz, and Lukasz~A. Kurgan.
+\newblock {\em Unsupervised Learning: Association Rules}, pages 289--306.
+\newblock Springer US, Boston, MA, 2007.
+
 \bibitem[DAp]{DApp}
 Dapp.
 
@@ -28,6 +33,12 @@ Christoph Engemann and Andreas Sudmann, editors.
   K{\"u}nstlichen Intelligenz}.
 \newblock Digitale Gesellschaft. transcript, Bielefeld, [2018].
 
+\bibitem[IPFa]{IPFSWP}
+Ipfs - content addressed, versioned, p2p file system.
+
+\bibitem[IPFb]{IPFSIO}
+Ipfs is the distributed web.
+
 \bibitem[{Lui}15]{DL:bafin}
 {Luisa Geiling}.
 \newblock Distributed ledger: Die technologie hinter den virtuellen währungen
@@ -38,6 +49,9 @@ Tom~M. Mitchell.
 \newblock {\em Machine learning}.
 \newblock McGraw-Hill series in computer science. McGraw-Hill, New York [u.a.],
   international ed., [nachdr.] edition, 2004.
+
+\bibitem[onl]{online:associationrules}
+association rules (in data mining).
 
 \bibitem[{Rap}09]{MINING:kryptopedia}
 {Raphael Honig}.
@@ -51,9 +65,22 @@ Richard~S. Sutton and Andrew~G. Barto.
 \newblock {\em Introduction to Reinforcement Learning}.
 \newblock MIT Press, Cambridge, MA, USA, 1st edition, 1998.
 
+\bibitem[SBK18]{Singla:MLSDPUB}
+Kushal Singla, Joy Bose, and Sharvil Katariya.
+\newblock Machine learning for secure device personalization using blockchain.
+\newblock pages 67--73, 09 2018.
+
 \bibitem[Ste31]{SMPUse}
 Greg Sterling.
 \newblock 90 percent use multiple screens during the same day, 2012-08-31.
+
+\bibitem[{Vit}20]{PoS:EthWiki}
+{Vitalik Buterin}.
+\newblock Proof of stake faq?, 2019-03-20.
+
+\bibitem[{Vit}26]{PoS:BCMAG}
+{Vitalik Buterin}.
+\newblock What proof of stake is and why it matters?, 2013-08-26.
 
 \bibitem[Wei01]{MultiagentSystems}
 Gerhard Weiss, editor.
@@ -92,5 +119,15 @@ Gerhard Weiss, editor.
 Alice Zheng.
 \newblock {\em Feature engineering for machine learning}.
 \newblock O'Reilly, First edition ; Beijing, April 2018.
+
+\bibitem[ZRM10]{zaidenberg:hal-00788028}
+Sofia Zaidenberg, Patrick Reignier, and Nadine Mandran.
+\newblock {Learning User Preferences in Ubiquitous Systems: A User Study and a
+  Reinforcement Learning Approach}.
+\newblock In Harris Papadopoulos, Andreas~S. Andreou, and Max Bramer, editors,
+  {\em {Artificial Intelligence Applications and Innovations}}, volume 339 of
+  {\em IFIP Advances in Information and Communication Technology}, pages
+  336--343, Larnaca, Cyprus, October 2010. {Harris Papadopoulos and Andreas S.
+  Andreou and Max Bramer}, {Springer}.
 
 \end{thebibliography}

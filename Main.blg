@@ -7,82 +7,100 @@ A level-1 auxiliary file: Inhalt/Abstrakt/Abstrakt.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_01.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_02.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_03.aux
+White space in argument---line 19 of file Inhalt/Kapitel/Kapitel_03.aux
+ : \citation{CRUD:Wiki
+ :                     TO-DO!!!}
+I'm skipping whatever remains of this command
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_04.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_05.aux
 A level-1 auxiliary file: Anhang/AppendixA.aux
 A level-1 auxiliary file: Anhang/AppendixB.aux
 Database file #1: Literatur/Literatur.bib
 Warning--entry type for "REST:Wiki" isn't style-file defined
---line 33 of file Literatur/Literatur.bib
+--line 63 of file Literatur/Literatur.bib
 Warning--entry type for "CRUD:Wiki" isn't style-file defined
---line 42 of file Literatur/Literatur.bib
+--line 72 of file Literatur/Literatur.bib
 Warning--entry type for "API:Wiki" isn't style-file defined
---line 51 of file Literatur/Literatur.bib
+--line 81 of file Literatur/Literatur.bib
 Warning--entry type for "SPOF:Wiki" isn't style-file defined
---line 60 of file Literatur/Literatur.bib
+--line 90 of file Literatur/Literatur.bib
 Warning--entry type for "UE:Wiki" isn't style-file defined
---line 69 of file Literatur/Literatur.bib
+--line 99 of file Literatur/Literatur.bib
 Warning--entry type for "CP:Wiki" isn't style-file defined
---line 78 of file Literatur/Literatur.bib
+--line 108 of file Literatur/Literatur.bib
 Warning--entry type for "PoS:Wiki" isn't style-file defined
---line 86 of file Literatur/Literatur.bib
-Warning--entry type for "PoS:BTCE" isn't style-file defined
---line 94 of file Literatur/Literatur.bib
-Warning--entry type for "MINING:kryptopedia" isn't style-file defined
 --line 116 of file Literatur/Literatur.bib
+Warning--entry type for "PoS:BTCE" isn't style-file defined
+--line 124 of file Literatur/Literatur.bib
+Warning--entry type for "PoS:BCMag" isn't style-file defined
+--line 132 of file Literatur/Literatur.bib
+Warning--entry type for "PoS:EthWiki" isn't style-file defined
+--line 141 of file Literatur/Literatur.bib
+Warning--entry type for "MINING:kryptopedia" isn't style-file defined
+--line 166 of file Literatur/Literatur.bib
 Warning--entry type for "DL:bafin" isn't style-file defined
---line 125 of file Literatur/Literatur.bib
+--line 175 of file Literatur/Literatur.bib
 Warning--entry type for "SC:EconomyOutlook" isn't style-file defined
---line 134 of file Literatur/Literatur.bib
+--line 184 of file Literatur/Literatur.bib
 Warning--entry type for "RN:ReactNative" isn't style-file defined
---line 143 of file Literatur/Literatur.bib
+--line 193 of file Literatur/Literatur.bib
+Warning--entry type for "IPFSWP" isn't style-file defined
+--line 200 of file Literatur/Literatur.bib
+Warning--entry type for "IPFSIO" isn't style-file defined
+--line 207 of file Literatur/Literatur.bib
 Warning--entry type for "DApp" isn't style-file defined
---line 150 of file Literatur/Literatur.bib
+--line 215 of file Literatur/Literatur.bib
+Warning--entry type for "online:associationrules" isn't style-file defined
+--line 222 of file Literatur/Literatur.bib
 Warning--entry type for "SMPUse" isn't style-file defined
---line 157 of file Literatur/Literatur.bib
+--line 247 of file Literatur/Literatur.bib
+Warning--to sort, need author or key in IPFSIO
+Warning--to sort, need author or key in IPFSWP
+Warning--to sort, need author or key in online:associationrules
 Warning--to sort, need author or key in RN:ReactNative
 Warning--to sort, need author or key in DApp
 Warning--empty journal in BitcoinEthNCo
+Warning--empty booktitle in Singla:MLSDPUB
 Warning--can't use both author and editor fields in fteng
-You've used 21 entries,
+You've used 29 entries,
             2543 wiz_defined-function locations,
-            670 strings with 6548 characters,
-and the built_in function-call counts, 5549 in all, are:
-= -- 500
-> -- 178
-< -- 17
-+ -- 52
-- -- 46
-* -- 269
-:= -- 867
-add.period$ -- 49
-call.type$ -- 21
-change.case$ -- 103
-chr.to.int$ -- 15
-cite$ -- 27
-duplicate$ -- 262
-empty$ -- 529
-format.name$ -- 82
-if$ -- 1164
-int.to.chr$ -- 7
+            714 strings with 7664 characters,
+and the built_in function-call counts, 8427 in all, are:
+= -- 775
+> -- 289
+< -- 23
++ -- 90
+- -- 83
+* -- 454
+:= -- 1272
+add.period$ -- 66
+call.type$ -- 29
+change.case$ -- 146
+chr.to.int$ -- 22
+cite$ -- 42
+duplicate$ -- 389
+empty$ -- 784
+format.name$ -- 126
+if$ -- 1800
+int.to.chr$ -- 8
 int.to.str$ -- 0
-missing$ -- 11
-newline$ -- 92
-num.names$ -- 59
-pop$ -- 193
+missing$ -- 15
+newline$ -- 124
+num.names$ -- 76
+pop$ -- 271
 preamble$ -- 1
-purify$ -- 126
+purify$ -- 178
 quote$ -- 0
-skip$ -- 240
+skip$ -- 365
 stack$ -- 0
-substring$ -- 149
-swap$ -- 21
-text.length$ -- 17
-text.prefix$ -- 17
+substring$ -- 288
+swap$ -- 56
+text.length$ -- 23
+text.prefix$ -- 19
 top$ -- 0
-type$ -- 144
-warning$ -- 4
-while$ -- 40
-width$ -- 25
-write$ -- 222
-(There were 18 warnings)
+type$ -- 204
+warning$ -- 8
+while$ -- 61
+width$ -- 34
+write$ -- 306
+(There was 1 error message)

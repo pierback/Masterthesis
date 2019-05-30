@@ -48,7 +48,7 @@ Das \textbf{Smart Contract Deployment Skript}, ist in der Form zwar nicht in der
 
 \nlparagraph{Fileserver}
 Der Fileserver ist eine Go-Anwendung, welche eine rudimentäre REST \cite{REST:Wiki} Api \cite{API:Wiki} zur Verfügung stellt.
-Von den sogenannten CRUD \cite{CRUD:Wiki} Operationen, welche als grundlegend für alle persistenten Datenspeicher angesehen werden können, implementiert dieser nur das \quotes{GET} und das \quotes{PUT}. Sowohl die \quotes{PATCH} als auch die \quotes{DELETE} Operation bieten keinen Mehrwert für die Gesamtarchitektur bzw. den Workflow und sind in Anbetracht dessen nicht implementiert.\\
+Von den bereits erwähnten CRUD \cite{CRUD:Wiki TO-DO!!!} Operationen, welche als grundlegend für alle persistenten Datenspeicher angesehen werden können, implementiert dieser nur das \quotes{GET} und das \quotes{PUT}. Sowohl die \quotes{PATCH} als auch die \quotes{DELETE} Operation bieten keinen Mehrwert für die Gesamtarchitektur bzw. den Workflow und sind in Anbetracht dessen nicht implementiert.\\
 Das bedeutet die Hauptaufgabe des Fileservers besteht darin, Dateien zu empfangen und zu speichern (PUT) und diese auf Anfrage (GET) an einen Antragsteller wieder zu versenden.\\
 Außerdem bietet die Anwendung zusätzlich zur Api einen UDP-Broadcast, welcher v.a. beim Testing und beim Setup eine große Erleichterung darstellt. Dieser Broadcast versendet in seinen Nachrichten lediglich die IP-Adresse des Lehrstuhl-Servers und somit auch seine eigene und die der Blockchain.
 Da die IP-Adresse und der Port des Broadcasts stets gleich bleiben, sich aber die Host-IP der Blockchain und des Fileservers je nach Deployment theoretisch ändern können - was in der Entwicklungsphase sehr oft der Fall war. Müssen sich sowohl der Learner als auch die Tablet-App lediglich auf den Broadcast \quotes{subscriben} und können dadurch die IP der Blockchain und des Fileservers erfahren. Durch diese dynamische Zuweisung der IP-Adresse, müssen keine Updates beim Learner und der App durchgeführt werden, sollte die Blockchain und der Fileserver auf einem anderen Host deployed werden. \\
@@ -331,7 +331,7 @@ Dieser Smart Contract umfasst noch weitere Funktionen, welche aber vor allem zu 
 
 \section{Learner}
 \label{sec:ql}
-Als nächstes wird der sogenannte \quotes{Learner} detailiert betrachtet. Dabei wird zuerst die Problemstellung hinsichtlich des Reinforcement-Learnings modelliert und im Anschluss der verwendete Algorithmus (Q-Learning) allgemein und im Kontext der Problemstellung erläutert. \\
+Als nächstes wird der sogenannte \quotes{Learner} detailliert betrachtet. Dabei wird zuerst die Problemstellung hinsichtlich des Reinforcement-Learnings modelliert und im Anschluss der verwendete Algorithmus (Q-Learning) allgemein und im Kontext der Problemstellung erläutert. \\
 
 \subsection{Modellierung}
 \label{subsec:modulation}
@@ -567,7 +567,7 @@ Basierend auf der Problematik eines unerwarteten Verbindungsabbruch und dem einh
 		\item Wiederhole für jedes Transaktionsfile:
 		\begin{legal}
 			\item Transaktion durchführen
-			\item bei \quotes{Success} Transaktiondatei löschen
+			\item bei \quotes{Success} Transaktionsdatei löschen
 		\end{legal}
 	\end{legal}
 	\item Warten auf Usereingabe:
@@ -579,7 +579,7 @@ Basierend auf der Problematik eines unerwarteten Verbindungsabbruch und dem einh
 	\item Wiederhole für jedes User-Transaktionsfile:
 	\begin{legal}
 		\item Transaktion durchführen
-		\item bei \quotes{Success} Transaktiondatei löschen
+		\item bei \quotes{Success} Transaktionsdatei löschen
 	\end{legal}
 	\item Generierung Transaktionsdaten:
 	\begin{itemize}
@@ -590,9 +590,9 @@ Basierend auf der Problematik eines unerwarteten Verbindungsabbruch und dem einh
 	\end{itemize}
 	\item Transaktion starten:
 	\begin{legal}
-		\item Erstellung der Transaktiondatei
+		\item Erstellung der Transaktionsdatei
 		\item Transaktion durchführen
-		\item bei \quotes{Success} Transaktiondatei löschen
+		\item bei \quotes{Success} Transaktionsdatei löschen
 		\item gehe zu 1.
 	\end{legal} 	
 \end{legal}
