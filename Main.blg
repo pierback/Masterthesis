@@ -7,100 +7,99 @@ A level-1 auxiliary file: Inhalt/Abstrakt/Abstrakt.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_01.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_02.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_03.aux
-White space in argument---line 19 of file Inhalt/Kapitel/Kapitel_03.aux
- : \citation{CRUD:Wiki
- :                     TO-DO!!!}
-I'm skipping whatever remains of this command
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_04.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_05.aux
 A level-1 auxiliary file: Anhang/AppendixA.aux
 A level-1 auxiliary file: Anhang/AppendixB.aux
 Database file #1: Literatur/Literatur.bib
-Warning--entry type for "REST:Wiki" isn't style-file defined
---line 63 of file Literatur/Literatur.bib
-Warning--entry type for "CRUD:Wiki" isn't style-file defined
---line 72 of file Literatur/Literatur.bib
-Warning--entry type for "API:Wiki" isn't style-file defined
---line 81 of file Literatur/Literatur.bib
-Warning--entry type for "SPOF:Wiki" isn't style-file defined
---line 90 of file Literatur/Literatur.bib
-Warning--entry type for "UE:Wiki" isn't style-file defined
---line 99 of file Literatur/Literatur.bib
-Warning--entry type for "CP:Wiki" isn't style-file defined
---line 108 of file Literatur/Literatur.bib
-Warning--entry type for "PoS:Wiki" isn't style-file defined
---line 116 of file Literatur/Literatur.bib
 Warning--entry type for "PoS:BTCE" isn't style-file defined
---line 124 of file Literatur/Literatur.bib
+--line 62 of file Literatur/Literatur.bib
 Warning--entry type for "PoS:BCMag" isn't style-file defined
---line 132 of file Literatur/Literatur.bib
+--line 70 of file Literatur/Literatur.bib
 Warning--entry type for "PoS:EthWiki" isn't style-file defined
---line 141 of file Literatur/Literatur.bib
+--line 79 of file Literatur/Literatur.bib
+Warning--entry type for "ETH20:PRYSM" isn't style-file defined
+--line 88 of file Literatur/Literatur.bib
+Warning--entry type for "Bchain:PubVsPrivate" isn't style-file defined
+--line 98 of file Literatur/Literatur.bib
+Warning--entry type for "Eth:GenFile" isn't style-file defined
+--line 108 of file Literatur/Literatur.bib
+Warning--entry type for "Eth:Guide" isn't style-file defined
+--line 117 of file Literatur/Literatur.bib
+Warning--entry type for "ERC:Github" isn't style-file defined
+--line 126 of file Literatur/Literatur.bib
+Warning--entry type for "ERC:BlockGeeks" isn't style-file defined
+--line 135 of file Literatur/Literatur.bib
+Warning--entry type for "ERC:Wiki" isn't style-file defined
+--line 144 of file Literatur/Literatur.bib
 Warning--entry type for "MINING:kryptopedia" isn't style-file defined
---line 166 of file Literatur/Literatur.bib
+--line 152 of file Literatur/Literatur.bib
 Warning--entry type for "DL:bafin" isn't style-file defined
---line 175 of file Literatur/Literatur.bib
+--line 161 of file Literatur/Literatur.bib
 Warning--entry type for "SC:EconomyOutlook" isn't style-file defined
---line 184 of file Literatur/Literatur.bib
+--line 170 of file Literatur/Literatur.bib
 Warning--entry type for "RN:ReactNative" isn't style-file defined
---line 193 of file Literatur/Literatur.bib
+--line 179 of file Literatur/Literatur.bib
 Warning--entry type for "IPFSWP" isn't style-file defined
---line 200 of file Literatur/Literatur.bib
+--line 186 of file Literatur/Literatur.bib
 Warning--entry type for "IPFSIO" isn't style-file defined
---line 207 of file Literatur/Literatur.bib
+--line 193 of file Literatur/Literatur.bib
 Warning--entry type for "DApp" isn't style-file defined
---line 215 of file Literatur/Literatur.bib
+--line 201 of file Literatur/Literatur.bib
 Warning--entry type for "online:associationrules" isn't style-file defined
---line 222 of file Literatur/Literatur.bib
+--line 208 of file Literatur/Literatur.bib
 Warning--entry type for "SMPUse" isn't style-file defined
---line 247 of file Literatur/Literatur.bib
-Warning--to sort, need author or key in IPFSIO
-Warning--to sort, need author or key in IPFSWP
-Warning--to sort, need author or key in online:associationrules
+--line 233 of file Literatur/Literatur.bib
+Warning--to sort, need author or key in ERC:Wiki
 Warning--to sort, need author or key in RN:ReactNative
+Warning--to sort, need author or key in IPFSWP
+Warning--to sort, need author or key in IPFSIO
 Warning--to sort, need author or key in DApp
+Warning--to sort, need author or key in online:associationrules
+Warning--empty journal in MasteringBlockchain
 Warning--empty journal in BitcoinEthNCo
+Warning--empty journal in BchainPracticalGuide
 Warning--empty booktitle in Singla:MLSDPUB
 Warning--can't use both author and editor fields in fteng
-You've used 29 entries,
+You've used 31 entries,
             2543 wiz_defined-function locations,
-            714 strings with 7664 characters,
-and the built_in function-call counts, 8427 in all, are:
-= -- 775
-> -- 289
-< -- 23
-+ -- 90
-- -- 83
-* -- 454
-:= -- 1272
-add.period$ -- 66
-call.type$ -- 29
-change.case$ -- 146
-chr.to.int$ -- 22
-cite$ -- 42
-duplicate$ -- 389
-empty$ -- 784
-format.name$ -- 126
-if$ -- 1800
-int.to.chr$ -- 8
+            735 strings with 8276 characters,
+and the built_in function-call counts, 8923 in all, are:
+= -- 828
+> -- 298
+< -- 24
++ -- 86
+- -- 85
+* -- 487
+:= -- 1355
+add.period$ -- 71
+call.type$ -- 31
+change.case$ -- 155
+chr.to.int$ -- 30
+cite$ -- 48
+duplicate$ -- 416
+empty$ -- 826
+format.name$ -- 129
+if$ -- 1903
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 15
-newline$ -- 124
-num.names$ -- 76
-pop$ -- 271
+missing$ -- 17
+newline$ -- 133
+num.names$ -- 79
+pop$ -- 276
 preamble$ -- 1
-purify$ -- 178
+purify$ -- 189
 quote$ -- 0
-skip$ -- 365
+skip$ -- 389
 stack$ -- 0
-substring$ -- 288
+substring$ -- 303
 swap$ -- 56
-text.length$ -- 23
+text.length$ -- 24
 text.prefix$ -- 19
 top$ -- 0
-type$ -- 204
-warning$ -- 8
-while$ -- 61
-width$ -- 34
-write$ -- 306
-(There was 1 error message)
+type$ -- 220
+warning$ -- 11
+while$ -- 63
+width$ -- 36
+write$ -- 333
+(There were 30 warnings)

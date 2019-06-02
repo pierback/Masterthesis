@@ -4,32 +4,32 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Systemarchitektur\relax }}{22}{figure.caption.3}
-\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces geth Befehl zum starten der Blockchain\relax }}{31}{figure.caption.12}
-\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces 0x6ecbe1db9ef729cbe972c83fb886247691fb6beb-ql.json Der Name des JSON-Files setzt sich aus der Ethereum-Adresse des Users und der Abk\IeC {\"u}rzung "ql", welches f\IeC {\"u}r Q-Learning steht, zusammenh\IeC {\"a}ngen. \relax }}{39}{figure.caption.14}
-\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces genesis.json JSON-File welches zur Erstellung des Genesis Blocks verwendet wurde. \relax }}{42}{figure.caption.15}
-\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces ERC-20 Interface\relax }}{44}{figure.caption.16}
-\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces CoffeeCoin Interface Auszug\relax }}{46}{figure.caption.17}
-\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces Mitarbeiter Page: kein Mitarbeiter ausgew\IeC {\"a}hlt\relax }}{58}{figure.caption.22}
-\contentsline {figure}{\numberline {\relax 3.8}{\ignorespaces Mitarbeiter Page: Mitarbeiter ausgew\IeC {\"a}hlt\relax }}{58}{figure.caption.23}
-\contentsline {figure}{\numberline {\relax 3.9}{\ignorespaces Drinks Page: kein Getr\IeC {\"a}nk ausgew\IeC {\"a}hlt\relax }}{59}{figure.caption.24}
-\contentsline {figure}{\numberline {\relax 3.10}{\ignorespaces Drinks Page: Getr\IeC {\"a}nk ausgew\IeC {\"a}hlt\relax }}{59}{figure.caption.25}
-\contentsline {figure}{\numberline {\relax 3.11}{\ignorespaces \relax }}{60}{figure.caption.26}
-\contentsline {figure}{\numberline {\relax 3.12}{\ignorespaces \relax }}{61}{figure.caption.27}
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Geth}}{29}{figure.caption.12}
+\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces genesis.json}}{35}{figure.caption.14}
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces geth init}}{36}{figure.caption.15}
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces ERC-20 Interface\relax }}{37}{figure.caption.16}
+\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces CoffeeCoin Interface Auszug\relax }}{38}{figure.caption.17}
+\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces Mitarbeiter Page: kein Mitarbeiter ausgew\IeC {\"a}hlt\relax }}{51}{figure.caption.22}
+\contentsline {figure}{\numberline {\relax 3.8}{\ignorespaces Mitarbeiter Page: Mitarbeiter ausgew\IeC {\"a}hlt\relax }}{51}{figure.caption.23}
+\contentsline {figure}{\numberline {\relax 3.9}{\ignorespaces Drinks Page: kein Getr\IeC {\"a}nk ausgew\IeC {\"a}hlt\relax }}{52}{figure.caption.24}
+\contentsline {figure}{\numberline {\relax 3.10}{\ignorespaces Drinks Page: Getr\IeC {\"a}nk ausgew\IeC {\"a}hlt\relax }}{53}{figure.caption.25}
+\contentsline {figure}{\numberline {\relax 3.11}{\ignorespaces Overlay: Best\IeC {\"a}tigung der Transaktion\relax }}{53}{figure.caption.26}
+\contentsline {figure}{\numberline {\relax 3.12}{\ignorespaces No Internet: keine Internetverbindung verf\IeC {\"u}gbar\relax }}{54}{figure.caption.27}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces \relax }}{69}{figure.caption.29}
-\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces \relax }}{70}{figure.caption.30}
-\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Montag\relax }}{71}{figure.caption.33}
-\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces Dienstag\relax }}{71}{figure.caption.33}
-\contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Mittwoch\relax }}{71}{figure.caption.34}
-\contentsline {figure}{\numberline {\relax 4.6}{\ignorespaces Donnerstag\relax }}{71}{figure.caption.34}
-\contentsline {figure}{\numberline {\relax 4.7}{\ignorespaces Freitag\relax }}{72}{figure.caption.36}
-\contentsline {figure}{\numberline {\relax 4.8}{\ignorespaces Wochen\IeC {\"u}berlick\relax }}{72}{figure.caption.36}
-\contentsline {figure}{\numberline {\relax 4.9}{\ignorespaces Montag\relax }}{74}{figure.caption.38}
-\contentsline {figure}{\numberline {\relax 4.10}{\ignorespaces Dienstag\relax }}{74}{figure.caption.38}
-\contentsline {figure}{\numberline {\relax 4.11}{\ignorespaces Mittwoch\relax }}{74}{figure.caption.39}
-\contentsline {figure}{\numberline {\relax 4.12}{\ignorespaces Donnerstag\relax }}{74}{figure.caption.39}
-\contentsline {figure}{\numberline {\relax 4.13}{\ignorespaces Freitag\relax }}{74}{figure.caption.40}
-\contentsline {figure}{\numberline {\relax 4.14}{\ignorespaces Wochen\IeC {\"u}berlick\relax }}{74}{figure.caption.40}
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces Simulation 1: Lernkurve\relax }}{63}{figure.caption.29}
+\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces Simulation 2: Lernkurve\relax }}{64}{figure.caption.30}
+\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces User 1: Montag\relax }}{65}{figure.caption.33}
+\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces User 1: Dienstag\relax }}{65}{figure.caption.33}
+\contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces User 1: Mittwoch\relax }}{65}{figure.caption.34}
+\contentsline {figure}{\numberline {\relax 4.6}{\ignorespaces User 1: Donnerstag\relax }}{65}{figure.caption.34}
+\contentsline {figure}{\numberline {\relax 4.7}{\ignorespaces User 1: Freitag\relax }}{66}{figure.caption.36}
+\contentsline {figure}{\numberline {\relax 4.8}{\ignorespaces User 1: Wochen\IeC {\"u}berlick\relax }}{66}{figure.caption.36}
+\contentsline {figure}{\numberline {\relax 4.9}{\ignorespaces User 2: Montag\relax }}{68}{figure.caption.38}
+\contentsline {figure}{\numberline {\relax 4.10}{\ignorespaces User 2: Dienstag\relax }}{68}{figure.caption.38}
+\contentsline {figure}{\numberline {\relax 4.11}{\ignorespaces User 2: Mittwoch\relax }}{68}{figure.caption.39}
+\contentsline {figure}{\numberline {\relax 4.12}{\ignorespaces User 2: Donnerstag\relax }}{68}{figure.caption.39}
+\contentsline {figure}{\numberline {\relax 4.13}{\ignorespaces User 2: Freitag\relax }}{68}{figure.caption.40}
+\contentsline {figure}{\numberline {\relax 4.14}{\ignorespaces User 2: Wochen\IeC {\"u}berlick\relax }}{68}{figure.caption.40}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

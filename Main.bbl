@@ -1,9 +1,24 @@
-\begin{thebibliography}{{Rap}09}
+\begin{thebibliography}{{Dem}12}
+
+\bibitem[{Abh}09]{Eth:Guide}
+{Abhishek Chakravarty}.
+\newblock Here’s how i built a private blockchain network, and you can too,
+  2017-09-09.
+
+\bibitem[{Ame}20]{ERC:BlockGeeks}
+{Ameer Rosico}.
+\newblock What is an ethereum token: The ultimate beginner’s guide,
+  2017-09-20.
 
 \bibitem[Ant17]{Antonopoulos:2017:MBP:3164842}
 Andreas~M. Antonopoulos.
 \newblock {\em Mastering Bitcoin: Programming the Open Blockchain}.
 \newblock O'Reilly Media, Inc., 2nd edition, 2017.
+
+\bibitem[Bas18]{MasteringBlockchain}
+Imran Bashir.
+\newblock Mastering blockchain second edition.
+\newblock 2018.
 
 \bibitem[{btc}]{PoS:BTCE}
 {btc-echo}.
@@ -27,17 +42,34 @@ Dapp.
 {David Tuesta}.
 \newblock Smart contracts: the ultimate automation of trust?, 2015-10-15.
 
+\bibitem[{Dem}12]{Bchain:PubVsPrivate}
+{Demiro Massessi}.
+\newblock Public vs private blockchain in a nutshell, 2018-12-12.
+
+\bibitem[ERC25]{ERC:Wiki}
+Erc20 token standard, 2017-06-25.
+
 \bibitem[ES18]{Engemann}
 Christoph Engemann and Andreas Sudmann, editors.
 \newblock {\em Machine Learning - Medien, Infrastrukturen und Technologien der
   K{\"u}nstlichen Intelligenz}.
 \newblock Digitale Gesellschaft. transcript, Bielefeld, [2018].
 
+\bibitem[{Fra}20]{ERC:Github}
+{Francisco Giordano}.
+\newblock openzeppelin-solidity, 2018-09-20.
+
 \bibitem[IPFa]{IPFSWP}
 Ipfs - content addressed, versioned, p2p file system.
 
 \bibitem[IPFb]{IPFSIO}
 Ipfs is the distributed web.
+
+\bibitem[JJB18]{BchainPracticalGuide}
+Paul R.~Allen Joseph J.~Bambara.
+\newblock Blockchain - a practical guide to developing business, law, and
+  technology solutions.
+\newblock 2018.
 
 \bibitem[{Lui}15]{DL:bafin}
 {Luisa Geiling}.
@@ -52,6 +84,10 @@ Tom~M. Mitchell.
 
 \bibitem[onl]{online:associationrules}
 association rules (in data mining).
+
+\bibitem[{Pre}07]{ETH20:PRYSM}
+{Preston Van Loon}.
+\newblock Ethereum 2.0 phase 0 testnet release, 2019-05-07.
 
 \bibitem[{Rap}09]{MINING:kryptopedia}
 {Raphael Honig}.
@@ -87,34 +123,6 @@ Gerhard Weiss, editor.
 \newblock {\em Multiagent systems}.
 \newblock MIT Press, Cambridge, Mass. [u.a.], 3. printing edition, 2001.
 
-\bibitem[{Wik}a]{API:Wiki}
-{Wikipedia}.
-\newblock Application programming interface - wikipedia.
-
-\bibitem[{Wik}b]{PoS:Wiki}
-{Wikipedia}.
-\newblock Cross-platform software - wikipedia.
-
-\bibitem[{Wik}c]{CP:Wiki}
-{Wikipedia}.
-\newblock Cross-platform software - wikipedia.
-
-\bibitem[{Wik}d]{CRUD:Wiki}
-{Wikipedia}.
-\newblock Crud - wikipedia.
-
-\bibitem[{Wik}e]{REST:Wiki}
-{Wikipedia}.
-\newblock Representational state transfer - wikipedia.
-
-\bibitem[{Wik}f]{SPOF:Wiki}
-{Wikipedia}.
-\newblock Single point of failure - wikipedia.
-
-\bibitem[{Wik}g]{UE:Wiki}
-{Wikipedia}.
-\newblock User experience - wikipedia.
-
 \bibitem[Zhe18]{fteng}
 Alice Zheng.
 \newblock {\em Feature engineering for machine learning}.
@@ -129,5 +137,10 @@ Sofia Zaidenberg, Patrick Reignier, and Nadine Mandran.
   {\em IFIP Advances in Information and Communication Technology}, pages
   336--343, Larnaca, Cyprus, October 2010. {Harris Papadopoulos and Andreas S.
   Andreou and Max Bramer}, {Springer}.
+
+\bibitem[{李}05]{Eth:GenFile}
+{李婷婷 Lee Ting Ting}.
+\newblock Beginners guide to ethereum (3) — explain the genesis file and
+  use it to customize your blockchain, 2017-07-05.
 
 \end{thebibliography}
