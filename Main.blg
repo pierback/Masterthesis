@@ -10,7 +10,6 @@ A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_03.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_04.aux
 A level-1 auxiliary file: Inhalt/Kapitel/Kapitel_05.aux
 A level-1 auxiliary file: Anhang/AppendixA.aux
-A level-1 auxiliary file: Anhang/AppendixB.aux
 Database file #1: Literatur/Literatur.bib
 Warning--entry type for "PoS:BTCE" isn't style-file defined
 --line 62 of file Literatur/Literatur.bib
@@ -63,7 +62,7 @@ Warning--empty booktitle in Singla:MLSDPUB
 Warning--can't use both author and editor fields in fteng
 You've used 31 entries,
             2543 wiz_defined-function locations,
-            735 strings with 8276 characters,
+            734 strings with 8256 characters,
 and the built_in function-call counts, 8923 in all, are:
 = -- 828
 > -- 298

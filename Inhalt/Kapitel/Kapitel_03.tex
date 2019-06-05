@@ -42,31 +42,30 @@ Das \textbf{Q-Learning} ist, wie der Name bereits impliziert, für das eigentlic
 \\\\
 Der \textbf{Worker} ist einerseits für die Userverwaltung und andererseits für die, in einem festgelegten Intervall stattfindende, Ausführung des Q-Learning Algorithmus, zuständig. (vgl. Kap. \ref{subsec:learning})
 \\\\
-Der \textbf{Watcher} beobachtet Events, die vom Smart-Contract \textit{Beveragelist} ausgelöst wurden. Die Daten, welches das Event beinhaltet, werden daraufhin verwendet den Q-Learning Algorithmus damit zu \quotes{befüllen} und aufgrund dessen das Trinkverhalten zu erlernen.
+Der \textbf{Watcher} beobachtet Events, die vom Smart-Contract \textit{Beverage-List} ausgelöst wurden. Die Daten, welches das Event beinhaltet, werden daraufhin verwendet den Q-Learning Algorithmus damit zu \quotes{befüllen} und aufgrund dessen das Trinkverhalten zu erlernen.
 \\\\
 Das \textbf{Smart Contract Deployment Skript}, ist in der Form zwar nicht in der Systemarchitektur vorhanden. Da es aber auch ein Submodul des \textit{Learners} und für das gesamte Konstrukt dahingehend essentiell ist, weil es die Smart Contracts auf der Blockchain installiert und im Zuge dessen erst die Verbindung zwischen Blockchain und Learner ermöglicht, wird es in dieser Auflistung trotzdem aufgeführt.
 
 \nlparagraph{Fileserver}
 Der Fileserver ist eine Golang-Anwendung, welche eine rudimentäre REST (REpresentational State Transfer) API (Application Programming Interface) zur Verfügung stellt.
-Von den bereits erwähnten \textit{CRUD} Operationen, welche als grundlegend für alle persistenten Datenspeicher angesehen werden können, implementiert dieser nur das \textit{GET} und das \textit{PUT}. Sowohl die \textit{PATCH} als auch die \textit{DELETE} Operation bieten keinen Mehrwert für die Gesamtarchitektur bzw. den Workflow und sind in Anbetracht dessen nicht implementiert.\\
-Das bedeutet, die Hauptaufgabe des Fileservers besteht darin, Dateien zu empfangen und zu speichern (\textit{PUT}) und diese auf Anfrage (\textit{GET}) an einen Antragsteller wieder zu versenden.\\
+Von den bereits erwähnten CRUD-Operationen, welche als grundlegend für alle persistenten Datenspeicher angesehen werden können, implementiert dieser nur das GET und das PUT. Sowohl die PATCH als auch die DELETE Operation bieten keinen Mehrwert für die Gesamtarchitektur bzw. den Workflow und sind in Anbetracht dessen nicht implementiert.\\
+Das bedeutet, die Hauptaufgabe des Fileservers besteht darin, Dateien zu empfangen und zu speichern (PUT) und diese auf Anfrage (GET) an einen Antragsteller wieder zu versenden.\\
 Außerdem bietet die Anwendung zusätzlich zur API einen UDP-Broadcast, welcher vor allem beim \quotes{Testing} und beim Setup eine große Erleichterung darstellt. Dieser Broadcast versendet in seinen Nachrichten die IP-Adresse des Lehrstuhl-Servers und somit seine eigene, sowie die der Blockchain.\\
 Da die IP-Adresse und der Port des Broadcasts stets gleich bleiben, sich aber die Host-IP der Blockchain und des Fileservers je nach Deployment theoretisch ändern können - was in der Entwicklungsphase sehr oft der Fall war - müssen sich sowohl der Learner als auch die Tablet-App lediglich auf den Broadcast \quotes{subscriben} und können dadurch die IP der Blockchain und des Fileservers erfahren. Durch diese dynamische Zuweisung der IP-Adresse, müssen keine Updates beim Learner und der App durchgeführt werden, sollte die Blockchain und der Fileserver auf einem anderen Host deployed werden. \\
-Aufgrund der Tatsache, dass sich die IP-Adresse des Lehrstuhl-Servers während der Studie nicht ändert, ist der UDP-Broadcast auch nicht in der Abbildung (\ref{img:sysarc}) der Systemarchitektur berücksichtigt worden. Der Anwendungsbereich ist trotz alledem im Bereich der Testphase und auch für die künftige Projekte,bei denen das System Verwendung findet, definitiv vorhanden.
+Aufgrund der Tatsache, dass sich die IP-Adresse des Lehrstuhl-Servers während der Studie nicht ändert, ist der UDP-Broadcast auch nicht in der Abbildung \ref{img:sysarc} der Systemarchitektur berücksichtigt worden. Der Anwendungsbereich ist trotz alledem im Bereich der Testphase und auch für die künftige Projekte,bei denen das System Verwendung findet, definitiv vorhanden.
 
 \nlparagraph{Blockchain}
 Die Blockchain ist eine private, eigens für die Studie erstellte Ethereum-Blockchain, dessen \textit{Genesis-Block} aus dem JSON-File (vgl. Abbildung \ref{img:gen}) generiert wird. Die Erläuterungen zu den jeweiligen Key-Value-Pairs sind unter Kap. \ref{subsec:genesis} zu finden.
 Das Generieren und Starten der Blockchain erfolgt auf dem Lehrstuhlserver.
-Dabei hostet der Server zudem eine sogenannte \textit{full-node} (hier auch \textit{miner} genannt) der Blockchain, welche dafür zuständig ist Transaktionen zu berechnen und zu bestätigen.
-Aus Ressourcengründen ist der \textit{miner} der einzige im Gesamtsystem, was aus theoretischer Sicht einen Single Point of Failure als Nachteil mit sich zieht. Das bedeutet, sollte die \textit{full-node} ausfallen, könnten keine Transaktionen mehr bestätigt werden. Da es weder während der Entwicklungsphase, noch während der Studie zu einem einzigen Ausfall kam, ist dieser Nachteil als sehr klein einzuschätzen, weswegen auch keine weitere \textit{full-node} zum System hinzugefügt wurde. Allerdings besteht der große Vorteil darin, dass Transaktionen sehr schnell bestätigt werden, da es keine weiteren \textit{nodes} gibt, die um die Berechnung eines Blocks konkurrieren. \\
+Dabei hostet der Server zudem eine sogenannte \textit{full-node} (hier auch \quotes{Miner} genannt) der Blockchain, welche dafür zuständig ist Transaktionen zu berechnen und zu bestätigen.
+Aus Ressourcengründen ist der Miner der einzige im Gesamtsystem, was aus theoretischer Sicht einen \quotes{Single Point of Failure} als Nachteil mit sich zieht. Das bedeutet, sollte die full-node ausfallen, könnten keine Transaktionen mehr bestätigt werden. Da es weder während der Entwicklungsphase, noch während der Studie zu einem einzigen Ausfall kam, ist dieser Nachteil als sehr klein einzuschätzen, weswegen auch keine weitere full-node zum System hinzugefügt wurde. Allerdings besteht der große Vorteil darin, dass Transaktionen sehr schnell bestätigt werden, da es keine weiteren \quotes{Nodes} gibt, die um die Berechnung eines Blocks konkurrieren. \\
 Vor allem aus Sicht der User-Experience stellt das einen großen Mehrwert dar, da ein User in wenigen Sekunden erfährt ob seine Transaktion erfolgreich durchgeführt wurde. Dies kann bei anderen Blockchains wie z.B. Bitcoin bis zu 10 Minuten dauern \cite{MINING:kryptopedia}, was im Kontext der Systemarchitektur nicht tragbar wäre.\\\\
-Um letztendlich mit der Blockchain zu kommunizieren und ihr Potential in voller Gänze ausschöpfen zu können, werden auf diese sogenannte \textit{Smart-Contracts} deployed. Im Rahmen der Systemarchitektur sind es zwei dedizierte Smart-Contracts (\textit{Coffe-Coin} \ref{subsec:cc}, \textit{Beverage-List} \ref{subsec:bl}), welche komplett unabhängig voneinander agieren.
+Um letztendlich mit der Blockchain zu kommunizieren und ihr Potential in voller Gänze ausschöpfen zu können, werden auf diese sogenannte \textit{Smart-Contracts} deployed. Im Rahmen der Systemarchitektur sind es zwei dedizierte Smart-Contracts (\textit{Coffee-Coin} \ref{subsec:cc}, \textit{Beverage-List} \ref{subsec:bl}), welche komplett unabhängig voneinander agieren.
 
 
 \nlparagraph{Smart Contracts}
-Die Smart Contracts, welche auf die Blockchain deployed werden, tragen die Titel \textit{Coffe-Coin} und \textit{Beverage-List}.
-Diese decken zwei völlig unterschiedliche Aufgabenbereiche ab, weswegen sie  unabhängig voneinander operieren und dadurch auch keinen Einfluss aufeinander ausüben.\\
-Lediglich der \textit{Beverage-List Contract} löst ein Event aus, sobald eine bestimmte Funktion dessen aufgerufen wird. \\
+Die Smart Contracts, welche auf die Blockchain deployed werden, tragen die Titel \textit{Coffee-Coin} und \textit{Beverage-List}. Diese decken zwei völlig unterschiedliche Aufgabenbereiche ab, weswegen sie  unabhängig voneinander operieren und dadurch auch keinen Einfluss aufeinander ausüben.\\
+Lediglich der \textit{Beverage-List} Contract löst ein Event aus, sobald eine bestimmte Funktion dessen aufgerufen wird. \\
 Die Ausführung (\textit{call}) beider erfolgt jedoch stets von Seiten der \textit{Tablet-App}. Diese ist auch die einzige Instanz, welche in Form von Transaktionen mit der Blockchain interagiert.
 
 \nlparagraph{Tablet-App}
@@ -97,8 +96,8 @@ Der Workflow lässt sich in zwei Phasen unterteilen. In der ersten werden die ei
 				      	       	                            
 	\item Smart Contracts
 	\begin{legal}
-		\item deploy Beveragelist Smart Contract und sende JSON-File mit \textit{ABI} und Adresse an Fileserver
-		\item deploy CoffeeCoin Smart Contract und sende JSON-File mit \textit{ABI} und Adresse an Fileserver
+		\item deploy Beverage-List Smart Contract und sende JSON-File mit \textit{ABI} und Adresse an Fileserver
+		\item deploy Coffee-Coin Smart Contract und sende JSON-File mit \textit{ABI} und Adresse an Fileserver
 	\end{legal}
 				      	       	                            
 	\item Learner
@@ -139,14 +138,14 @@ Sobald 1a) einmal durchgeführt wurde, kann die Blockchain gestartet werden.
 % \end{figure}
 
 Dieser Befehl setzt zum einen weitere Konfigurationsparameter der Blockchain. So wird z.B. festgelegt unter welcher IP-Adresse und Port (\textit{-{}-rpcaddr}, \textit{-{}-rpcport}, \textit{-{}-wscaddr}, \textit{-{}-wsport}) die Blockchain erreichbar ist und welche API-Befehle unter dieser Schnittstelle ausgeführt werden dürfen (\textit{-{}-rpcapi}, \textit{-{}-wsapi}). \\
-Zum anderen wird zugleich eine \textit{full node} gestartet (\textit{-{}-syncmode}), die durch das \quotes{Flag} \textit{-{}-mine} sofort zum \quotes{minen} beginnt.\\
+Zum anderen wird zugleich eine full node gestartet (\textit{-{}-syncmode}), die durch das \quotes{Flag} \textit{-{}-mine} sofort zu minen beginnt.\\
 Des Weiteren werden alle Accounts entsperrt, die unter (\textit{-{}-unlock}) gelistet sind und deren Passwörter in der angegebenen Textdatei bei (\textit{-{}-password}) hinterlegt sind. \\\\
-Damit eine \textit{Node} Daten speichern kann, muss ein Verzeichnis angegeben werden (\textit{-{}-datadir}), in welchem Dateien abgelegt werden können. Hier werden z.B. die Daten der Accounts oder auch die Textdatei mit den Passwörtern (\textit{-{}-password}) gespeichert.\\\\
+Damit eine Node Daten speichern kann, muss ein Verzeichnis angegeben werden (\textit{-{}-datadir}), in welchem Dateien abgelegt werden können. Hier werden z.B. die Daten der Accounts oder auch die Textdatei mit den Passwörtern (\textit{-{}-password}) gespeichert.\\\\
 Wurde die Blockchain in Betrieb genommen, wird im nächsten Schritt die REST API und der UDP Broadcast des Fileservers gestartet. \\
 Daraufhin ist es möglich die beiden Smart Contracts zu deployen. Dabei wird jeweils für 3a) und 3b) das identische Skript mit unterschiedlichen Eingabeparametern ausgeführt. Dieses Skript liest zuerst die Datei des angegebenen Smart Contracts ein und erzeugt daraufhin die Binaries und die \textit{ABI}, welche schlussendlich verwendet werden ein Go Bindingsfile zu generieren.
 Im Anschluss wird ein Go-Skript ausgeführt, welches auf Grundlage des Bindingsfiles den Smart Contract auf der Blockchain installiert und die zurückgelieferte Adresse, sowie die bereits bekannte \textit{ABI} in ein JSON-File packt und an den Fileserver schickt.\\\\
 Wurden die Smart-Contracts erfolgreich deployed, kann der Learner gestartet werden. Dieser \quotes{subscribed} sich im ersten Schritt auf den UDP Broadcast und extrahiert aus den Nachrichten die IP-Adresse der Blockchain und des Fileservers. Anschließend werden sowohl der \textit{Worker} als auch der \textit{Watcher} in Form von \quotes{Goroutines} (nebenläufige Kindprozesse) aktiviert. Der \textit{Worker} iteriert über die Liste aller User und kontaktiert jeweils den Fileserver, ob bereits gelernte Daten für diesen User vorhanden sind. Sollte das Fall sein, initialisiert er damit die Parameter des Q-Learning Algorithmus des jeweiligen Users.\\
-Der \textit{Watcher} schickt ebenfalls eine Anfrage an den Fileserver und bekommt als Antwort die Daten der Smart Contracts. Daraufhin kann er sich mit der Blockchain verbinden und sich auf die Events des \textit{Beveragelist} Smart Contracts subscriben.\\\\
+Der \textit{Watcher} schickt ebenfalls eine Anfrage an den Fileserver und bekommt als Antwort die Daten der Smart Contracts. Daraufhin kann er sich mit der Blockchain verbinden und sich auf die Events des \textit{Beverage-List} Smart Contracts subscriben.\\\\
 Abschließend wird die App auf dem Tablet installiert, sollte sich diese noch nicht auf dem Tablet befinden und daraufhin gestartet. Die Initialisierung erfolgt hierbei nach dem selben Prinzip wie beim Learner. Zuerst wird der UDP Broadcast nach der Server Adresse abgefragt, mit welcher anschließend der Request an den Fileserver geschickt wird, um die benötigten Smart Contract Daten zu bekommen. Im Anschluss werden jene verwendet eine Verbindung zur Blockchain bzw. zu den Smart Contracts herzustellen.
 \\\\
 Erfolgte eine fehlerlose Abarbeitung dieser Schritte, kann zum eigentlichen Workflow übergegangen werden.
@@ -156,13 +155,13 @@ Erfolgte eine fehlerlose Abarbeitung dieser Schritte, kann zum eigentlichen Work
 	\item {App}
 	\begin{legal}
 		\item User wählt Getränk aus
-		\item \textit{call} CoffeeCoin
-		\item \textit{call} Beveragelist
+		\item \textit{call} Coffee-Coin
+		\item \textit{call} Beverage-List
 	\end{legal}
 				      	       	                            
 	\item Smart Contracts
 	\begin{legal}
-		\item Beveragelist \textit{triggers} Event
+		\item Beverage-List \textit{triggers} Event
 	\end{legal}
 				      	       	                              
 	\item Learner
@@ -182,62 +181,9 @@ Erfolgte eine fehlerlose Abarbeitung dieser Schritte, kann zum eigentlichen Work
 \end{legal}
 
 Diese Auflistung beschreibt einen synchronen, erfolgreichen Durchlauf der Systemarchitektur - die Asynchronität des Workers 3b) außer Acht gelassen. Alternative Abläufe sowie Zustände die aus Fehlern resultieren, werden bei den einzelnen Komponenten nochmals genauer betrachtet.\\\\
-Der Workflow wird durch den User angestoßen, indem dieser auf dem Tablet ein Getränk auswählt und eine Transaktion auslöst. Zuerst wird dabei der \textit{CoffeeCoin} Contract aufgerufen und das ausgewählte Getränk bezahlt. Nachdem diese Transaktion erfolgreich bestätigt wurde, wird als nächstes der \textit{Beveragelist} Contract ausgeführt. Die dabei aufgerufene Funktion des Smart Contracts verwendet die übergebenen Daten (Zeit, Getränk, Wochentag, Ethereum-Adresse) und löst damit ein Event aus. \\
-Dieses Event wird vom \textit{Watcher} detektiert und die Daten (Zeit, Getränk, Wochentag, Ethereum-Adresse) daraus extrahiert. Daraufhin wird die \textit{Learn-Methode} des Q-Learning Algorithmus aufgerufen, bei der zuerst die vorherige \textit{Prediction} evaluiert und basierend auf dem aktuellen Zustand eine neue \textit{Prediction} gemacht wird. \\
-Zu diesem synchronen Durchlauf führt der Worker am Ende jedes Timeslots (alle 3h) die \textit{Learn-Methode} für jeden bekannten User aus. Das heißt es werden wie auch beim Watcher die \textit{Predictions} des vorangegangen Timeslots evaluiert, neue \textit{Predictions} für den kommenden Timeslot erstellt und die gelernten Daten als Datei an den Fileserver gesendet.
-
-% \clearpage
-
-% \subsection{Entwicklungsprozess}
-% Abschließend wird der Prozess der Entwicklung geschildert, aus welchem schließlich die finale Version der Systemarchitektur resultierte. \\
-% Der Entwicklungsprozess beinhaltete mehrere Iterationen der einzelnen Komponenten bis hin zum derzeitigen Stand. Das Konzept sah primär die Entwicklung von drei dedizierten Software Anwendungen vor, welche aber im Zuge der Iterationen nochmal in kleinere Module aufgeteilt und ausgelagert wurden. Zudem wurden, um den Workflow und das Testen während der Entwicklungsphase zu erleichtern, Anwendungen entwickelt, welche während der Konzeption in der Art nicht vorgesehen waren, aber partiell Bestandteil der Systemarchitektur wurden. \\
-% So wurde mit zwei separaten Repos gestartet, einerseits für den Learning-Part, welcher anfänglich auch die Smart Contracts umfasste, und andererseits eines für die Tablet-App, welches bereits vor der eigentlichen Konzeption erstellt wurde, um in erster Linie bestehende Crossplattform Frameworks, auf Basis der Kompatibilität und Funktionstüchtigkeit mit Libraries, welche die Kommunikation mit der Blockchain ermöglichen, zu evaluieren. \\
-% Die Wahl fiel letztendlich auf React-Native, welches zwar nur bis zu einer bestimmten Versionsnummer der Web3.js Library von Ethereum vollends kompatibel ist und nur mit einem kleinen Workaround zum Laufen gebracht werden konnte.
-% Jedoch im Vergleich zu anderen Frameworks (z.B. Nativescript) die beste Development-Experience (geringe Lernkurve, gute Dokumentation, CLI) bot und v.a. hinsichtlich der Requirements alle Aufgaben komplett erfüllen konnte, welche die anderen Frameworks in dieser Gänze nicht replizieren konnten. \\
-% Nachdem die erste rudimentäre Version der Tablet-App, welche lediglich eine funktionierende Kommunikation (read/write) mit einem bereits bestehenden Smart-Contract auf einer lokal gehosteten Blockchain bestätigte, erstellt wurde, kam im nächsten Schritt der Learning-Part zum Zuge. \\\\
-% In Anbetracht der kompletten Implementierung des Ethereum Protokolls in Golang und der Schwierigkeiten mit der Javascript Library Web3.js, v.a. im Bezug auf das deployen der Smart-Contracts, aus einem vorangegangen Projekt, fiel die Wahl für diese Instanz auf Golang. \\
-% Zuerst wurde der Q-Learning Algorithmus, welcher für das Erlernen des Kaffee Trinkverhalten zuständig ist, implementiert. Die Problematik bestand zum einen darin mit einer neuen Programmiersprache vertraut zu werden und zum anderen den Workflow hinsichtlich der Problemstellung und des daraus resultierenden Zustandsraums vollends abzubilden. Die Umsetzung des Algorithmus in der Programmiersprache ging relativ einfach von der Hand, was jedoch Probleme bereitete war die Simulation des Workflows, um die Algorithmus Parameter zu justieren und dessen Tauglichkeit bezüglich das Erlernen des Nutzerverhaltens zu testen.\\\\
-% Im Anschluss wurde ein erster Smart-Contract erstellt und via dem “go-ethereum” package deployed, woraus das erste Smart-Contract Bindingsfile resultierte, welches für die Kommunikation mit dem Smart Contract vonnöten ist. Da mit jedem neuem Deployment eines Smart Contracts eine neue Smart Contract Adresse und eine neue \textit{ABI} hervorgeht, welche wiederum beide im Source Code für die Kommunikation mit dem Smart Contract, über alle Instanzen hinweg, die mit einem Smart Contract interagieren wollen, hinterlegt sein müssen, wurde ein kleiner HTTP-Fileserver entwickelt, auf dem diese Informationen gespeichert und gelesen werden können. \\
-% Bei jedem neuen Deployment werden daraufhin die Smart-Contract Adresse und die generierte \textit{ABI} in ein JSON-File gepackt und an den Server geschickt. So konnte während der Entwicklung enorm an Zeit gespart werden, da sich sowohl die Learning-Instanz als auch die App, die benötigten Daten vom Server holen und somit ein ständiges “Hardcodieren” dieser Daten vermieden werden konnte. \\
-% Aus diesem Grund findet der Fileserver auch Einzug in die finale Systemarchitektur, da er als persistente Datenquelle eine enorme Erleichterung nicht nur im Entwicklungsprozess, sondern auch im “Live-System” darstellt. \\
-% Zudem wird der Fileserver auch für die Verwaltung der Algorithmus-Daten verwendet. Dabei wird bei jedem Worker-Durchlauf (vgl. Kap. \ref{subsec:learning}) für jeden Nutzer ein JSON-File erzeugt, welches folgende Key-Value-Pairs beinhaltet (vgl. Kap. Abbildung \ref{img:abb2}):
-% \begin{itemize}
-% 	\item qt: die aktuelle Q-Tabelle des Users
-% 	\item ep: der aktuelle Epsilon-Wert
-% 	\item negs: Anzahl der falschen Predictions in der aktuellen Woche
-% 	\item Wk\_negs: Array von negs über alle Wochen hinweg
-% \end{itemize}
-
-
-% \begin{figure}[th!]
-% 	\centering
-% 	\includegraphics[width=.9\columnwidth]{./Abbildungen/Kapitel_03/usr_json.png}
-% 	\caption{
-% 		0x6ecbe1db9ef729cbe972c83fb886247691fb6beb-ql.json\\
-% 		Der Name des JSON-Files setzt sich aus der Ethereum-Adresse des Users und der Abkürzung "ql", welches für Q-Learning steht, zusammenhängen.
-% 	}
-% 	\label{img:abb2}
-% \end{figure}
-
-% Der Vorteil liegt in der Möglichkeit den Learner jederzeit upzudaten ohne die gelernten Daten zu verlieren. Denn wird der Learner gestartet, holt sich dieser zuerst die Files vom Server, liest die Daten aus und initialisiert schon im Vorab die Q-Tabelle und das Epsilon eines jeden Users. \\
-% Sollte der Learner aus unbestimmten Gründen abstürzen, ist durch den eben beschriebenen Algorithmus die Erhaltung des Lernfortschrittes trotzdem sichergestellt.\\\\
-% Als letztes Modul wurde ein kleiner Node-Server entwickelt, dessen Aufgaben darin bestand die Smart-Contracts zu testen und als primitiver Ersatz für die App zu fungieren. Hierbei erzeugte er in einem festgelegten Intervall (7sek) Events mit einem zufällig generierten Daten (User \& Getränk) auf der Blockchain, um letztendlich die Event-Erkennung (“Watcher”) des “Learners” zu testen. Dabei wurde sowohl für den \quotes{Beverage-List Contract} als auch für den \quotes{CoffeeCoin-Contract} eine entsprechende Implementierung angefertigt.
-% \\In diesen Fällen wurde das Q-Learning-Submodul des Learners gar nicht erst gestartet, da lediglich die Funktionsweise des Watchers getestet werden sollte.\\
-% Besonders hier zeigte sich die Nützlichkeit des Fileservers, da gerade in der Entwicklungsphase die Smart-Contracts noch häufigen Änderungen unterlagen und dahingehend sehr oft neu deployed werden mussten, was ohne den Fileserver dazu geführt hätte die Smart Contract Daten bei jeder Iteration neu im Sourcecode zu hinterlegen.\\
-% Nach einer längeren Testphase, in der eine einwandfreie Kommunikation mit den beiden Smart Contracts attestiert werden konnte, wurde mit der eigentlichen Entwicklung der App begonnen, für jene auch Teile der Node-Server Implementierung übernommen werden konnten.\\
-% Schwierigkeiten traten dabei erst in der Testphase auf, in der festgestellt wurde, dass zu wenig Events vom Learner detektiert werden. Die Ursache dafür lag an der sehr alten Android Version des Tablets, die ist nicht ermöglichte eine direkte Verbindung zum Uni-Netzwerk herzustellen. Dies gelang nur mit einem Workaround, bei dem sich das Tablet mit einem öffentlichen Wlan-Netzwerk verband und sich daraufhin über eine VPN-Verbindung in das Uni-Netzwerk einwählen konnte. \\
-% Das führte jedoch dazu, dass die Verbindung zum Wlan-Netzwerk in unregelmäßigen Abständen abbrach und dadurch auch zur Blockchain. Da so ein unvorhergesehenes Verhalten wurde in der ersten Implementierung der App nicht vorgesehen war, musste dies in einem Update der App berücksichtigt werden (vgl. Kap. \ref{sec:app}), sodass keine Daten verloren gingen, sollte die Verbindung abbrechen. \\
-% Schlussendlich waren es sechs dedizierte Software Anwendungen, welche jeweils in eigenen Git-Repositories gehostet werden.
-% Dazu zählten:
-% \begin{itemize}
-% 	\item Learner
-% 	\item Tablet-App
-% 	\item Go Fileserver
-% 	\item Smart Contracts: Beverage-List, CoffeeCoin
-% 	\item Web3 Node-Server
-% 	\item Dockerimage für die Blockchain
-% \end{itemize}
-% Das Dockerimage fand in der Hinsicht keine größere Erwähnung, da es nur zu Test- und Weiterbildungszwecken entwickelt wurde und auch keine Verwendung in der finalen Architektur fand.
+Der Workflow wird durch den User angestoßen, indem dieser auf dem Tablet ein Getränk auswählt und eine Transaktion auslöst. Zuerst wird dabei der \textit{Coffee-Coin} Contract aufgerufen und das ausgewählte Getränk bezahlt. Nachdem diese Transaktion erfolgreich bestätigt wurde, wird als nächstes der \textit{Beverage-List} Contract ausgeführt. Die dabei aufgerufene Funktion des Smart Contracts verwendet die übergebenen Daten (Zeit, Getränk, Wochentag, Ethereum-Adresse) und löst damit ein Event aus. \\
+Dieses Event wird vom \textit{Watcher} detektiert und die Daten (Zeit, Getränk, Wochentag, Ethereum-Adresse) daraus extrahiert. Daraufhin wird die \quotes{Learn-Methode} des Q-Learning Algorithmus aufgerufen, bei der zuerst die vorherige \textit{Prediction} evaluiert und basierend auf dem aktuellen Zustand eine neue \textit{Prediction} gemacht wird. \\
+Zu diesem synchronen Durchlauf führt der Worker am Ende jedes Timeslots (alle 3h) die Learn-Methode für jeden bekannten User aus. Das heißt es werden wie auch beim Watcher die Predictions des vorangegangen Timeslots evaluiert, neue Predictions für den kommenden Timeslot erstellt und die gelernten Daten als Datei an den Fileserver gesendet.
 
 
 \section{Blockchain}
@@ -247,8 +193,8 @@ Das folgende Kapitel erläutert im Detail den Setup der privaten Blockchain, sow
 
 \subsection{Genesis Block}
 \label{subsec:genesis}
-Der große Vorteil einer privaten (Ethereum) Blockchain gegenüber einer öffentlichen, ist die Möglichkeit die Blockchain nach den eigenen Vorstellungen und Anwendungszwecken zu konfigurieren. So können, wie auch bei einer öffentlichen Blockchain, Smart Contracts erstellt und Transaktionen durchgeführt werden, allerdings ohne dabei wirkliches Ether zu besitzen. Denn eine Besonderheit eines sogenannten \quotes{Testnet's} ist das Erzeugen von \quotes{privatem} Ether, welches Accounts zugeordnet und Transaktionen damit durchgeführt werden können \cite{Bchain:PubVsPrivate}.\\
-Die Konfiguration dessen erfolgt durch ein \quotes{genesis.json file} (\ref{img:gen}). Diese Datei ist die Grundlage für den \textit{Genesis Block} der zu erstellenden Blockchain, welcher der erste Block in der Kette ist und somit auch keinen Vorgänger besitzt \cite{MasteringBlockchain}.\\\\
+Der große Vorteil einer privaten (Ethereum) Blockchain gegenüber einer öffentlichen, ist die Möglichkeit die Blockchain nach den eigenen Vorstellungen und Anwendungszwecken zu konfigurieren. So können, wie auch bei einer öffentlichen Blockchain, Smart Contracts erstellt und Transaktionen durchgeführt werden, allerdings ohne dabei wirkliches Ether zu besitzen. Denn eine Besonderheit eines sogenannten \quotes{Testnets} ist das Erzeugen von privatem Ether, welches Accounts zugeordnet und Transaktionen damit durchgeführt werden können \cite{Bchain:PubVsPrivate}.\\
+Die Konfiguration dessen erfolgt durch ein \textit{genesis.json file} (\ref{img:gen}). Diese Datei ist die Grundlage für den \textit{Genesis Block} der zu erstellenden Blockchain, welcher der erste Block in der Kette ist und somit auch keinen Vorgänger besitzt \cite{MasteringBlockchain}.\\\\
 Das in \ref{img:gen} abgebildete JSON Objekt zeigt die in der Systemarchitektur verwendete Datei einen solchen \textit{Genesis Block} zu erzeugen. Nicht alle \quotes{properties} bedingen einer Erklärung, die essentiellen werden in Folge kurz erläutert \cite{MasteringBlockchain, Eth:GenFile}: 
 \newpage
 \begin{figure}[th!]
@@ -273,7 +219,7 @@ Das in \ref{img:gen} abgebildete JSON Objekt zeigt die in der Systemarchitektur 
 	\item[-] nonce: ist ein Zähler für die Anzahl der durchgeführten Transaktionen einer Adresse
 \end{itemize}
 
-Sobald die genesis.json Datei fertiggestellt ist, kann die Blockchain mit folgendem Befehl erstellt werden (vgl. \ref{img:gethInit}):\\
+Sobald die genesis.json Datei fertiggestellt ist, kann die Blockchain mit folgendem Befehl erstellt werden (vgl. Abbildung \ref{img:gethInit}):\\
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=.9\columnwidth]{./Abbildungen/Kapitel_03/geth-init.png}
@@ -283,13 +229,13 @@ Sobald die genesis.json Datei fertiggestellt ist, kann die Blockchain mit folgen
 
 %\includegraphics[width=.9\columnwidth]{./Abbildungen/Kapitel_03/geth-init.png}
 
-Das Flag \textit{-{}-datadir} ist mit dem aus Abbildung \ref{img:geth} identisch. Das bedeutet das Verzeichnis welches hier im Befehl angegeben ist, muss beim Kommandozeilenbefehl in Abbildung \ref{img:geth} exakt gleich sein. Andernfalls ist es nicht möglich die Blockchain zu starten.\\\\
-Nachdem der Setup der privaten Blockchain abgeschlossen ist, kann mit der Entwicklung eines Smart Contracts begonnen werden.\cite{Eth:Guide} \\
+Das Flag \textit{-{}-datadir} ist mit dem aus Abbildung \ref{img:geth} identisch. Das bedeutet das Verzeichnis, welches hier im Befehl angegeben ist, muss beim Kommandozeilenbefehl in Abbildung \ref{img:geth} exakt gleich sein. Andernfalls ist es nicht möglich die Blockchain zu starten.\\\\
+Nachdem der Setup der privaten Blockchain abgeschlossen ist, kann mit der Entwicklung eines Smart Contracts begonnen werden.\cite{Eth:Guide} \\\\
 Die nächsten beiden Unterkapitel befassen sich mit den Smart Contracts, die im Zuge der Arbeit entwickelt wurden.
 
-\subsection{CoffeeCoin}
+\subsection{Coffee-Coin}
 \label{subsec:cc}
-Der Smart Contract \textit{CoffeeCoin} stellt einen sogenannten \textit{ERC-20 Token} mit gewissen Abwandlungen dar. Dabei ist ein Token im Grunde ein zusätzliches Zahlungsmittel zur eigentlichen Währung von Ethereum dem Ether. Das bedeutet Smart Contracts können somit eine eigenständige Währung abbilden. Für solche Smart Contracts gibt es mittlerweile einige Standardisierungen, die Vorschreiben welche Methoden und Datenstruktur ein Smart Contract zu implementieren hat. Der am weitesten verbreitete Standard ist der \textit{ERC-20} \cite{ERC:Wiki, ERC:Github, ERC:BlockGeeks}, bei welchem es folgende Funktionen und Events zu implementieren gilt (vgl. Abbildung \ref{img:ERC}):
+Der Smart Contract \textit{Coffee-Coin} stellt einen sogenannten \textit{ERC-20 Token} mit gewissen Abwandlungen dar. Dabei ist ein Token im Grunde ein zusätzliches Zahlungsmittel zur eigentlichen Währung von Ethereum dem Ether. Das bedeutet Smart Contracts können somit eine eigenständige Währung abbilden. Für solche Smart Contracts gibt es mittlerweile einige Standardisierungen, die Vorschreiben welche Methoden und Datenstruktur ein Smart Contract zu implementieren hat. Der am weitesten verbreitete Standard ist der \textit{ERC-20} \cite{ERC:Wiki, ERC:Github, ERC:BlockGeeks}, bei welchem es folgende Funktionen und Events zu implementieren gilt (vgl. Abbildung \ref{img:ERC}):
 
 \begin{figure}[th!]
 	\centering
@@ -309,14 +255,14 @@ Der Smart Contract \textit{CoffeeCoin} stellt einen sogenannten \textit{ERC-20 T
 	\item event Approval: wird von der \textit{approve} Funktion ausgelöst
 \end{itemize}
 
-Der eben erläuterte Token Standard, wurde im Falle des CoffeeCoin Smart Contracts um zusätzliche Funktionen und Datenstrukturen erweitert. Diese Erweiterungen stellen eine gesonderte Abstraktionsebene nach außen hin da, um die Kommunikation seitens der Tablet-App zu erleichtern und einfacher zu gestalten.\\
+Der eben erläuterte Token Standard, wurde im Falle des Coffee-Coin Smart Contracts um zusätzliche Funktionen und Datenstrukturen erweitert. Diese Erweiterungen stellen eine gesonderte Abstraktionsebene nach außen hin da, um die Kommunikation seitens der Tablet-App zu erleichtern und einfacher zu gestalten.\\
 So werden schon beim Deployment die einzelnen Preise der Getränke und die Adresse, zu jener die Tokens beim Bezahlen eines Getränks überwiesen werden, gesetzt.\\
 Dies ermöglicht die Implementierung folgender Funktionen (vgl. Abbildung \ref{img:cci}): 
 
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=.9\columnwidth]{./Abbildungen/Kapitel_03/CCInterface.png}
-	\caption{CoffeeCoin Interface Auszug}
+	\caption{Coffee-Coin Interface Auszug}
 	\label{img:cci}
 \end{figure}
 
@@ -327,9 +273,9 @@ Im Kontext der Problemstellung liegt die Zweckmäßigkeit des Smart Contracts gr
 \subsection{Beverage-List}
 \label{subsec:bl}
 
-Im Gegensatz zur \textit{CoffeeCoin} basiert der \textit{Beveragelist} Contract auf keinem festgelegten Standard, sondern ist in voller Gänze an die Problemstellung angepasst.\\
+Im Gegensatz zur \textit{Coffee-Coin} basiert der \textit{Beverage-List} Contract auf keinem festgelegten Standard, sondern ist in voller Gänze an die Problemstellung angepasst.\\
 Dessen Zweck besteht im Grunde darin eine Getränkeliste abzubilden, in welcher jede Getränketransaktion eines Users vorzufinden ist. Dabei wird pro Transaktion nicht nur das Getränk, sondern auch das aktuelle Datum inklusive Uhrzeit und der aktuelle Wochentag gespeichert. Diese Daten sollen es dem Learner schlussendlich ermöglichen das Kaffeetrinkverhalten des Users zu erlernen. \\
-Damit der \textit{Learner} ohne großen Aufwand auf die Informationen zugreifen kann, löst der Smart Contract, mit den eben genannten Daten beinhaltend, ein Event aus, sobald seine Methode \quotes{setDrinkData} aufgerufen wird. Die Funktion hinterlegt die übergebenen Daten (Ethereum-Adresse, Zeit, Wochentag, Getränk) in der festgelegten Datenstruktur und löst zugleich das Event für den \textit{Learner} aus.\\\\
+Damit der Learner ohne großen Aufwand auf die Informationen zugreifen kann, löst der Smart Contract, mit den eben genannten Daten beinhaltend, ein Event aus, sobald seine Methode \quotes{setDrinkData} aufgerufen wird. Die Funktion hinterlegt die übergebenen Daten (Ethereum-Adresse, Zeit, Wochentag, Getränk) in der festgelegten Datenstruktur und löst zugleich das Event für den Learner aus.\\\\
 Dieser Smart Contract umfasst noch weitere Funktionen, welche aber vor allem zu Testzwecken implementiert wurden und in der finalen Systemarchitektur keine Verwendung finden. 
 
 \newpage
@@ -341,7 +287,7 @@ Als nächstes wird der \textit{Learner} detailliert betrachtet. Dabei wird zuers
 \label{subsec:modulation}
 Die Modellierung eines Lernproblems, im Hinblick auf einen Reinforcement-Algorithmus, erfolgt in der Regel stets nach der selben Systematik. \\
 Zuerst werden der Zustandsraum (alle möglichen Zustände), alle Aktionen des \textit{Agenten} und der \textit{Reward} für ausgeführte Aktionen eruiert.
-Hier ist in diesem Fall ist der Agent der Learner, welcher das Kaffeetrinkverhalten der User zu erlernen versucht.\\\\
+Hier ist in diesem Fall ist der Agent der Lerner-Instanz, welche das Kaffeetrinkverhalten der User zu erlernen versucht.\\\\
 Die Modellierung sieht wie folgt aus: 
 \paragraph{Zustandsraum}
 \begin{itemize}
@@ -372,30 +318,30 @@ Die Modellierung sieht wie folgt aus:
 Daraus lässt sich folgender exemplarischer Zustand konstruieren: 
 \begingroup
 \makeatletter
-\@totalleftmargin=0.5cm
+\@totalleftmargin=-0.5cm
 \begin{Verbatim}
 	< Wochentag: Montag; Timeslot: 2; Kaffee-Anzahl: 3 >
 \end{Verbatim}
 \endgroup
-Das bedeutet konkret: an einem Montag wurden einschließlich des 2. Timeslots (13-16 Uhr) 3 Kaffee getrunken. Dieser Status gibt jedoch keinen Aufschluss darüber, welcher sein Vorgänger war und welcher sein Nachfolger sein wird. So können einerseits alle Kaffees nur in Timeslot 2 getrunken worden sein oder in jedem Timeslot (0,1,2) jeweils einer. Andererseits besteht auch die Möglichkeit, dass in Timeslot 2 nochmals ein Kaffee konsumiert wird oder eben erst in einem nachfolgendem Timeslot.\\
-Dieses Lernproblem ist auch als \quotes{Multi-Armed Bandit Problem} bekannt und wird in Kap. \ref{subsec:y-ql} erläutert.
+Das bedeutet konkret: an einem Montag wurden einschließlich des 2. Timeslots (13-16 Uhr) 3 Kaffee getrunken. Dieser Status gibt jedoch keinen Aufschluss darüber, welcher sein Vorgänger war und welcher sein Nachfolger sein wird. So können einerseits alle Kaffees nur in Timeslot 2 getrunken worden sein oder in jedem Timeslot (0,1,2) jeweils einer. Andererseits besteht auch die Möglichkeit, dass in Timeslot 2 nochmals ein Kaffee konsumiert wird oder eben erst in einem nachfolgendem Timeslot.\\\\
+Dieses Lernproblem ist auch als \textit{Multi-Armed Bandit Problem} bekannt und wird in Kap. \ref{subsec:y-ql} erläutert.
 \\\\
-Der erste Modellierungsansatz sah anstatt der Kaffee-Anzahl eine Getränkeanzahl vor, bei der zum Kaffee auch die Quantität der getrunkenen \textit{Club Mate} und \textit{Wasser} berücksichtigt werden sollten. Der Grund dafür liegt in dem erheblichen Einfluss des Konsums weiterer Getränke auf das Kaffeetrinkverhalten, wodurch mit solch einer granularen Modellierung genauere Predictions zu erwarten sind. Jedoch steigt somit auch die Anzahl der zu durchlaufenden Zustände und einhergehend die zu erlernenden optimalen Aktionen für die Zustandsübergänge. Letztlich resultiert dies in der längeren Trainingsphase des Algorithmus, was aber aufgrund des zeitlich begrenzten Rahmen dieser Arbeit nicht durchführbar war und deshalb der Ansatz mit lediglich der Kaffee-Anzahl gewählt wurde.
+Der erste Modellierungsansatz sah anstatt der Kaffee-Anzahl eine Getränkeanzahl vor, bei der zum Kaffee auch die Quantität der getrunkenen Club Mate und Wasser berücksichtigt werden sollten. Der Grund dafür liegt in dem erheblichen Einfluss des Konsums weiterer Getränke auf das Kaffeetrinkverhalten, wodurch mit solch einer granularen Modellierung genauere Predictions zu erwarten sind. Jedoch steigt somit auch die Anzahl der zu durchlaufenden Zustände und einhergehend die zu erlernenden optimalen Aktionen für die Zustandsübergänge. Letztlich resultiert dies in der längeren Trainingsphase des Algorithmus, was aber aufgrund des zeitlich begrenzten Rahmen dieser Arbeit nicht durchführbar war und deshalb der Ansatz mit lediglich der Kaffee-Anzahl gewählt wurde.
 
 \subsection{Q-Learning}
 \label{subsec:y-ql}
-Der Q-Learning Algorithmus fällt unter die Methodik des \textit{TD-Learning} (vgl. \ref{subsec:rl}). Der Algorithmus wartet aus diesem Grund nicht bis zur Terminierung einer Episode, um die Wertfunktion zu schätzen, sondern berechnet diese im nächsten Zeitschritt. Im Gegensatz zu anderen TD-Learning Algorithmen bemisst die Wertfunktion des Q-Learning nicht den aktuellen Zustand, sondern  beurteilt die Aktion in diesem Zustand. Hierbei wird von der Aktion-Wert Funktion Q gesprochen \cite{Sutton}.\\\\
-Die Berechnung von Q erfolgt nach folgender Formel (\ref{eqn:qval}):
+Der Q-Learning Algorithmus fällt unter die Methodik des \textit{TD-Learning} (vgl. \ref{subsec:rl}). Der Algorithmus wartet aus diesem Grund nicht bis zur Terminierung einer Episode, um die Wertfunktion zu schätzen, sondern berechnet diese im nächsten Zeitschritt. Im Gegensatz zu anderen TD-Learning Algorithmen bemisst die Wertfunktion des Q-Learning nicht den aktuellen Zustand, sondern  beurteilt die Aktion in diesem Zustand. Hierbei wird von der Aktion-Wert Funktion \textit{Q} gesprochen \cite{Sutton}.\\\\
+Die Berechnung von \textit{Q} erfolgt nach folgender Formel (\ref{eqn:qval}):
 \begin{equation} \label{eqn:qval}
 	Q(s_t,a_t)\;\leftarrow\;Q(s_t,a_t) + \alpha [ r_{t+1} + \gamma \max_a
 	Q(s_{t+1},a) - Q(s_t,a_t) ]
 \end{equation}
 \begin{itemize}
-	\item Q(s\textsubscript{t},a\textsubscript{t}): beschreibt den aktuellen Q Wert bzw. Q-Value der Aktion a welche zum Zeitpunkt t im Zustand s ausgeführt wurde
+	\item Q(s\textsubscript{t},a\textsubscript{t}): beschreibt den aktuellen \textit{Q-Wert} bzw. \textit{Q-Value} der Aktion a welche zum Zeitpunkt t im Zustand s ausgeführt wurde
 	\item \textalpha: wird als Lernrate bezeichnet und gibt an in welchem Maße der alte Q-Value durch den Neuen überschrieben wird
 	\item r\textsubscript{t+1}: ist der Reward zum Zeitpunkt t+1, nachdem im Zustand s die Aktion a ausgeführt worden ist
 	\item \textgamma: ist der Diskontierungsfaktor und wird als Gewichtung für zukünftige Rewards verstanden 
-	\item max\textsubscript{t}Q(s\textsubscript{t+1},a\textsubscript{t}): ist das Maximum an Reward, der durch die Ausführung der Aktion a' im neuen Zustand s' erfolgt
+	\item \textunderset{a}{max}Q(s\textsubscript{t+1},a\textsubscript{t}): ist das Maximum an Reward, der durch die Ausführung der Aktion a' im neuen Zustand s' erfolgt
 \end{itemize}
 
 Abgespeichert werden diese Q-Values in der sogenannten Q-Tabelle (vgl. Tabelle \ref{table:qtable}), hierbei gibt es ein 1:1 Mapping von jeweils einem Zustand auf jeweils eine Aktion. 
@@ -427,7 +373,7 @@ Die Anwendung und der Ablauf wird anhand des Pseudocodes in Algorithmus \ref{ql-
 		\Repeat (for each episode):
 		\State Choose A from s using policy derived from Q (e.g., greedy)
 		\State Take action A, observe R, s'
-		\State $Q(s_t,a_t)\;\leftarrow\;Q(s_t,a_t) + \alpha [ r_{t+1} + \gamma \max_a
+		\State $Q(s_t,a_t)\;\leftarrow\;Q(s_t,a_t) + \alpha [ r_{t+1} + \gamma \textunderset{a}{max}
 		Q(s_{t+1},a) - Q(s_t,a_t) ]$
 		\State s $\leftarrow $ s' 
 		\Until s is terminal
@@ -436,15 +382,15 @@ Die Anwendung und der Ablauf wird anhand des Pseudocodes in Algorithmus \ref{ql-
 
 Zum Start wird der Q-Table initialisiert, indem jedes Feld eines Zustand-Aktions-Paars auf '0' gesetzt wird. Im Anschluss wird ein Durchlauf mit einer bestimmten Anzahl an Episoden gestartet. Hierbei wird zunächst der aktuelle Zustand initialisiert bzw. beobachtet und daraufhin eine weitere Schleife betreten, welche solange durchlaufen wird bis der Zustand \textit{s}  terminiert. Als nächstes wird eine Aktion \textit{a}  anhand der aktuellen Strategie ausgewählt. Diese Aktion wird ausgeführt und der resultierende Reward, sowie der neue Zustand werden detektiert. Anhand dieser Beobachtung wird mit der Formel (vgl. \ref{eqn:qval}) der neue Q-Value berechnet und die Q-Tabelle upgedatet. Zum Schluss wird der neue Zustand \textit{s'} als der 
 aktuelle Zustand \textit{s} gesetzt und eine neue Iteration beginnt \cite{Sutton, mlmitchel, MultiagentSystems}. \\\\
-Der gerade eben beschriebene Algorithmus findet sich in einer abgewandelten Form (vgl. \ref{eqn:bandit}) in der Implementierung des \quotes{Learners} wieder. So wird eine Aktion nicht immer nach dem greedy-Prinzip der Reward-Maximierung ausgewählt, sondern nach der Methodik des \textit{\textepsilon}-greedy. Dabei beschreibt die Variable \textit{\textepsilon} einen Wert zwischen '0' und '1' und gibt dadurch das Verhältnis zwischen Exploration und Exploitation an - in der Regel ist der Wert von \textit{\textepsilon} eher klein. \\
-So wird im Falle von \text{MaxQ} stets die Aktion \textit{a} ausgeführt, welche in Zustand s den größten Reward verspricht - auch als greedy Strategie bekannt. Bei \textit{\textepsilon}-greedy jedoch, wird zu einem gewissen Anteil - definiert durch das \textit{\textepsilon} - nicht immer die Aktion ausgewählt, die den größten Reward verspricht. Sondern ist wird zufällige Selektion einer Aktion durchgeführt,  obgleich des erwarteten Rewards. Somit wird eine Erforschung des Zustandsraums durch den Lernagenten sichergestellt und eine Beschränkung auf lediglich bekannte Aktionen und Zustände vermieden. \\
+Der gerade eben beschriebene Algorithmus findet sich in einer abgewandelten Form (vgl. Gleichung \ref{eqn:bandit}) in der Implementierung des Learners wieder. So wird eine Aktion nicht immer nach dem greedy-Prinzip der Reward-Maximierung ausgewählt, sondern nach der Methodik des \textit{\textepsilon}-greedy. Dabei beschreibt die Variable \textit{\textepsilon} einen Wert zwischen '0' und '1' und gibt dadurch das Verhältnis zwischen Exploration und Exploitation an - in der Regel ist der Wert von \textit{\textepsilon} eher klein. \\
+So wird im Falle von \textit{\textunderset{a}{max}Q} stets die Aktion \textit{a} ausgeführt, welche in Zustand s den größten Reward verspricht - auch als greedy Strategie bekannt. Bei \textit{\textepsilon}-greedy jedoch, wird zu einem gewissen Anteil - definiert durch das \textit{\textepsilon} - nicht immer die Aktion ausgewählt, die den größten Reward verspricht. Sondern ist wird zufällige Selektion einer Aktion durchgeführt,  obgleich des erwarteten Rewards. Somit wird eine Erforschung des Zustandsraums durch den Lernagenten sichergestellt und eine Beschränkung auf lediglich bekannte Aktionen und Zustände vermieden. \\
 Eine Besonderheit der Implementierung liegt in der Vakanz der Berücksichtigung von Folgezuständen bei der Berechnung des Q-Values.
 \begin{equation} \label{eqn:bandit}
 		Q(s_t,a_t)\;\leftarrow\;Q(s_t,a_t) + \alpha [ r_{t+1} - Q(s_t,a_t) ]
 \end{equation}
 
 Aufgrund der Interdependenz der Zustände, ist das Verfolgen einer Strategie und das Einbeziehen der Folgezustände in die Berechnung der Q-Werte nicht notwendig. Der Fokus wird dadurch nur auf den Zustand als solches gelegt und die Annäherung des \quotes{wahren} Q-Wertes indessen einzig anhand des Rewards r\textsubscript{t+1} durchgeführt. \\
-Eine solche Form der Problemstellung wird auch als \textit{n-armiges Bandit Problem} bezeichnet. Dieses ist ein klassisches Problem des Reinforcement Learning, welches das Dilemma zwischen \textit{Exploration} und \textit{Exploitation} aufdeckt. Es beschreibt das Spielen an mehreren (n) Glücksspielautomaten, deren einzige Aktion die Betätigung des Hebels ist. Das Ziel das Spielers ist die Maximierung seiner Belohnung (\textit{Exploitation}) und wird deswegen nach jeder Aktion vor die Entscheidung gestellt, ob der Wechsel zu einem anderen Automat einen größeren Gewinn für ihn bedeutet (\textit{Exploration}) oder ob er den aktuellen beibehält. \\\\
+Eine solche Form der Problemstellung wird auch als \textit{n-armiges Bandit Problem} bezeichnet. Dieses ist ein klassisches Problem des Reinforcement Learning, welches das Dilemma zwischen Exploration und Exploitation aufdeckt. Es beschreibt das Spielen an mehreren (n) Glücksspielautomaten, deren einzige Aktion die Betätigung des Hebels ist. Das Ziel das Spielers ist die Maximierung seiner Belohnung (Exploitation) und wird deswegen nach jeder Aktion vor die Entscheidung gestellt, ob der Wechsel zu einem anderen Automat einen größeren Gewinn für ihn bedeutet (Exploration) oder ob er den aktuellen beibehält. \\\\
 Die Analogie zum Lernproblem besteht in der Abbildung des unmittelbaren Rewards auf die gewählte Aktion. Eine Aktion wird nie angesichts von nachfolgenden Aktionen bewertet, sondern einzig anhand der Belohnung nach ihrer Ausführung. Außerdem handelt es sich in beiden Fällen um ein nichtdeterministisches Lernproblem, bei welchem die Ausführung einer Aktion in einem bestimmten Zustand stets einen Reward bezüglich einer Wahrscheinlichkeitsverteilung nach sich zieht und somit eine hundertprozentige Vorhersage der zu erhaltenden Belohnung nicht möglich ist \cite{Sutton}.
 
 % \newpage
@@ -461,13 +407,13 @@ Das ist in dieser Hinsicht von großer Bedeutung, da für diese Übergänge ein 
 So wird das Feedback einerseits von Seiten des Users in Form einer bestätigten Transaktion generiert, was bedeutet Aktion \quotes{Kaffee} wurde ausgeführt. Oder andererseits als Folge einer fehlenden Rückmeldung des Nutzers, welche \quotes{Nothing} als optimale Aktion impliziert. \\
 Das heißt, erfolgt eine Zustandsänderung durch den User, so ist stets \quotes{Kaffee} die zu erlernende, beste Aktion. Wird eine Zustandsänderung durch einen Timeslotwechsel bewirkt, so ist das Feedback der Umgebung immerfort die Aktion \quotes{Nothing}. \\
 Um dem Agenten bzw. dem Q-Learning Algorithmus stets das nötige Feedback zu geben und Zustandsübergänge herbeizuführen, werden im Learner die Komponenten \textit{Watcher} und \textit{Worker} verwendet. \\
-Der \textit{Watcher} ist dafür zuständig das Feedback des Users durch das Beveragelist-Event zu detektieren und die darin enthaltenen Daten dem Algorithmus zur Verfügung zu stellen. \\
-Hierbei gilt es zu erwähnen, dass der Watcher, aufgrund der definierten Felder im Event, lediglich eine Feature Extraction durchführen muss und aus diesem Grund auf eine Feature Selection verzichtet werden kann \cite{fteng}.\\\\ 
+Der \textit{Watcher} ist dafür zuständig das Feedback des Users durch das \textit{Beverage-List-Event} zu detektieren und die darin enthaltenen Daten dem Algorithmus zur Verfügung zu stellen. \\
+Hierbei gilt es zu erwähnen, dass der \textit{Watcher}, aufgrund der definierten Felder im Event, lediglich eine Feature Extraction durchführen muss und aus diesem Grund auf eine Feature Selection verzichtet werden kann \cite{fteng}.\\\\ 
 Der \textit{Worker} wird für die zeitliche Komponente verwendet, indem er am Ende jedes Timeslots aktiv wird, die Zustandsänderung durchführt und dem Agenten die Aktion \quotes{Nothing} als Feedback gibt. \\
-Auf Basis dieser Feedbacks wird es dem Q-Learning Algorithmus ermöglicht die optimalen Aktionen zu erlernen. Hierbei wird die Prediction, also die aus Sicht des Agenten beste Aktion für den Zustandsübergang, anhand der Rückmeldung, sei es durch den Watcher oder Worker, evaluiert und für den nächsten Übergang eine neue Aktion eruiert. \\
+Auf Basis dieser Feedbacks wird es dem Q-Learning Algorithmus ermöglicht die optimalen Aktionen zu erlernen. Hierbei wird die Prediction, also die aus Sicht des Agenten beste Aktion für den Zustandsübergang, anhand der Rückmeldung, sei es durch den \textit{Watcher} oder \textit{Worker}, evaluiert und für den nächsten Übergang eine neue Aktion eruiert. \\
 Dieses Prinzip der Evaluierung und Vorhersage der Aktion kann im Kontext des Lernproblems jedoch nicht kontinuierlich angewendet werden. 
 So bedingen bestimmte Zustände nur eine Evaluierung oder nur eine Vorhersage, hingegen nie beides. Der Grund hierfür liegt in der Abgeschlossenheit der Tage als Lernabschnitt, welche komplett unabhängig voneinander agieren. \\
-Zudem werden die Uhrzeiten zwischen 19 und 7 Uhr (T4) nicht in der Zustandsraummodiellerung berücksichtigt, da in diesem Zeitraum keine Aktion durch den User zu erwarten ist.\\ 
+Zudem werden die Uhrzeiten 19 bis 7 Uhr (T4) nicht in der Zustandsraummodiellerung berücksichtigt, da in diesem Zeitraum keine Aktion durch den User zu erwarten ist.\\ 
 Dies hat für den \textit{Worker} zur Folge, dass zum einen am Anfang jeden Tages bzw. beim Wechsel von T4 auf T0, lediglich eine Vorhersage für den nächsten Zustandsübergang gemacht und zum anderen am Ende von T3 einzig die letzte Vorhersage evaluiert werden muss.\\\\
 % \newpage
 Dies lässt sich veranschaulicht folgendermaßen darstellen:
@@ -492,7 +438,7 @@ Dies lässt sich veranschaulicht folgendermaßen darstellen:
 \label{sec:app}
 
 Das folgende Unterkapitel befasst sich mit dem Aufbau und der Funktionsweise der App und schildert zudem den verwendeten Algorithmus, welcher die Getränke- und Userdaten auf die Blockchain schreibt.\\\\
-Die entwickelte App basiert auf dem Framework \quotes{React Native} \cite{RN:ReactNative}, dieses erlaubt es mit einer einzigen Codebasis Apps für unterschiedliche Plattformen (z.B. iOS, Android) zu entwickeln. Der wesentliche Vorteil allerdings liegt in der Verfügbarkeit einer offiziellen Library, mit der es erst möglich ist, eine Verbindung zur Blockchain bzw. den Smart Contracts herzustellen. Jene Library (Web3.js) wurde von Ethereum entwickelt, um sog. DApp's (\quotes{decentralized apps}) \cite{DApp} auf Basis von Javascript erstellen zu können. \\
+Die entwickelte App basiert auf dem Framework ReactNative \cite{RN:ReactNative}, dieses erlaubt es mit einer einzigen Codebasis Apps für unterschiedliche Plattformen (z.B. iOS, Android) zu entwickeln. Der wesentliche Vorteil allerdings liegt in der Verfügbarkeit einer offiziellen Library, mit der es erst möglich ist, eine Verbindung zur Blockchain bzw. den Smart Contracts herzustellen. Jene Library (Web3.js) wurde von Ethereum entwickelt, um sogenannte DApp's auf Basis von Javascript erstellen zu können. \\
 So ist die Entwicklung einer DApp in einer nativen Programmiersprache (Java/Kotlin/Swift) bisher nur mit \quotes{third-party} Libraries möglich, weswegen die Umsetzung letztlich mit ReactNative erfolgte.
 
 \subsection{Interface}
@@ -500,7 +446,7 @@ So ist die Entwicklung einer DApp in einer nativen Programmiersprache (Java/Kotl
 Eine essentielle Eigenschaft von ReactNative ist der komponentenbasierte Ansatz. Dabei setzt sich eine App aus vielen einzelnen Komponenten zusammen, welche jeweils einen dedizierten Aufgabenbereich abdecken. \\
 Im Falle der entwickelten App existieren jeweils zwei \quotes{page components}, die wiederum mehrere kleine Komponenten in sich vereinen. 
 Da es aber den Rahmen dieser Arbeit sprengen würde auf jede einzelne Komponente und deren Funktionsweise einzugehen, werden nur die Hauptkomponenten anhand ihrer Funktion und Bedienung geschildert. \\\\
-Wird die App gestartet und es besteht eine Verbindung zum Internet, so findet der User folgende Startseite (vgl. \ref{img:emps1}) vor.
+Wird die App gestartet und es besteht eine Verbindung zum Internet, so findet der User folgende Startseite (vgl. Abbildung \ref{img:emps1}) vor.
 
 \begin{figure}[th!]
 	\centering
@@ -527,7 +473,7 @@ Hier kann der User seinen Avatar selektieren und deselektieren. Ist ein Avatar a
 
 Hier besteht eine Auswahl aus folgenden Getränken: Club Mate, Wasser und Kaffee. 
 Ausgewählt kann jedoch immer nur eines werden (vgl. Abbildung \ref{img:drinks2}).\\
-Das Prinzip der Selektion und Deselektion ist identisch mit dem der vorherigen Seite. So wird der \quotes{SUBMIT} Button aktiv, sobald ein Getränk ausgewählt ist und inaktiv wenn das Getränk wieder deselektiert wird (vgl. Abbildung \ref{img:drinks1}).\\
+Das Prinzip der Selektion und Deselektion ist identisch mit dem der vorherigen Seite. So wird der \quotes{SUBMIT} Button aktiv, sobald ein Getränk ausgewählt ist und inaktiv wenn das Getränk wieder deselektiert wird (vgl. Abbildung \ref{img:drinks1}).
 
 \begin{figure}[th!]
 	\centering
@@ -561,7 +507,7 @@ Die Loading Animation sowie das \quotes{No Internet Connection} Label werden wie
 
 \subsection{Internal Workflow}
 \label{subsec:internalFlow}
-Basierend auf der Problematik eines unerwarteten Verbindungsabbruch und dem einhergehenden Verlust von essentiellen Lerndaten, wird im folgenden der implementierte Algorithmus geschildert, der dieser Komplikation entgegenwirkt. 
+Basierend auf der Problematik eines unerwarteten Verbindungsabbruchs und dem einhergehenden Verlust von essentiellen Lerndaten, wird im folgenden der implementierte Algorithmus geschildert, der dieser Komplikation entgegenwirkt. 
 
 \begin{legal}
 	\item Initialisierungsphase:
@@ -600,11 +546,11 @@ Basierend auf der Problematik eines unerwarteten Verbindungsabbruch und dem einh
 \end{legal}
 
 Der interne Workflow beginnt mit der Initialisierungsphase, hierbei werden zuerst die Smart Contract Files vom Fileserver runtergeladen und mit den beinhaltenden Daten das Web3.js Modul initialisiert. Somit besteht eine Verbindung zu den Smart Contracts und es kann im Anschluss über alle vorhandenen Transaktion Files iteriert werden. \\
-Indessen wird zuerst der CoffeeCoin Contract und dann der Beveragelist Contract aufgerufen. Wenn beide ihre Transaktionen bestätigt haben, wird die Datei gelöscht, andernfalls bleibt sie bestehen. Dies geschieht noch bevor der User das Interface zu Gesicht bekommt.\\\\
-Nachdem 1.) abgeschlossen ist, wird auf die Eingabe des Users gewartet. Wählt dieser einen Avatar aus und bestätigt mit \quotes{NEXT}, wird seine hinterlegte \textit{Ethereum-Adresse} temporär gespeichert. Wird dann im Anschluss ein Getränk selektiert und \quotes{SUBMIT} gedrückt, werden die Ethereum-Adresse und das Getränk an das interne Blockchain-Modul weitergereicht und die Transaktion gestartet. \\\\
+Indessen wird zuerst der Coffee-Coin Contract und dann der Beverage-List Contract aufgerufen. Wenn beide ihre Transaktionen bestätigt haben, wird die Datei gelöscht, andernfalls bleibt sie bestehen. Dies geschieht noch bevor der User das Interface zu Gesicht bekommt.\\\\
+Nachdem 1.) abgeschlossen ist, wird auf die Eingabe des Users gewartet. Wählt dieser einen Avatar aus und bestätigt mit \quotes{NEXT}, wird seine hinterlegte \textit{Ethereum-Adresse} temporär gespeichert. Wird dann im Anschluss ein Getränk selektiert und \quotes{SUBMIT} gedrückt, werden die Ethereum-Adresse und das Getränk an das interne Blockchain-Modul weitergereicht und die Transaktion gestartet. \\
 Dabei wird erneut über die Transaktionsdaten iteriert, allerdings nur über die des Users. Damit soll stets die richtige Reihenfolge der konsumierten Getränke sichergestellt werden, da dies ansonsten auf Seiten des Q-Learning Algorithmus zu falschen Lerneffekten führen würde.\\
 Daraufhin kann mit der Generierung der fehlenden Transaktionsdaten angefangen werden. Zuerst wird ein \textit{Gas Estimate} für beide Smart Contract Transaktionen durchgeführt. Dies ist, wie der Name bereits impliziert, eine grobe Schätzung darüber, wie viel Gas beim Funktionsaufruf eines Smart Contracts benötigt wird. \\
-Abschließend wird das Datum (inkl. Zeit in Sekunden) und der Wochentag ermittelt und alle benötigten Daten an die jeweiligen Smart Contract Funktionsaufrufe übergeben. Im Falle des Smart Contracts Beveragelist sind es folgende Parameter: \textit{Gas-Estimate, Datum, Wochentag, Ethereum-Adresse, Getränk}.\\
-Bei CoffeeCoin wird anhand des Getränks die entsprechende Smart Contract Funktion ausgewählt und lediglich das \textit{Gas-Estimate} und die \textit{Ethereum-Adresse} des Users übergeben.\\
+Abschließend wird das \textit{Datum} (inkl. Zeit in Sekunden) und der \textit{Wochentag} ermittelt und alle benötigten Daten an die jeweiligen Smart Contract Funktionsaufrufe übergeben. Im Falle des Smart Contracts Beverage-List sind es folgende Parameter: \textit{Gas-Estimate, Datum, Wochentag, Ethereum-Adresse, Getränk}.\\
+\noindent Bei Coffee-Coin wird anhand des Getränks die entsprechende Smart Contract Funktion ausgewählt und lediglich das \textit{Gas-Estimate} und die \textit{Ethereum-Adresse} des Users übergeben.\\
 Bevor jedoch beide Transaktionen durchgeführt werden, wird ein Transaktionsfile mit dem Namen \quotes{<<ethereum-adresse>>-<<datum>>.json} und den Daten \textit{Datum, Wochentag, Ethereum-Adresse, Getränk} gespeichert. Sogleich werden beide Funktionsaufrufe getätigt und bei erfolgreicher Bestätigung beider Transaktionen, das gerade erstellte File wieder gelöscht. Somit soll sichergestellt werden, dass keine Transaktionen aufgrund von Verbindungsabbrüchen verloren gehen. \\
-Anschließend erfolgt ein Reload der App und der Ablauf beginnt wieder bei 1.
+Anschließend erfolgt ein Reload der App und der Ablauf beginnt wieder bei 1.).

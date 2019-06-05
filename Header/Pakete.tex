@@ -120,7 +120,7 @@ urlcolor=ExterneLinkfarbe]{hyperref}
 
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
-\usepackage[capitalize]{cleveref}
+\usepackage[noabbrev]{cleveref}
 % \usepackage[pdftex,active,tightpage]{preview}
 % \setlength\PreviewBorder{2mm}
 
@@ -133,3 +133,18 @@ urlcolor=ExterneLinkfarbe]{hyperref}
 % \DeclareCaptionFormat{myformat}{#3}
 % \captionsetup[algorithm]{format=myformat}
 % \DeclareMathOperator*{\argmax}{arg\,max}
+
+\makeatletter
+\newcommand{\dynscriptsize}{\check@mathfonts\fontsize{\sf@size}{\z@}\selectfont}
+\makeatother
+\newcommand\textunderset[2]{%
+  \leavevmode
+  \vtop{\offinterlineskip
+    \halign{%
+      \hfil##\hfil\cr % center
+      \strut#2\cr
+      \noalign{\kern-.3ex}
+      \dynscriptsize\strut#1\cr
+    }%
+  }%
+}

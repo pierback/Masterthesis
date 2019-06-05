@@ -26,7 +26,7 @@
 \contentsline {paragraph}{\nonumberline Workflow}{32}{section*.13}
 \contentsline {section}{\numberline {3.2}Blockchain}{34}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Genesis Block}{34}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}CoffeeCoin}{37}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.2}Coffee-Coin}{37}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Beverage-List}{39}{subsection.3.2.3}
 \contentsline {section}{\numberline {3.3}Learner}{41}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Modellierung}{41}{subsection.3.3.1}
@@ -53,5 +53,5 @@
 \contentsline {chapter}{\nonumberline Literaturverzeichnis}{I}{chapter*.41}
 \contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{V}{chapter*.42}
 \contentsline {chapter}{\nonumberline Tabellenverzeichnis}{VII}{chapter*.43}
-\contentsline {chapter}{\numberline {A}Anhang A}{IX}{appendix.A}
-\contentsline {chapter}{\numberline {B}Anhang B}{XI}{appendix.B}
+\contentsline {chapter}{\nonumberline Pseudocodeverzeichnis}{IX}{chapter*.44}
+\contentsline {chapter}{\numberline {A}Anhang A}{XI}{appendix.A}
